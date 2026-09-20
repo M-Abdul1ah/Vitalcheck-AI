@@ -13,7 +13,7 @@ COLLECTION = "dermatology"
 
 # Same model as test_embeddings.py, so meaning -> vector works the same way
 embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name="all-MiniLM-L6-v2"
+    model_name="paraphrase-multilingual-MiniLM-L12-v2"
 )
 
 
