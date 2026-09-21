@@ -1,1 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+streamlit
+langchain-core
+langchain-groq
 chromadb
+sentence-transformers
+python-dotenv
