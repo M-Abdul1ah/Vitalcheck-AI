@@ -64,7 +64,11 @@ Each agent exposes an Agent Card describing its capabilities, so team members ca
 ---
 
 ## Team (4 members, roles self-assigned)
-
+## Team members names:
+    M. Abdullah Nawaz
+    M.Yousaf
+    AbdulRehman
+    Izhan Malik
 | Role | Owns |
 |---|---|
 | Core LLM & Prompts | Symptom Analysis Agent, safety guardrails |
