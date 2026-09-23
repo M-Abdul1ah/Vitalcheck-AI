@@ -62,13 +62,15 @@ Instead of one monolithic chain, VitalCheck AI splits work across independent ag
 Each agent exposes an Agent Card describing its capabilities, so team members can build and test their agent independently before wiring them together.
 
 ---
-
-## Team (4 members, roles self-assigned)
+## project idea and all the system architecture and work flow designed by 
+ MUHAMMAD ABDULLAH NAWAZ  
+  
+## Team (4 members, roles  will be assigned by team lead)
 ## Team members names:
-    M. Abdullah Nawaz
-    M.Yousaf
-    AbdulRehman
-    Izhan Malik
+    M. Abdullah Nawaz (team lead, backend,ai layer ,agents,integration,deployment,LLM)
+    M.Yousaf  (will handle frontend,data analysis)
+    AbdulRehman(role not assign)
+    Izhan Malik (role not assign)
 | Role | Owns |
 |---|---|
 | Core LLM & Prompts | Symptom Analysis Agent, safety guardrails |
