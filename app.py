@@ -10,6 +10,16 @@ import streamlit as st
 
 from src.safety_check import check_emergency
 
+try:
+    from src.vision_agent import ImageError, prepare_image   # photo preparation (needs Pillow)
+except Exception:
+    prepare_image = None
+
+try:
+    from src.report_gen import build_report   # PDF report (needs fpdf2 + uharfbuzz)
+except Exception:
+    build_report = None
+
 MAX_CHARS = 500      # longest message accepted
 MAX_REQUESTS = 20    # messages allowed per browser session (protects the free Groq quota)
 
@@ -44,6 +54,16 @@ TEXT = {
         "on": "ready",
         "off": "offline",
         "clear": "Clear chat",
+        "download": "Download report (PDF)",
+        "photo_label": "Add a photo (optional)",
+        "photo_help": "JPG, PNG or WEBP, up to 5 MB. Type a short message to send it. Avoid faces and ID documents.",
+        "photo_privacy": "Photo ready. Type a message and press Enter to send it together. The photo is never stored.",
+        "photo_error": "The photo could not be processed.",
+        "photo_too_large": "This photo is bigger than 5 MB. Choose a smaller one.",
+        "photo_bad_type": "Only JPG, PNG or WEBP photos are supported.",
+        "photo_unreadable": "This file could not be read as a photo.",
+        "photo_too_small": "This photo is too small. Use one that is at least 100 pixels wide.",
+        "photo_pending": "Photo received. Photo analysis is not connected yet, so this answer uses your text only.",
         "privacy": "Do not enter your name, phone number or address.",
         "too_long": f"Message is too long. Keep it under {MAX_CHARS} characters.",
         "limit": "Session limit reached. Refresh the page to start a new chat.",
@@ -72,6 +92,16 @@ TEXT = {
         "on": "فعال",
         "off": "بند",
         "clear": "چیٹ صاف کریں",
+        "download": "رپورٹ ڈاؤن لوڈ کریں (PDF)",
+        "photo_label": "تصویر شامل کریں (اختیاری)",
+        "photo_help": "JPG، PNG یا WEBP، زیادہ سے زیادہ 5 MB۔ بھیجنے کے لیے مختصر پیغام بھی لکھیں۔ چہرے اور شناختی کاغذات سے پرہیز کریں۔",
+        "photo_privacy": "تصویر تیار ہے۔ پیغام لکھ کر Enter دبائیں تو تصویر ساتھ جائے گی۔ تصویر کبھی محفوظ نہیں کی جاتی۔",
+        "photo_error": "تصویر پر عمل نہیں ہو سکا۔",
+        "photo_too_large": "یہ تصویر 5 MB سے بڑی ہے۔ چھوٹی تصویر چنیں۔",
+        "photo_bad_type": "صرف JPG، PNG یا WEBP تصاویر قبول ہیں۔",
+        "photo_unreadable": "یہ فائل تصویر کے طور پر نہیں پڑھی جا سکی۔",
+        "photo_too_small": "یہ تصویر بہت چھوٹی ہے۔ کم از کم 100 پکسل چوڑی تصویر استعمال کریں۔",
+        "photo_pending": "تصویر مل گئی۔ تصویر کا تجزیہ ابھی منسلک نہیں ہے، اس لیے یہ جواب صرف آپ کی تحریر پر مبنی ہے۔",
         "privacy": "اپنا نام، فون نمبر یا پتہ درج نہ کریں۔",
         "too_long": f"پیغام بہت لمبا ہے۔ اسے {MAX_CHARS} حروف سے کم رکھیں۔",
         "limit": "اس سیشن کی حد پوری ہو گئی۔ نئی چیٹ کے لیے صفحہ ری فریش کریں۔",
@@ -131,11 +161,11 @@ div[role="radiogroup"] { justify-content: flex-end; gap: .25rem; }
 .hero-sub { font-size: 1.05rem; line-height: 1.6; color: var(--muted); max-width: 52ch; margin: 0 0 1.6rem; }
 
 /* example buttons and other buttons */
-div.stButton > button { width: 100%; justify-content: flex-start; text-align: start; background: #fff; color: var(--ink);
+div.stButton > button, div.stDownloadButton > button { width: 100%; justify-content: flex-start; text-align: start; background: #fff; color: var(--ink);
     border: 1px solid var(--line); border-radius: 12px; padding: .65rem 1rem; font-weight: 500;
     transition: border-color .15s, background .15s; }
-div.stButton > button:hover { border-color: var(--brand); background: var(--brand-soft); color: var(--brand); }
-div.stButton > button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+div.stButton > button:hover, div.stDownloadButton > button:hover { border-color: var(--brand); background: var(--brand-soft); color: var(--brand); }
+div.stButton > button:focus-visible, div.stDownloadButton > button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 
 /* conversation: user = blush bubble, assistant = ruled panel */
 .user-row { display: flex; justify-content: flex-end; margin: 1.2rem 0 .6rem; }
@@ -150,6 +180,9 @@ div.stButton > button:focus-visible { outline: 2px solid var(--brand); outline-o
 .alert { background: var(--danger-soft); border: 1px solid #F0B8B2; border-left: 5px solid var(--danger);
          border-radius: 6px 14px 14px 6px; padding: 1rem 1.15rem; margin: .4rem 0 1rem; color: #5E1410;
          font-weight: 500; line-height: 1.65; }
+
+/* photo uploader */
+[data-testid="stFileUploader"] section { border: 1px dashed var(--line); border-radius: 12px; background: #fff; }
 
 /* input */
 [data-testid="stChatInput"] { border-radius: 16px; }
@@ -172,9 +205,9 @@ div.stButton > button:focus-visible { outline: 2px solid var(--brand); outline-o
 RTL_CSS = """
 <style>
 .hero-title, .hero-sub, .notice, .alert, .step, .side-note,
-[data-testid="stChatMessage"] .stMarkdown, div.stButton > button { direction: rtl; text-align: right; }
+[data-testid="stChatMessage"] .stMarkdown, div.stButton > button, div.stDownloadButton > button { direction: rtl; text-align: right; }
 .hero-title, .hero-sub, .notice, .alert, .step, .side-note, .pill,
-[data-testid="stChatMessage"] p, [data-testid="stChatMessage"] li, div.stButton > button {
+[data-testid="stChatMessage"] p, [data-testid="stChatMessage"] li, div.stButton > button, div.stDownloadButton > button {
   font-family: 'Noto Nastaliq Urdu', serif; line-height: 2.2; }
 .hero-title { line-height: 1.9; max-width: none; }
 .brand { direction: ltr; }
@@ -218,6 +251,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 if "count" not in st.session_state:
     st.session_state.count = 0
+if "photo_key" not in st.session_state:
+    st.session_state.photo_key = 0   # changing this key empties the photo box after a photo is sent
 
 
 def set_pending(text):
@@ -232,7 +267,10 @@ def clear_chat():
 # ----------------------------------------------------------------------------
 # Rendering helpers
 # ----------------------------------------------------------------------------
-def render_user(text):
+def render_user(text, photo=None):
+    if photo:
+        _, right = st.columns([2, 1])
+        right.image(photo)
     st.markdown(
         f'<div class="user-row"><div class="user-bubble" dir="auto">{html.escape(text)}</div></div>',
         unsafe_allow_html=True,
@@ -250,12 +288,14 @@ def render_sources(sources, expanded=False):
 
 def render_message(m):
     if m["role"] == "user":
-        render_user(m["content"])
+        render_user(m["content"], m.get("photo"))
     elif m.get("kind") == "alert":
         st.markdown(f'<div class="alert">{html.escape(m["content"])}</div>', unsafe_allow_html=True)
     else:
         with st.chat_message("assistant", avatar="🩺"):
             st.markdown(m["content"])
+            if m.get("photo_note"):
+                st.caption(t["photo_pending"])
             render_sources(m.get("sources"), expanded=m.get("kind") == "offline")
 
 
@@ -263,7 +303,7 @@ def to_sources(chunks):
     return [{"title": c.split(":")[0].strip(), "text": c} for c in chunks]
 
 
-def handle(prompt):
+def handle(prompt, photo=None):
     prompt = prompt.strip()
     if not prompt:
         return
@@ -275,8 +315,8 @@ def handle(prompt):
         return
     st.session_state.count += 1
 
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    render_user(prompt)
+    st.session_state.messages.append({"role": "user", "content": prompt, "photo": photo})
+    render_user(prompt, photo)
 
     # 1) emergency gate: plain rules, runs before any AI call
     urgent = check_emergency(prompt)
@@ -299,7 +339,7 @@ def handle(prompt):
 
     # 3) AI answer (streamed). Without a key we show the knowledge base matches instead.
     if backend["stream"] is None:
-        m = {"role": "assistant", "kind": "offline", "content": t["ai_offline"], "sources": sources}
+        m = {"role": "assistant", "kind": "offline", "content": t["ai_offline"], "sources": sources, "photo_note": bool(photo)}
         st.session_state.messages.append(m)
         render_message(m)
         return
@@ -312,8 +352,12 @@ def handle(prompt):
             text = t["ai_error"]
             st.markdown(text)
             kind = "error"
+        if photo:
+            st.caption(t["photo_pending"])
         render_sources(sources)
-    st.session_state.messages.append({"role": "assistant", "kind": kind, "content": text, "sources": sources})
+    st.session_state.messages.append(
+        {"role": "assistant", "kind": kind, "content": text, "sources": sources, "photo_note": bool(photo)}
+    )
 
 
 # ----------------------------------------------------------------------------
@@ -340,6 +384,7 @@ with st.sidebar:
     if backend["ai_error"]:
         st.caption(backend["ai_error"][:160])
     st.divider()
+    report_slot = st.empty()   # filled at the end of the script, after the newest answer exists
     st.button(t["clear"], on_click=clear_chat)
     st.markdown(f'<p class="side-note">{t["privacy"]}</p>', unsafe_allow_html=True)
 
@@ -358,6 +403,24 @@ with top_r:
 
 st.markdown(f'<div class="notice">{t["notice"]}</div>', unsafe_allow_html=True)
 
+photo_bytes = None
+if prepare_image:
+    with st.expander(t["photo_label"]):
+        upload = st.file_uploader(
+            t["photo_help"], type=["jpg", "jpeg", "png", "webp"],
+            key=f"photo_{st.session_state.photo_key}", label_visibility="collapsed",
+        )
+        st.caption(t["photo_help"])
+        if upload is not None:
+            try:
+                photo_bytes = prepare_image(upload.getvalue())
+                st.image(photo_bytes, width=160)
+                st.success(t["photo_privacy"])
+            except ImageError as e:
+                st.warning(t[f"photo_{e.code}"])
+            except Exception as e:            # anything unexpected: show the reason instead of failing silently
+                st.warning(f"{t['photo_error']} ({type(e).__name__}: {str(e)[:120]})")
+
 if not st.session_state.messages and not prompt:
     st.markdown(f'<div class="hero-title">{t["title"]}</div>', unsafe_allow_html=True)
     st.markdown(f'<p class="hero-sub">{t["sub"]}</p>', unsafe_allow_html=True)
@@ -368,4 +431,20 @@ for m in st.session_state.messages:
     render_message(m)
 
 if prompt:
-    handle(prompt)
+    handle(prompt, photo_bytes)
+    if photo_bytes:                       # empty the photo box, then redraw the page
+        st.session_state.photo_key += 1
+        st.rerun()
+
+# PDF report button (built last so it includes the message that was just answered)
+if build_report and any(m["role"] == "assistant" for m in st.session_state.messages):
+    try:
+        with report_slot:
+            st.download_button(
+                t["download"],
+                data=build_report(st.session_state.messages, lang),
+                file_name="vitalcheck_report.pdf",
+                mime="application/pdf",
+            )
+    except Exception:
+        pass
