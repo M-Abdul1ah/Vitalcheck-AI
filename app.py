@@ -10,6 +10,7 @@ import time
 import streamlit as st
 
 from src.safety_check import check_emergency
+from src.limits import MAX_INPUT_CHARS as MAX_CHARS, check_input_length, check_rate_limit
 
 try:
     from src.trace import make_trace, ms_since, skipped
@@ -29,8 +30,6 @@ try:
 except Exception:
     build_report = None
 
-MAX_CHARS = 500      # longest message accepted
-MAX_REQUESTS = 20    # messages allowed per browser session (protects the free Groq quota)
 
 st.set_page_config(
     page_title="VitalCheck AI",
@@ -267,8 +266,8 @@ backend = load_backend()
 # ----------------------------------------------------------------------------
 if "messages" not in st.session_state:
     st.session_state.messages = []
-if "count" not in st.session_state:
-    st.session_state.count = 0
+if "req_times" not in st.session_state:
+    st.session_state.req_times = []   # recent request times for the rate limit
 if "photo_key" not in st.session_state:
     st.session_state.photo_key = 0   # changing this key empties the photo box after a photo is sent
 if "last_trace" not in st.session_state:
@@ -281,7 +280,6 @@ def set_pending(text):
 
 def clear_chat():
     st.session_state.messages = []
-    st.session_state.count = 0
 
 
 # ----------------------------------------------------------------------------
@@ -327,13 +325,14 @@ def handle(prompt, photo=None):
     prompt = prompt.strip()
     if not prompt:
         return
-    if len(prompt) > MAX_CHARS:
+    ok, _ = check_input_length(prompt)
+    if not ok:
         st.warning(t["too_long"])
         return
-    if st.session_state.count >= MAX_REQUESTS:
+    ok, _, st.session_state.req_times = check_rate_limit(st.session_state.req_times)
+    if not ok:
         st.warning(t["limit"])
         return
-    st.session_state.count += 1
 
     st.session_state.messages.append({"role": "user", "content": prompt, "photo": photo})
     render_user(prompt, photo)
