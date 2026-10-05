@@ -10,3 +10,7 @@ fpdf2
 uharfbuzz
 pillow
 numpy
+langchain-google-genai
+a2a-sdk
+uvicorn
+starlette

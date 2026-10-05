@@ -217,3 +217,10 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 chroma_db/
+
+# Models and datasets
+*.keras
+*.h5
+*.pt
+*.onnx
+data/ham10000/

@@ -103,3 +103,10 @@ streamlit run app.py
 ## Status
 
 🚧 In active development — core text chain built and tested; voice, vision, and A2A layers in progress.
+
+## Project status (5 October 2026)
+
+- Done: safety gate (Urdu, Roman Urdu, English), RAG with ChromaDB and multilingual embeddings, output check, Streamlit app (language toggle, Workflow tab, photo prep, PDF report).
+- In progress: A2A agents (symptom agent server and client written, not tested yet).
+- Next: Groq key test of the full chain, follow-up question agent, LLM safety judge, own skin classifier (HAM10000), deployment.
+- Known limits: general guidance only, not a diagnosis. Photo model will be trained on dermoscopic images, so phone-photo accuracy will be lower.
