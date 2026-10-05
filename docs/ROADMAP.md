@@ -88,10 +88,29 @@ Agents talk to each other over A2A (JSON-RPC over HTTP, Agent Card at /.well-kno
 | Agent communication | A2A protocol (JSON-RPC over HTTP) |
 | Optional | K-Means (unsupervised) |
 
+**Models used**
+
+| Model | Type | Role | Trained by us? |
+|---|---|---|---|
+| Llama 3.3 (via Groq) | Pre-trained LLM (Transformer) | Writes the answer from retrieved context | No (used through API) |
+| Multilingual sentence-transformer | Pre-trained embedding model | Turns Urdu/English text into vectors for search | No |
+| MobileNetV2 (planned) | CNN, transfer learning | Skin photo → top-3 possible matches + confidence | **Yes** (HAM10000) |
+| EfficientNetB0 (planned) | CNN, transfer learning | Comparison model for the report | **Yes** |
+| Gemini (optional) | Pre-trained LLM / vision | Backup LLM or photo description | No |
+
 **Learning types in this project**
 - Supervised: skin image classifier (HAM10000, labeled)
+- Transfer learning: MobileNetV2 starts from ImageNet weights, we fine-tune it
 - Self-supervised (pre-trained, not by us): LLM and embedding model
 - Unsupervised (optional): K-Means on knowledge base chunks
+- Reinforcement learning: not used
+
+**Expert system (rule-based AI)**
+- Safety gate (`safety_check.py`) and output check (`output_check.py`) are a small expert system: fixed IF-THEN rules over keyword lists (IF emergency phrase THEN stop and show warning; IF medicine name or dose THEN block answer).
+- No learning happens in these parts. Rules are written by humans, so they are predictable and easy to explain.
+- Why both: ML models (LLM, CNN) are flexible but can be wrong; rules give hard safety limits around them.
+
+**Overall design:** hybrid AI = rule-based expert system (safety) + retrieval (RAG) + pre-trained LLM + our own CNN, organised as a multi-agent system (A2A).
 
 ---
 

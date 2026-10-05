@@ -110,3 +110,10 @@ streamlit run app.py
 - In progress: A2A agents (symptom agent server and client written, not tested yet).
 - Next: Groq key test of the full chain, follow-up question agent, LLM safety judge, own skin classifier (HAM10000), deployment.
 - Known limits: general guidance only, not a diagnosis. Photo model will be trained on dermoscopic images, so phone-photo accuracy will be lower.
+
+## AI approach
+
+- Models: Llama 3.3 (Groq, pre-trained LLM), multilingual sentence-transformer (embeddings), MobileNetV2 and EfficientNetB0 (our own skin classifiers, planned, trained on HAM10000).
+- Learning types: supervised (skin classifier), transfer learning, self-supervised (pre-trained LLM and embeddings), unsupervised K-Means (optional). No reinforcement learning.
+- Expert system: the safety gate and output check use fixed IF-THEN rules (emergency words, medicine names, doses). No learning, predictable and explainable.
+- Design: hybrid AI = rule-based safety + RAG + LLM + CNN, organised as a multi-agent system over A2A.
