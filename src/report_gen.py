@@ -30,7 +30,7 @@ LABELS = {
         ),
         "check": "Check",
         "you": "Your symptoms",
-        "guidance": "Guidance",
+        "guidance": "Guidance ",
         "sources": "Knowledge base matches",
         "emergency": "Emergency warning",
         "note": "Note",

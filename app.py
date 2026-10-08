@@ -124,9 +124,22 @@ TEXT = {
     },
 }
 
+EXTRA = {
+    "en": {
+        "hint": "Use the + button in the chat box to add a skin photo.",
+        "chips": ["Urdu and English", "Photo supported", "Photos never stored"],
+        "need_text": "Add a short description of your symptoms together with the photo.",
+    },
+    "ur": {
+        "hint": "تصویر شامل کرنے کے لیے چیٹ باکس کا + بٹن استعمال کریں۔",
+        "chips": ["اردو اور انگریزی", "تصویر کی سہولت", "تصاویر محفوظ نہیں کی جاتیں"],
+        "need_text": "تصویر کے ساتھ اپنی علامات کی مختصر تفصیل بھی لکھیں۔",
+    },
+}
+
 lang_label = st.session_state.get("lang_label", "English")
 lang = "ur" if lang_label == "اردو" else "en"
-t = TEXT[lang]
+t = {**TEXT[lang], **EXTRA[lang]}
 
 # ----------------------------------------------------------------------------
 # Look and feel
@@ -229,6 +242,18 @@ RTL_CSS = """
 st.markdown(CSS, unsafe_allow_html=True)
 if lang == "ur":
     st.markdown(RTL_CSS, unsafe_allow_html=True)
+st.markdown("""
+<style>
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 .8rem; }
+.chip { background: #fff; border: 1px solid var(--line); border-radius: 999px;
+        padding: .25rem .8rem; font-size: .82rem; font-weight: 600; color: var(--brand); }
+.hint { font-size: .9rem; color: var(--muted); margin: 0 0 1.2rem; }
+[data-testid="stChatInput"] { box-shadow: 0 2px 14px rgba(11,79,74,.12); border: 1px solid var(--line); }
+[data-testid="stChatMessage"] { border: 1px solid var(--line); border-left: 4px solid var(--brand); }
+</style>
+""", unsafe_allow_html=True)
+if lang == "ur":
+    st.markdown("<style>.hint,.chips{direction:rtl;text-align:right}</style>", unsafe_allow_html=True)
 
 
 # ----------------------------------------------------------------------------
@@ -536,8 +561,14 @@ with st.sidebar:
 # Main page
 # ----------------------------------------------------------------------------
 pending = st.session_state.pop("pending", None)
-typed = st.chat_input(t["placeholder"])
-prompt = typed or pending
+typed = st.chat_input(
+    t["placeholder"], accept_file=True, file_type=["jpg", "jpeg", "png", "webp"]
+)
+text_in, file_in = "", None
+if typed:
+    text_in = (typed["text"] or "").strip()
+    file_in = typed["files"][0] if typed["files"] else None
+prompt = text_in or pending
 
 top_l, top_r = st.columns([3, 2])
 with top_l:
@@ -553,38 +584,31 @@ chat_tab.__enter__()
 
 st.markdown(f'<div class="notice">{t["notice"]}</div>', unsafe_allow_html=True)
 
-photo_bytes = None
-if prepare_image:
-    with st.expander(t["photo_label"]):
-        upload = st.file_uploader(
-            t["photo_help"], type=["jpg", "jpeg", "png", "webp"],
-            key=f"photo_{st.session_state.photo_key}", label_visibility="collapsed",
-        )
-        st.caption(t["photo_help"])
-        if upload is not None:
-            try:
-                photo_bytes = prepare_image(upload.getvalue())
-                st.image(photo_bytes, width=160)
-                st.success(t["photo_privacy"])
-            except ImageError as e:
-                st.warning(t[f"photo_{e.code}"])
-            except Exception as e:            # anything unexpected: show the reason instead of failing silently
-                st.warning(f"{t['photo_error']} ({type(e).__name__}: {str(e)[:120]})")
 
 if not st.session_state.messages and not prompt:
     st.markdown(f'<div class="hero-title">{t["title"]}</div>', unsafe_allow_html=True)
     st.markdown(f'<p class="hero-sub">{t["sub"]}</p>', unsafe_allow_html=True)
+    chips = "".join(f'<span class="chip">{c}</span>' for c in t["chips"])
+    st.markdown(f'<div class="chips">{chips}</div><p class="hint">{t["hint"]}</p>', unsafe_allow_html=True)
     for i, example in enumerate(t["examples"]):
         st.button(example, key=f"ex{i}", on_click=set_pending, args=(example,))
 
 for m in st.session_state.messages:
     render_message(m)
 
+if file_in is not None and not text_in:
+    st.warning(t["need_text"])
+
 if prompt:
+    photo_bytes = None
+    if file_in is not None and prepare_image:
+        try:
+            photo_bytes = prepare_image(file_in.getvalue())
+        except ImageError as e:
+            st.warning(t[f"photo_{e.code}"])
+        except Exception as e:
+            st.warning(f"{t['photo_error']} ({type(e).__name__})")
     handle(prompt, photo_bytes)
-    if photo_bytes:                       # empty the photo box, then redraw the page
-        st.session_state.photo_key += 1
-        st.rerun()
 
 chat_tab.__exit__(None, None, None)
 if workflow_tab is not None:
