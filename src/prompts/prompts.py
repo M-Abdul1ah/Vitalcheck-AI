@@ -24,9 +24,16 @@ Format your reply as:
 - Possible causes (bulleted, 2-3 items)
 - Self-care tip (1 line, only if symptom is mild)
 - When to see a doctor (1 line, always include)
+
+MEDICAL CONTEXT (retrieved from the knowledge base):
+{context}
+
+Use this context to ground your answer. If it does not match the symptoms,
+say so and rely on general caution. Never mention medication names or doses,
+even if the context does.
 """
 
 symptom_prompt = ChatPromptTemplate.from_messages([
     ("system", SYSTEM_PROMPT),
-    ("human", "{symptoms}"),
+    ("human", "Symptoms: {symptoms}"),
 ])
