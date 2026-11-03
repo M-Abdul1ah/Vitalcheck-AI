@@ -1,120 +1,101 @@
 # Vital Check AI – Architecture Review and Team Tasks
 
-Muhammad Abdullah Nawaz | SAP ID: 70174218 | 8 October 2026
+Muhammad Abdullah Nawaz | SAP ID: 70174218 | 3 November 2026
 
-`[x]` = done, `[~]` = in progress, `[ ]` = to do
+`[x]` done, `[~]` in progress, `[ ]` to do
 
 ---
 
 ## 1. Review summary
 
-**Verdict:** Good design for a student project. Main risks: too much scope, almost no measured results, and one architecture mismatch (vision vs knowledge base).
+**Verdict:** good design for a student project. Strong points: layered rule-based safety, multilingual RAG, Workflow tab, honest risk list, good Git habits.
+**Main risks:** README promises more than the repo has, few measured results, vision model vs knowledge base mismatch.
 
-**Strong points**
-- Layered safety: emergency gate before the LLM, rule check after
-- RAG with multilingual embeddings (Urdu query finds English knowledge-base text)
-- Explainability: Workflow tab, planned Grad-CAM and model card
-- Honest risk list (dermoscopy vs phone-photo gap, melanoma recall)
-- Good habits: one feature per commit, secret scanning, keys out of Git
+## 2. Problems and fixes
 
-## 2. Problems found
+| # | Problem | Fix | Status |
+|---|---|---|---|
+| 1 | README lists voice, accounts, analytics, A2A, nearby doctors that are not on `main` | Rewrite as Built / In progress / Planned | [ ] |
+| 2 | LLM code still on `main` (`config.py` crashes without a key, `symptom_chain.py`, `prompts.py`, `tests/test_chain.py`) | Remove; it stays on `archive/llm-prototype` | [ ] |
+| 3 | HAM10000 is mostly moles, KB covers eczema, psoriasis, acne | Extra dataset + class-to-KB mapping | [ ] |
+| 4 | Few measured results | 40-query test set, benchmark table, gate recall | [ ] |
+| 5 | KB is small (9 conditions) and unsourced | 25–30 entries, source for each, doctor review | [ ] |
+| 6 | Emergency gate misses Roman Urdu and some red flags | Red-flag test file, recall = 100% | [ ] |
+| 7 | Skin-tone bias | Fairness test | [ ] |
+| 8 | Docs out of date (Keras, Kaggle, hybrid-with-LLM) | Replaced by the 3 new docs | [x] |
+| 9 | Streaming shows an answer before the output check can block it | Only matters if an LLM layer returns. Then: buffer first, check, then show | Later |
+| 10 | LLM provider default (gemini) differs from docs (Groq) | Only matters if an LLM layer returns | Later |
 
-| # | Problem | Fix |
-|---|---|---|
-| 1 | Uncommitted files: `symptom_chain.py`, `prompts.py`, `embed_store.py`, `report_gen.py`, `tests/test_gemini.py` | Commit them first |
-| 2 | Vision and text mismatch: HAM10000 is mostly moles, our knowledge base covers eczema, psoriasis, acne | Add a common-conditions dataset and map every model class to a knowledge-base entry |
-| 3 | LLM or no LLM is undecided | **Decision: hybrid.** Our own CNN does the vision. The LLM only explains the result in Urdu/English |
-| 4 | Too much scope | Cut A2A, voice, accounts, analytics. Move LLM judge, session memory, Roman Urdu to "later" |
-| 5 | No measured results | 40-query test set, benchmark table, safety tests |
-| 6 | Knowledge base is unvalidated | Note the source of every entry, get a doctor or medical student to review |
-| 7 | Skin-tone bias (HAM10000 is mostly lighter skin) | Fairness test and report it |
+## 3. Architecture decision (replaces "hybrid")
 
-## 3. Architecture decision
+**No LLM for now.** DermaVC-Net gives top-3 matches + calibrated confidence. A threshold/OOD check decides if the result is shown. The retriever then shows the matching KB entry with its source. The output check runs on the final text.
 
-**Hybrid:** DermaVC-Net (our model) → top-3 possible matches + confidence → retriever → LLM explains in Urdu/English → output check.
+An LLM explanation layer is optional later (structured output, safety judge). The LLM would never decide the vision result.
 
-The LLM never decides the vision result. Update `ROADMAP.md` and `MODEL_TRAINING_PLAN.md` to say this.
-
-## 4. Scope change
+## 4. Scope
 
 | Do now | Later | Cut |
 |---|---|---|
-| Commit, test RAG in the app, 40-query test set, speed fixes (Phase 1.5), model training, deploy | LLM judge, session memory, Roman Urdu | A2A servers, voice, user accounts, analytics dashboard |
+| Repo fixes, validate results, HF upload, phone-photo test, OOD, Grad-CAM, vision agent, test sets, CI, KB sources, deploy | LLM layer, follow-up-question agent, session memory, Roman Urdu retrieval tests | A2A servers, voice, accounts, analytics, nearby doctors |
 
-## 5. New additions (all 10)
+## 5. The 10 additions (status)
 
-| # | Addition | Meaning | Why |
-|---|---|---|---|
-| 1 | **Calibration** | Reliability curve, ECE, temperature scaling | Confidence only means something if it is calibrated. Strong paper section |
-| 2 | **Out-of-distribution check** | If the photo is not skin or confidence is low, say "unclear, please see a doctor" | Avoids false reassurance |
-| 3 | **Fairness test by skin tone** | Evaluate on a dataset with skin-tone labels (e.g. Fitzpatrick17k or DDI; check licenses) | Our users are in Pakistan, HAM10000 is mostly lighter skin |
-| 4 | **Domain-gap experiment** | HAM10000 vs our phone photos | Main research question of the paper |
-| 5 | **Two evaluation suites** | Retrieval: Recall@3 and MRR on the 40 queries. Safety: red-team prompts and gate recall on emergency phrases | Real numbers for the report |
-| 6 | **Structured LLM output** | Pydantic schema: causes, self-care, when to see a doctor | Makes the output check much easier |
-| 7 | **GitHub Actions CI** | Run pytest and a secret scan (gitleaks) on every push | What real teams do |
-| 8 | **Export to ONNX / TFLite** | Convert the best model, report latency | Stronger benchmark table |
-| 9 | **Ablations** | Class weights vs focal loss. With vs without CSV metadata (age, sex, location) | Shows we understand why the model works |
-| 10 | **Experiment tracking + pinned requirements** | Weights & Biases (free tier), pinned `requirements.txt` | Reproducible results |
-
-## 6. Team and ownership
-
-Abdullah does all technical work. Yousaf, Izhan and Rehman do **R&D tasks only** (research, reading, collecting, writing). They do not touch the main code.
-
-| Person | Role | Owns |
+| # | Addition | Status |
 |---|---|---|
-| Muhammad Abdullah Nawaz | Team Lead + ML Engineer | All code, data pipeline, training, evaluation, integration, CI, tests, README, model card, final decisions |
-| Yousaf | R&D – datasets | Dataset search and license table, phone-photo collection, class-to-knowledge-base draft |
-| Izhan | R&D – methods | Research notes (calibration, OOD, fairness, ablation methods), paper summaries |
-| Rehman | R&D – knowledge and queries | 40-query test set, knowledge-base sources and doctor review, Related Work draft |
+| 1 | Calibration (reliability curve, ECE, temperature scaling) | [~] temperature fitted; confirm on val, report ECE |
+| 2 | Out-of-distribution check | [ ] |
+| 3 | Fairness test by skin tone | [ ] |
+| 4 | Domain-gap experiment (HAM10000 vs phone photos) | [ ] |
+| 5 | Two evaluation suites (retrieval Recall@3/MRR, safety gate recall) | [ ] |
+| 6 | Structured LLM output (Pydantic) | Later, only with LLM |
+| 7 | GitHub Actions CI (pytest + gitleaks) | [ ] |
+| 8 | ONNX/TFLite export | [ ] |
+| 9 | Ablations | [ ] |
+| 10 | Experiment tracking + pinned requirements | [ ] |
 
-## 7. Task assignment
+## 6. Team and tasks
 
-### Muhammad Abdullah Nawaz (Lead – all technical work)
-- [ ] Commit the uncommitted files (one feature per commit)
-- [ ] Phase 1.5 speed fixes: cache models, thinking level, Stop button
-- [ ] Update `ROADMAP.md` and `MODEL_TRAINING_PLAN.md` with the hybrid decision and scope change
-- [ ] `01_eda` notebook and split 80/10/10 by `lesion_id`
-- [ ] Add extra dataset and class-to-knowledge-base mapping (using Yousaf's research)
-- [ ] Train Model A, B, C (3 seeds each)
-- [ ] Ablations (#9) and experiment tracking (#10)
-- [ ] Calibration (#1), out-of-distribution check (#2), fairness test (#3), domain-gap experiment (#4)
-- [ ] Retrieval and safety evaluation (#5) using Rehman's test set
-- [ ] Structured LLM output (#6)
-- [ ] GitHub Actions CI (#7) and pytest tests for the safety gate and output check
-- [ ] ONNX/TFLite export (#8)
-- [ ] Grad-CAM, integration into Streamlit (vision agent, Workflow tab, PDF)
-- [ ] README, model card, demo video, paper
+Abdullah does all technical work. The other three do **R&D only**.
+
+### Abdullah (Lead)
+- [ ] Repo fixes: `.gitignore`, `training/` outputs, notebooks, requirements, LLM cleanup, README
+- [ ] Validate results (val-fitted temperature, melanoma recall at 0.25, mean ± std)
+- [ ] Hugging Face upload, vision agent, Workflow tab, PDF
+- [ ] Phone-photo test, threshold/OOD, Grad-CAM
+- [ ] Retrieval + safety evaluation, pytest, CI
+- [ ] Extra dataset training, fairness, ablations, ONNX
+- [ ] Model card, demo video, paper
 
 ### Yousaf (R&D – datasets)
-- [ ] Find 2–3 extra common-conditions datasets (eczema, acne, psoriasis) and fill a table: name, link, size, classes, license
-- [ ] Find 2 skin-tone-labelled datasets for the fairness test (e.g. Fitzpatrick17k, DDI) and fill the same table
-- [ ] Collect 10–20 phone photos of skin (get consent, no faces or identifying details) for the domain-gap test
-- [ ] Draft the class-to-knowledge-base table: for each dataset class, which knowledge-base entry matches it, or "missing"
+- [ ] 2–3 extra common-conditions datasets: name, link, size, classes, license
+- [ ] 2 skin-tone-labelled datasets (Fitzpatrick17k, DDI), same table
+- [ ] 10–20 consented phone photos (no faces or identifying details)
+- [ ] Draft class-to-KB table (each class matches a KB entry or "missing")
 
 ### Izhan (R&D – methods)
-- [ ] 1-page notes each on: calibration (ECE, temperature scaling), out-of-distribution detection, skin-tone fairness in dermatology AI
-- [ ] 1-page note on ablation ideas: class weights vs focal loss, image-only vs image + metadata
-- [ ] Summarize 5 papers from Assignment 2 (papers 8–13) in 5 lines each: model, dataset, result, limitation
+- [ ] 1-page notes: calibration, OOD detection, skin-tone fairness
+- [ ] 1-page note: ablation ideas
+- [ ] Summarize papers 8–13 of Assignment 2 (model, dataset, result, limitation)
 
 ### Rehman (R&D – knowledge and queries)
-- [ ] Write the 40-query test set (20 English + 20 Urdu), each with the expected knowledge-base entry
-- [ ] Find and write a source (link or book) for every knowledge-base entry
-- [ ] Ask a doctor or medical student to review the knowledge base and note their comments
-- [ ] Write a draft of the Related Work section from Assignment 2
+- [ ] 40-query test set (20 English + 20 Urdu) with expected KB entry
+- [ ] Red-flag phrase list (English, Urdu, Roman Urdu) for the gate test
+- [ ] Source for every KB entry, `sources.md`, doctor/student review
+- [ ] Related Work draft from Assignment 2
 
-## 8. Team rules
+## 7. Team rules
 
-- Everyone sends work as a markdown file in `docs/research/` (or a Google Doc link) to Abdullah
-- Abdullah reviews, fixes and commits it
-- Never share keys, datasets or model files in the group chat
-- Weekly 15-minute standup: done, doing, blocked
-- Abdullah updates the roadmap after every finished task
+- Work comes as `.md` in `docs/research/` (or a Google Doc link) to Abdullah. He reviews and commits.
+- One issue per task, one branch per feature.
+- Never share keys, datasets or model files in chat.
+- Weekly 15-minute standup: done, doing, blocked.
+- Roadmap updated after every finished task.
 
-## 9. Timeline
+## 8. Timeline (4 weeks)
 
 | Week | Work |
 |---|---|
-| 1 | Commit pending files, speed fixes, EDA + split, 40-query test set, issues board |
-| 2 | Model A, B, C training, extra dataset, retrieval evaluation, CI |
-| 3 | Evaluation, calibration, OOD, fairness, domain-gap test, ablations, Grad-CAM |
-| 4 | Integration, ONNX export, model card, paper, demo video |
+| 1 | Repo fixes, validate results, HF upload, 40-query set, KB sources started |
+| 2 | Phone-photo test, threshold/OOD, Grad-CAM, red-flag tests, CI |
+| 3 | Vision agent in app, retrieval evaluation, extra dataset, fairness |
+| 4 | README, deploy, model card, paper, demo video |

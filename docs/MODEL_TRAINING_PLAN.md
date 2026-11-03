@@ -1,157 +1,122 @@
 # Vital Check AI – Own Model Training Plan
 
-Muhammad Abdullah Nawaz | SAP ID: 70174218 | 8 October 2026
+Muhammad Abdullah Nawaz | SAP ID: 70174218 | 3 November 2026
 
-`[x]` = done, `[~]` = in progress, `[ ]` = to do
+`[x]` done, `[~]` in progress, `[ ]` to do
 
 ---
 
 ## 1. Goal
 
-Train our own skin image classifier (no external LLM/API for the vision part), benchmark it, integrate it into the Vital Check AI app, and write a research paper from the results.
-
-The model gives "possible matches + confidence", never a diagnosis.
+Train our own skin image classifier (no external LLM/API for vision), benchmark it, integrate it into the app, and write a research paper. The model gives **possible matches + confidence**, never a diagnosis.
 
 ## 2. Model name
 
-**DermaVC-Net** (alternatives: SkinSight-PK, VitalDerm)
+**DermaVC-Net** (`v1.0` = EfficientNetB0 fine-tuned, seed 7). Next versions: `v1.1`, ...
 
-Versioning: `DermaVC-Net v1.0`, `v1.1`, ...
+## 3. Setup (corrected)
 
-## 3. The 3 models
+| Item | Final |
+|---|---|
+| Framework | **PyTorch** (`.pt` files) |
+| Platform | **Google Colab** (Kaggle dataset attach failed; not used) |
+| Dataset source | HAM10000 from Harvard Dataverse, downloaded inside Colab |
+| Seeds | 3 per model, report mean ± std |
+| Model storage | Hugging Face Hub, never Git |
 
-| # | Model | Idea | Epochs (with early stopping) |
+## 4. The 3 models
+
+| # | Model | Idea | Status |
 |---|---|---|---|
-| A | Custom CNN from scratch | Baseline, no pre-training | 40–50 |
-| B | MobileNetV2, frozen (feature extraction) | Pre-trained backbone, train only the head | 10–15 |
-| C | EfficientNetB0, fine-tuned | Stage 1: head only. Stage 2: unfreeze top layers, low learning rate | 10 + 15 |
+| A | Custom CNN from scratch | Baseline | [x] 3 seeds trained |
+| B | MobileNetV2, frozen | Pre-trained backbone, head only | [x] 3 seeds trained |
+| C | EfficientNetB0, fine-tuned | Head first, then unfreeze top layers | [x] 3 seeds trained; **seed 7 selected** |
 
-## 4. Data
+9 runs total. Outputs: results JSONs, splits, `classes.json`, `class_weights.json`, 9 `.pt` models, `eda_overview.png`.
 
-- **HAM10000** images + `HAM10000_metadata.csv` (`lesion_id`, `dx`, `age`, `sex`, `localization`)
-- CSV is used for: class counts and EDA, split by `lesion_id` (no leakage), optional multimodal model (image + age/sex/location)
-- **Extra dataset** from Kaggle with common conditions (eczema, acne, psoriasis). Check the license first.
-- **Phone-photo test set:** 10–20 normal photos (not dermoscopy) to show the real-world gap
+## 5. Data
 
-## 5. Kaggle setup
-
-1. New notebook, GPU (T4 x2 / P100), attach the dataset.
-2. One notebook per experiment:
-   - `01_eda`
-   - `02_scratch`
-   - `03_mobilenet_frozen`
-   - `04_efficientnet_finetune`
-   - `05_evaluation`
-3. Save outputs to `/kaggle/working/`: `.keras` model, `classes.json`, metrics JSON, plots.
-4. Upload the final model to Hugging Face Hub (never to Git).
-5. Fixed seed. Run each model with 3 seeds, report mean ± std.
+- HAM10000 images + `HAM10000_metadata.csv` (`lesion_id`, `dx`, `age`, `sex`, `localization`)
+- Split 80/10/10 **by `lesion_id`** (no leakage) [x]
+- Extra common-conditions dataset (eczema, acne, psoriasis): check license first [ ]
+- Phone-photo test set: 10–20 consented photos, no faces [ ]
 
 ## 6. Training recipe
 
-- Image size 224, batch size 32, Adam, cross-entropy with class weights (nv is ~67%)
-- Augmentation: flip, rotation, brightness, zoom
-- Callbacks: EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
-- Split: 80/10/10 by `lesion_id`
+Image size 224, batch 32, Adam, cross-entropy with class weights (nv ~67%), augmentation (flip, rotation, brightness, zoom), early stopping, LR scheduler, best-checkpoint saving. Temperature scaling for calibration.
 
-## 7. Benchmark (core of the paper)
+## 7. Benchmark table (fill from the 9 JSONs)
 
 | Metric | Model A | Model B | Model C |
 |---|---|---|---|
-| Accuracy | | | |
+| Accuracy (mean ± std) | | | |
 | Macro F1 | | | |
-| Melanoma recall | | | |
+| Melanoma recall (before threshold) | | | 0.652 (seed 7) |
+| Melanoma recall (threshold 0.25) | | | |
 | AUC | | | |
 | Parameters | | | |
 | Model size (MB) | | | |
 | Inference time (ms/image) | | | |
 | Training time | | | |
 | Best epoch | | | |
+| ECE before / after temperature scaling | | | |
 | Phone-photo accuracy | | | |
 
-Also save: confusion matrix, loss/accuracy curves, Grad-CAM examples.
+Also save: confusion matrices, loss/accuracy curves, Grad-CAM examples.
 
-## 8. Team roles
+## 8. Checklist (sorted)
 
-| Person | Role | Work |
-|---|---|---|
-| Muhammad Abdullah Nawaz | Team Lead + ML Engineer | Training pipeline, all experiments, app integration, final decisions |
-| Member 2 | Data | EDA, cleaning, split, augmentation, extra dataset, phone-photo set |
-| Member 3 | R&D | Literature, comparison baselines, ablations, Grad-CAM analysis |
-| Member 4 | Docs + QA | Paper writing, README, model card, demo video, testing |
+**A. Validate (now)**
+- [ ] Confirm temperature fitted on val, seed 7 chosen by val score, not test
+- [ ] Re-measure melanoma recall with the 0.25 threshold
+- [ ] Mean ± std table from 9 JSONs
+- [ ] Commit results to `training/`, notebooks 01–05, `requirements.txt`
 
-Real-world habits:
-- One GitHub issue per task, one branch per feature
-- Experiment log (CSV or Weights & Biases free tier)
-- Weekly 15-minute standup
-- Model card for the final model
-
-## 9. Timeline (about 4 weeks)
-
-| Week | Work |
-|---|---|
-| 1 | EDA, split by `lesion_id`, scratch baseline |
-| 2 | MobileNetV2 frozen and EfficientNetB0 fine-tune |
-| 3 | Evaluation, Grad-CAM, phone-photo test, choose best model |
-| 4 | Integrate into Streamlit, finish paper |
-
-## 10. Task checklist
-
-**Data**
-- [ ] Download HAM10000 + metadata CSV on Kaggle
-- [ ] EDA: class counts, age/sex/location plots
-- [ ] Split 80/10/10 by `lesion_id`
-- [ ] Add extra common-conditions dataset
-- [ ] Collect 10–20 phone photos
-
-**Training**
-- [ ] Model A: CNN from scratch
-- [ ] Model B: MobileNetV2 frozen
-- [ ] Model C: EfficientNetB0 fine-tune
-- [ ] 3 seeds per model
-- [ ] Save model + `classes.json`
-
-**Evaluation**
-- [ ] Benchmark table filled
-- [ ] Confusion matrices and curves
-- [ ] Melanoma recall checked
-- [ ] Confidence threshold chosen
+**B. Real-world checks**
+- [ ] Phone-photo test (domain gap)
+- [ ] Confidence threshold + OOD check
 - [ ] Grad-CAM heatmaps
+
+**C. Integration**
+- [ ] Upload `C_effnet_finetune_seed7.pt` + `classes.json` to Hugging Face Hub
+- [ ] Vision agent in Streamlit (top-3 + confidence + heatmap)
+- [ ] Workflow tab and PDF show the vision step
 - [ ] Model card
 
-**Integration**
-- [ ] Upload best model to Hugging Face Hub
-- [ ] Vision agent in Streamlit (top-3 + confidence + heatmap)
-- [ ] Pass vision result to the LLM and output check
-- [ ] Show vision step in Workflow tab and PDF
+**D. Extra research**
+- [ ] Extra dataset and retrain
+- [ ] Fairness test by skin tone
+- [ ] Ablations (class weights vs focal loss, with vs without metadata)
+- [ ] ONNX/TFLite export
 
-**Paper**
-- [ ] Related Work (reuse Assignment 2)
+**E. Paper**
 - [ ] Methodology and Dataset
 - [ ] Results and Discussion
 - [ ] Limitations and Conclusion
 - [ ] References
 
-## 11. Research paper structure
+## 9. Paper structure
 
-1. Abstract
-2. Introduction
-3. Related Work (from Assignment 2, 20 papers)
-4. Dataset
-5. Methodology (3 models)
-6. Experiments and Results (benchmark table)
-7. Discussion (dermoscopy vs phone-photo gap, safety)
-8. Limitations
-9. Conclusion
-10. References
+1. Abstract 2. Introduction 3. Related Work (Assignment 2, 20 papers) 4. Dataset 5. Methodology (3 models) 6. Experiments and Results 7. Discussion (dermoscopy vs phone gap, fairness, safety) 8. Limitations 9. Conclusion 10. References
 
-## 12. Risks
+## 10. Team roles (R&D-only version)
+
+| Person | Role |
+|---|---|
+| Abdullah | Lead + ML Engineer: all code, training, evaluation, integration |
+| Yousaf | R&D datasets: dataset/license table, phone photos, class-to-KB draft |
+| Izhan | R&D methods: notes on calibration, OOD, fairness, ablations; paper summaries |
+| Rehman | R&D knowledge: 40-query test set, KB sources and review, Related Work draft |
+
+## 11. Risks
 
 | Risk | What we do |
 |---|---|
-| HAM10000 is dermoscopic, mostly moles | Add extra dataset, always report the phone-photo gap |
-| Class imbalance (nv ~67%) | Class weights, report macro F1 and per-class recall |
+| HAM10000 is dermoscopic, mostly moles | Extra dataset, report the phone-photo gap |
+| Class imbalance | Class weights, macro F1, per-class recall |
 | Data leakage | Split by `lesion_id` |
-| Missing melanoma | Track melanoma recall separately |
-| False reassurance | Confidence threshold, "unclear, please see a doctor" |
+| Missing melanoma | Track melanoma recall separately, threshold |
+| False reassurance | Threshold, "unclear, please see a doctor" |
+| Skin-tone bias | Fairness test |
 | Big model files | Hugging Face Hub, never Git |
-| Kaggle session limits | Save checkpoints often, one notebook per experiment |
+| Colab session limits | Save checkpoints to Drive often |
