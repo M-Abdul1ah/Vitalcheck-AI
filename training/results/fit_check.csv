@@ -1,0 +1,10 @@
+run,epochs,best_epoch,train_acc_end,val_acc_end,acc_gap,train_loss_end,val_loss_end,val_loss_min,verdict,why
+A_scratch_seed123,40,39,,0.593,,1.135,,,GOOD FIT,small train/val gap and val loss did not rise
+A_scratch_seed42,37,9,,0.573,,1.211,,,GOOD FIT,small train/val gap and val loss did not rise
+A_scratch_seed7,39,29,,0.624,,1.238,,,GOOD FIT,small train/val gap and val loss did not rise
+B_mobilenet_frozen_seed123,13,11,,0.558,,1.064,,,GOOD FIT,small train/val gap and val loss did not rise
+B_mobilenet_frozen_seed42,9,6,,0.414,,1.076,,,GOOD FIT,small train/val gap and val loss did not rise
+B_mobilenet_frozen_seed7,5,1,,0.429,,1.171,,,GOOD FIT,small train/val gap and val loss did not rise
+C_effnet_finetune_seed123,25,25,,0.774,,0.158,,,GOOD FIT,small train/val gap and val loss did not rise
+C_effnet_finetune_seed42,24,23,,0.772,,0.24,,,GOOD FIT,small train/val gap and val loss did not rise
+C_effnet_finetune_seed7,25,25,,0.807,,0.163,,,GOOD FIT,small train/val gap and val loss did not rise
