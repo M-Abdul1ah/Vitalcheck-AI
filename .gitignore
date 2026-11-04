@@ -224,3 +224,6 @@ chroma_db/
 *.pt
 *.onnx
 data/ham10000/
+.vscode/
+models/
+*.zip

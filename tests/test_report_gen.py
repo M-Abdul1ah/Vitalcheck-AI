@@ -18,18 +18,17 @@ def _photo():
     return buf.getvalue()
 
 
-def run():
+def test_report_is_a_pdf_in_both_languages():
     for lang in ("en", "ur"):
         pdf = build_report(SAMPLE, lang)
         assert pdf.startswith(b"%PDF") and len(pdf) > 2000
 
-    # a photo makes the report bigger, and broken photo bytes never crash it
+
+def test_photo_makes_report_bigger():
     with_photo = [dict(SAMPLE[0], photo=_photo())] + SAMPLE[1:]
     assert len(build_report(with_photo, "en")) > len(build_report(SAMPLE, "en"))
+
+
+def test_broken_photo_does_not_crash():
     broken = [dict(SAMPLE[0], photo=b"not a photo")] + SAMPLE[1:]
     assert build_report(broken, "en").startswith(b"%PDF")
-    print("report tests passed")
-
-
-if __name__ == "__main__":
-    run()

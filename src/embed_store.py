@@ -2,6 +2,7 @@
 Builds the vector database (run once, or whenever data/ changes).
 Text files in data/ -> chunks -> embeddings -> ChromaDB (saved in chroma_db/).
 """
+from functools import lru_cache
 from pathlib import Path
 import chromadb
 from chromadb.utils import embedding_functions
@@ -17,6 +18,7 @@ embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
 )
 
 
+@lru_cache(maxsize=1)
 def get_collection():
     client = chromadb.PersistentClient(path=str(DB_DIR))
     return client.get_or_create_collection(name=COLLECTION, embedding_function=embed_fn)

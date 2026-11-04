@@ -54,12 +54,12 @@ Answer + sources + Grad-CAM -> Workflow tab -> PDF report
 
 | | Task | Why |
 |---|---|---|
-| [ ] | `.gitignore`: add `.vscode/`, `*.pt`, `*.onnx`, `models/` | Models are PyTorch, not `*.keras` |
+| [x] | `.gitignore`: add `.vscode/`, `*.pt`, `*.onnx`, `models/` | Models are PyTorch, not `*.keras` |
 | [ ] | Copy `results/`, `splits/`, `classes.json`, `class_weights.json`, `eda_overview.png` into `training/` and commit | Evidence for the paper |
 | [ ] | Commit notebooks 01–05 and `requirements.txt` (pin versions) | Reproducible |
 | [ ] | Replace the three docs with the new versions (this file, training plan, architecture) and commit | Docs match reality |
-| [ ] | Finish LLM cleanup: `config.py` crashes without `GROQ_API_KEY`; remove `symptom_chain.py`, `prompts.py`, `tests/test_chain.py` and the call near `app.py` line 255 (they stay on the archive branch) | App must run with no key |
-| [ ] | Remove `a2a-sdk`, `uvicorn`, `starlette` from `requirements.txt` | Smaller install |
+| [x] | Finish LLM cleanup: `config.py` crashes without `GROQ_API_KEY`; remove `symptom_chain.py`, `prompts.py`, `tests/test_chain.py` and the call near `app.py` line 255 (they stay on the archive branch) | App must run with no key |
+| [x] | Remove `a2a-sdk`, `uvicorn`, `starlette` from `requirements.txt` | Smaller install |
 | [ ] | Run the secret scan before every commit: `git diff --cached \| findstr /i "AIza AQ. gsk_ sk-"` | Keys never reach Git |
 
 ### Step 2 – Make the results valid (2–3 days)
@@ -97,15 +97,15 @@ Answer + sources + Grad-CAM -> Workflow tab -> PDF report
 | [ ] | 40-query test set (20 English + 20 Urdu) with expected KB entry | Rehman |
 | [ ] | Retrieval evaluation: Recall@3, MRR | Abdullah |
 | [ ] | Red-flag phrase file (EN / Urdu / Roman Urdu); assert gate recall = 100% | Rehman writes, Abdullah tests |
-| [ ] | Add missing red flags: stiff neck with rash, skin turning black, blistering all over, Roman Urdu breathing/bleeding phrases | Abdullah |
-| [ ] | pytest for safety gate and output check; GitHub Actions CI (pytest + gitleaks) | Abdullah |
+| [x] | Add missing red flags: stiff neck with rash, skin turning black, blistering all over, Roman Urdu breathing/bleeding phrases | Abdullah |
+| [x] | pytest for safety gate and output check; GitHub Actions CI (pytest + gitleaks) in `.github/workflows/ci.yml` (confirm it runs green on GitHub) | Abdullah |
 | [ ] | KB: 25–30 conditions, source for every entry, `sources.md`, doctor/student review | Rehman |
 
 ### Step 6 – Deploy and show (week 4)
 
 | | Task |
 |---|---|
-| [ ] | Fix README: Built / In progress / Planned (remove features that do not exist), Windows setup lines, Python 3.10+ |
+| [x] | Fix README: Built / In progress / Planned (remove features that do not exist), Windows setup lines, Python 3.10+ |
 | [ ] | Deploy (Hugging Face Spaces; Streamlit Cloud had a sign-in error) |
 | [ ] | Live link + screenshots in README |
 | [ ] | Model card, demo video (2 min) |

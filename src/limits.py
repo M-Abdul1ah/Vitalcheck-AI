@@ -1,4 +1,4 @@
-﻿import time
+import time
 
 MAX_INPUT_CHARS = 500
 MAX_REQUESTS = 20

@@ -15,12 +15,12 @@ Muhammad Abdullah Nawaz | SAP ID: 70174218 | 3 November 2026
 
 | # | Problem | Fix | Status |
 |---|---|---|---|
-| 1 | README lists voice, accounts, analytics, A2A, nearby doctors that are not on `main` | Rewrite as Built / In progress / Planned | [ ] |
-| 2 | LLM code still on `main` (`config.py` crashes without a key, `symptom_chain.py`, `prompts.py`, `tests/test_chain.py`) | Remove; it stays on `archive/llm-prototype` | [ ] |
+| 1 | README lists voice, accounts, analytics, A2A, nearby doctors that are not on `main` | Rewrite as Built / In progress / Planned | [x] |
+| 2 | LLM code still on `main` (`config.py` crashes without a key, `symptom_chain.py`, `prompts.py`, `tests/test_chain.py`) | Remove; it stays on `archive/llm-prototype` | [x] |
 | 3 | HAM10000 is mostly moles, KB covers eczema, psoriasis, acne | Extra dataset + class-to-KB mapping | [ ] |
 | 4 | Few measured results | 40-query test set, benchmark table, gate recall | [ ] |
 | 5 | KB is small (9 conditions) and unsourced | 25–30 entries, source for each, doctor review | [ ] |
-| 6 | Emergency gate misses Roman Urdu and some red flags | Red-flag test file, recall = 100% | [ ] |
+| 6 | Emergency gate misses Roman Urdu and some red flags | Red-flag test file, recall = 100% | [x] |
 | 7 | Skin-tone bias | Fairness test | [ ] |
 | 8 | Docs out of date (Keras, Kaggle, hybrid-with-LLM) | Replaced by the 3 new docs | [x] |
 | 9 | Streaming shows an answer before the output check can block it | Only matters if an LLM layer returns. Then: buffer first, check, then show | Later |

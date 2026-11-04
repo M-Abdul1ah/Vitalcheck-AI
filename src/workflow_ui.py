@@ -9,14 +9,14 @@ import streamlit as st
 
 NAMES = {
     "en": {"user": "User message", "safety": "Safety gate", "photo": "Photo prep",
-           "retriever": "Retriever", "ai": "AI answer", "output": "Output check", "resolution": "Resolution"},
+           "retriever": "Retriever", "ai": "Answer", "output": "Output check", "resolution": "Resolution"},
     "ur": {"user": "پیغام", "safety": "حفاظتی جانچ", "photo": "تصویر کی تیاری",
-           "retriever": "تلاش", "ai": "AI جواب", "output": "آؤٹ پٹ جانچ", "resolution": "نتیجہ"},
+           "retriever": "تلاش", "ai": "جواب", "output": "آؤٹ پٹ جانچ", "resolution": "نتیجہ"},
 }
 SUB = {"user": "Text, photo", "safety": "Rules", "photo": "Pillow", "retriever": "Embeddings",
-       "ai": "Llama 3.3", "output": "Rules", "resolution": "Outcome"}
+       "ai": "KB text", "output": "Rules", "resolution": "Outcome"}
 MODEL = {"user": "Streamlit", "safety": "Rules", "photo": "Pillow",
-         "retriever": "Multilingual MiniLM + ChromaDB", "ai": "Llama 3.3 70B on Groq",
+         "retriever": "Multilingual MiniLM + ChromaDB", "ai": "Built from KB matches (no LLM)",
          "output": "Rules", "resolution": "Orchestrator"}
 EMPTY = {"en": "Send a message in the Chat tab. This tab will show exactly how the agents handled it.",
          "ur": "چیٹ ٹیب میں پیغام بھیجیں۔ یہ ٹیب دکھائے گا کہ ایجنٹس نے اسے کیسے سنبھالا۔"}

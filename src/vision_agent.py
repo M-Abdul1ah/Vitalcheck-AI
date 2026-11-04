@@ -1,9 +1,8 @@
 """
-Vision agent, step 1: prepare the user's photo.
+Vision agent, step 1: prepare the user's photo (the skin model DermaVC-Net will read the result).
 Checks the file, removes hidden metadata (GPS, camera info), fixes rotation,
 shrinks it and returns a small JPEG. The photo is never written to disk.
 """
-import base64
 import io
 
 from PIL import Image, ImageOps, UnidentifiedImageError
@@ -11,7 +10,7 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 Image.MAX_IMAGE_PIXELS = 50_000_000   # refuse "decompression bomb" images
 
 MAX_BYTES = 5 * 1024 * 1024   # largest upload accepted
-MAX_SIDE = 1024               # longest side after resizing (keeps requests far below Groq's 4 MB base64 limit)
+MAX_SIDE = 1024               # longest side after resizing (small, fast input for the skin model)
 MIN_SIDE = 100                # smaller than this is too blurry to describe
 ALLOWED_FORMATS = {"JPEG", "PNG", "WEBP"}
 
@@ -54,8 +53,3 @@ def prepare_image(data: bytes) -> bytes:
     out = io.BytesIO()
     img.save(out, format="JPEG", quality=85)   # saving without exif= drops all metadata
     return out.getvalue()
-
-
-def to_data_url(jpeg_bytes: bytes) -> str:
-    """Base64 data URL, the format vision models accept (used in step 3)."""
-    return "data:image/jpeg;base64," + base64.b64encode(jpeg_bytes).decode("ascii")

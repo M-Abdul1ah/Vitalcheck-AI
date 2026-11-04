@@ -1,4 +1,4 @@
-﻿from src.limits import check_input_length, check_rate_limit
+from src.limits import check_input_length, check_rate_limit
 
 
 def test_length():
@@ -11,5 +11,5 @@ def test_rate():
     for _ in range(20):
         ok, _, h = check_rate_limit(h)
         assert ok
-    ok, msg, h = check_rate_limit(h)
+    ok, _, h = check_rate_limit(h)
     assert ok is False
