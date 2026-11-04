@@ -17,7 +17,9 @@ import time
 
 import streamlit as st
 
+from src.intent import classify_intent
 from src.limits import MAX_INPUT_CHARS as MAX_CHARS, check_input_length, check_rate_limit
+from src.input_guard import is_too_vague
 from src.output_check import apply_output_check
 from src.report_gen import build_report
 from src.safety_check import check_emergency
@@ -74,7 +76,11 @@ TEXT = {
         "limit": "Session limit reached. Refresh the page to start a new chat.",
         "kb_offline": "The knowledge base is not available, so no answer can be given.",
         "answer_intro": "Closest matches in our knowledge base for your symptoms. This is general information, not a diagnosis.",
-        "no_match": "No close match was found. Please see a doctor about these symptoms.",
+        "no_match": "I could not match that to a skin problem. Please describe it: where it is, how long you have had it, and whether it itches or hurts. If you are worried, please see a doctor.",
+        "greeting": "Hello! I am Vital Check AI. Tell me about your skin problem: where it is, how long you have had it, and whether it itches or hurts.",
+        "thanks": "You are welcome. If anything changes or gets worse, please see a doctor.",
+        "bye": "Take care. If your skin problem gets worse, please see a doctor.",
+        "need_details": "Please tell us a little more so the right information can be found: where on the body is the problem, how long have you had it, is it itchy or painful, and is it spreading? You can also add a photo.",
         "report_error": "The report could not be created.",
         "chunks": "chunks",
     },
@@ -114,7 +120,11 @@ TEXT = {
         "limit": "اس سیشن کی حد پوری ہو گئی۔ نئی چیٹ کے لیے صفحہ ری فریش کریں۔",
         "kb_offline": "علمی ذخیرہ دستیاب نہیں، اس لیے جواب نہیں دیا جا سکتا۔",
         "answer_intro": "آپ کی علامات سے ملتی جلتی معلومات ہمارے علمی ذخیرے سے۔ یہ عمومی معلومات ہیں، تشخیص نہیں۔",
-        "no_match": "کوئی قریبی مماثلت نہیں ملی۔ براہ کرم ان علامات کے لیے ڈاکٹر سے ملیں۔",
+        "no_match": "میں اسے جلد کے کسی مسئلے سے نہیں ملا سکا۔ براہ کرم بتائیں کہ مسئلہ کہاں ہے، کتنے عرصے سے ہے اور خارش یا درد ہے یا نہیں۔ فکر ہو تو ڈاکٹر سے ملیں۔",
+        "greeting": "السلام علیکم! میں Vital Check AI ہوں۔ اپنی جلد کا مسئلہ بتائیں: کہاں ہے، کتنے عرصے سے ہے اور خارش یا درد ہے یا نہیں۔",
+        "thanks": "خوش آمدید۔ اگر کچھ بدلے یا بگڑے تو ڈاکٹر سے ملیں۔",
+        "bye": "خیال رکھیں۔ اگر جلد کا مسئلہ بڑھے تو ڈاکٹر سے ملیں۔",
+        "need_details": "براہ کرم کچھ مزید بتائیں تاکہ درست معلومات تلاش کی جا سکیں: مسئلہ جسم کے کس حصے میں ہے، کتنے دن سے ہے، کیا خارش یا درد ہے، اور کیا یہ پھیل رہا ہے؟ آپ تصویر بھی شامل کر سکتے ہیں۔",
         "report_error": "رپورٹ نہیں بن سکی۔",
         "chunks": "حصے",
     },
@@ -329,6 +339,10 @@ def render_message(m):
             render_sources(m.get("sources"))
 
 
+# Below this cosine score a match is treated as "not relevant" (tune it with the 40-query test set).
+MIN_MATCH_SCORE = float(os.getenv("MIN_MATCH_SCORE", "0.30"))
+
+
 def to_sources(chunks):
     return [{"title": c.split(":")[0].strip(), "text": c} for c in chunks]
 
@@ -398,6 +412,29 @@ def handle(prompt, photo=None):
                             log="No red flags found. Message passed on."))
     steps[-1]["edge"] = "safety-photo"
 
+    # 1a) small talk: greetings / thanks / goodbye get a friendly reply, no search
+    intent = classify_intent(prompt) if not photo else "other"
+    if intent != "other":
+        steps[-1]["log"] = f"No red flags. Message is small talk ({intent}), so no search is needed."
+        steps[-1]["edge"] = "safety-resolution"
+        steps.append(skipped(["photo", "retriever", "ai", "output"], "Not needed for small talk."))
+        steps.append(trace_step("resolution", "done", sub="Small talk", inn="Result from the intent check",
+                                out=f"SMALL_TALK_{intent.upper()}", log="Friendly reply shown."))
+        finish(prompt, steps, "success", "Resolution: small talk, no medical search.",
+               {"role": "assistant", "kind": "answer", "content": t[intent], "sources": []})
+        return
+
+    # 1b) too vague to search (for example "I need help"): ask for details, do not print knowledge-base matches
+    if is_too_vague(prompt):
+        steps[-1]["edge"] = "safety-resolution"
+        steps.append(skipped(["photo", "retriever", "ai", "output"], "The message is too vague to search."))
+        steps.append(trace_step("resolution", "warn", sub="Need details", inn="Message text",
+                                out="NEEDS_DETAILS - asked the user for more information",
+                                log="Message too vague: asked for more details. Knowledge base not searched."))
+        finish(prompt, steps, "warning", t["need_details"],
+               {"role": "assistant", "kind": "info", "content": t["need_details"]})
+        return
+
     # 2) photo prep already happened before handle() was called (see the chat box below)
     if photo:
         steps.append(trace_step("photo", "done", ms=1, inn=f"Photo, {len(photo)} bytes after cleanup",
@@ -423,11 +460,14 @@ def handle(prompt, photo=None):
         scored = backend["retrieve_scored"](prompt)
         sources = to_sources([doc for doc, _ in scored])
         matches = [[s["title"], score] for s, (_, score) in zip(sources, scored)]
+        if not scored or max(score for _, score in scored) < MIN_MATCH_SCORE:
+            sources = []          # nothing relevant: ask the user to describe the problem instead
     except Exception:
         sources, matches = [], None
     ms = ms_since(t0)
     best = ", ".join(s["title"] for s in sources[:3]) if sources else "none"
-    step_kwargs = {"matches": matches} if matches else {"out": "No matches found."}
+    step_kwargs = {"matches": matches} if (matches and sources) else {
+        "out": f"No relevant match (best score below {MIN_MATCH_SCORE}). Asking the user to describe the problem."}
     steps.append(trace_step("retriever", "done", ms=ms, inn=f"Search text: {prompt[:60]}",
                             log=f"{len(sources)} matches found. Best: {best}.", **step_kwargs))
     steps[-1]["edge"] = "retriever-ai"
