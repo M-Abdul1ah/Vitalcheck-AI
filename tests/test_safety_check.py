@@ -7,12 +7,15 @@ RED_FLAGS = [
     "I have chest pain and a rash", "heart pain since morning", "I can't breathe", "difficulty breathing after the rash",
     "my lips turning blue", "stiff neck with rash", "my skin turning black", "bleeding a lot from the wound",
     "I passed out", "swollen tongue and hives", "I want to die",
+    "my chest hurts", "swelling of my face", "my skin has turned black",
+    "my neck is stiff and I have a rash", "very high fever and rash",
     # Urdu script
     "میرے سینے میں درد ہے", "دل میں درد ہو رہا ہے", "سانس لینے میں مشکل ہے", "بہت خون بہہ رہا ہے",
     "وہ ہوش میں نہیں ہے", "خودکشی کا خیال آ رہا ہے",
     # Roman Urdu
     "seene mein dard hai", "dil mein dard hai", "saans nahi aa rahi", "saans lene mein masla hai",
     "bohat khoon beh raha hai", "hosh mein nahi hai", "wo behosh ho gaya", "marne laga hon",
+    "bohat tez bukhar aur rash", "gardan akar gayi hai",
 ]
 
 NORMAL = [
@@ -20,6 +23,7 @@ NORMAL = [
     "a round ring-shaped rash that keeps spreading", "dry scaly skin on my hands",
     "میری کہنیوں پر خارش اور سرخ خشک دھبے ہیں", "چہرے پر دانے ہیں",
     "meri kohni par khujli hai", "chehre par dane hain",
+    "I have acne on my arm", "low grade fever and an itchy rash", "hi",
 ]
 
 

@@ -13,7 +13,12 @@ EMERGENCY_KEYWORDS = [
     "throat closing", "throat is closing", "swollen throat", "swollen tongue", "swollen lips", "swollen face",
     "blue lips", "lips turning blue", "face drooping",
     "vomiting blood", "coughing blood", "stiff neck",
-    "skin turning black", "skin is turning black", "blistering all over",
+    "skin turning black", "skin is turning black", "skin has turned black", "skin turned black",
+    "skin is black", "turning black", "blistering all over",
+    "chest hurts", "chest is hurting", "chest is paining", "chest tightness", "tight chest", "pressure in my chest",
+    "swelling of my face", "swelling of the face", "swelling in my face", "face swelling", "face is swollen",
+    "swelling of my tongue", "swelling of my lips", "swelling of my throat", "tongue swelling", "lip swelling",
+    "neck is stiff", "neck stiffness", "stiffness in my neck",
     "suicide", "kill myself", "want to die", "end my life",
     # Urdu (script)
     "سینے میں درد", "دل میں درد", "دل کا دورہ",
@@ -25,6 +30,8 @@ EMERGENCY_KEYWORDS = [
     # Roman Urdu
     "seene mein dard", "seene me dard", "seene mai dard", "dil mein dard", "dil me dard", "dil ka dora",
     "saans nahi", "sans nahi", "saans lene mein", "saans lene me", "saans ruk",
+    "seene mein jalan", "seena dukh", "seena dard", "chehra soj", "chehre par soojan", "chehre pe soojan",
+    "gardan akar", "gardan akad", "gardan sakht", "jild kali", "jild kaali",
     "bohat khoon", "bahut khoon", "khoon beh", "khoon nahi ruk", "khoon band nahi",
     "behosh", "bayhosh", "behoshi", "hosh nahi", "hosh mein nahi", "hosh me nahi",
     "zubaan sooj", "zuban sooj", "hont sooj", "chehra sooj", "gala band",
@@ -46,9 +53,21 @@ def _is_urdu(text: str) -> bool:
     return any("\u0600" <= ch <= "\u06FF" for ch in text)
 
 
+# Combination rules: a rash together with a serious sign is a red flag, even when no exact phrase matches.
+RASH_WORDS = ["rash", "spots", "blisters", "hives", "دانے", "خارش", "چھالے", "dane", "daney", "chhale", "chale", "khujli"]
+SEVERE_FEVER = [
+    "high fever", "very high fever", "severe fever", "fever and chills", "fever with chills",
+    "تیز بخار", "شدید بخار", "بہت بخار",
+    "tez bukhar", "bohat bukhar", "bahut bukhar", "shadeed bukhar", "shadid bukhar",
+]
+
+
 def check_emergency(text: str) -> str | None:
     """Return an urgent warning message if a red-flag phrase is found, else None."""
     t = " ".join(text.lower().replace("’", "'").split())
-    if any(keyword in t for keyword in EMERGENCY_KEYWORDS):
+    flagged = any(keyword in t for keyword in EMERGENCY_KEYWORDS)
+    if not flagged and any(f in t for f in SEVERE_FEVER) and any(r in t for r in RASH_WORDS):
+        flagged = True
+    if flagged:
         return MESSAGE_UR if _is_urdu(text) else MESSAGE_EN
     return None
