@@ -62,10 +62,21 @@ SEVERE_FEVER = [
 ]
 
 
+import re
+
+# Pattern rules catch wording variants a phrase list misses ("chest hurt", "chest is aching", "heart hurting").
+# Only a body part directly followed by a pain word is flagged, so "pimples on my chest" is not.
+PATTERNS = [
+    re.compile(r"\b(chest|heart)\s+(is\s+|feels\s+|has\s+been\s+|was\s+)?"
+               r"(hurt|hurts|hurting|ache|aches|aching|pain|pains|paining|tight|tightness|burning|heavy)\b"),
+    re.compile(r"\bpains?\s+(in|on|around)\s+(my\s+|the\s+)?(chest|heart)\b"),
+]
+
+
 def check_emergency(text: str) -> str | None:
     """Return an urgent warning message if a red-flag phrase is found, else None."""
     t = " ".join(text.lower().replace("’", "'").split())
-    flagged = any(keyword in t for keyword in EMERGENCY_KEYWORDS)
+    flagged = any(keyword in t for keyword in EMERGENCY_KEYWORDS) or any(p.search(t) for p in PATTERNS)
     if not flagged and any(f in t for f in SEVERE_FEVER) and any(r in t for r in RASH_WORDS):
         flagged = True
     if flagged:
