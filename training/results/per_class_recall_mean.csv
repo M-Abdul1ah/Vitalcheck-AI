@@ -1,0 +1,4 @@
+model,akiec,bcc,bkl,df,mel,nv,vasc
+A_scratch,0.526,0.611,0.373,0.7,0.628,0.695,0.622
+B_mobilenet_frozen,0.289,0.591,0.422,0.533,0.604,0.587,0.756
+C_effnet_finetune,0.667,0.677,0.716,0.933,0.652,0.887,0.822

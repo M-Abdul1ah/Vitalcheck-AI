@@ -1,0 +1,18 @@
+{
+  "model": "C_effnet_finetune",
+  "seed": 7,
+  "temperature": 1.7557951211929321,
+  "melanoma_threshold": 0.25,
+  "min_confidence": 0.5,
+  "ece_before": 0.0702817361743655,
+  "ece_after": 0.029387078277068213,
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ]
+}

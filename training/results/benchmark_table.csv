@@ -1,0 +1,4 @@
+model,accuracy,macro_f1,melanoma_recall,auc,train_time_min,best_epoch,latency_ms,params_M,size_MB,runs
+A_scratch,0.641,0.481,0.628,0.906,19.189,32.333,3.496,2.36,9.5,3
+B_mobilenet_frozen,0.563,0.416,0.604,0.898,3.971,5.0,5.639,2.23,9.2,3
+C_effnet_finetune,0.821,0.742,0.652,0.968,12.028,23.0,8.664,4.02,16.4,3
