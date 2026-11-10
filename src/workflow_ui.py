@@ -8,14 +8,14 @@ import json
 import streamlit as st
 
 NAMES = {
-    "en": {"user": "User message", "safety": "Safety gate", "photo": "Photo prep",
+    "en": {"user": "User message", "safety": "Safety gate", "photo": "Photo analysis",
            "retriever": "Retriever", "ai": "Answer", "output": "Output check", "resolution": "Resolution"},
-    "ur": {"user": "پیغام", "safety": "حفاظتی جانچ", "photo": "تصویر کی تیاری",
+    "ur": {"user": "پیغام", "safety": "حفاظتی جانچ", "photo": "تصویر کا تجزیہ",
            "retriever": "تلاش", "ai": "جواب", "output": "آؤٹ پٹ جانچ", "resolution": "نتیجہ"},
 }
 SUB = {"user": "Text, photo", "safety": "Rules", "photo": "Pillow", "retriever": "Embeddings",
        "ai": "KB text", "output": "Rules", "resolution": "Outcome"}
-MODEL = {"user": "Streamlit", "safety": "Rules", "photo": "Pillow",
+MODEL = {"user": "Streamlit", "safety": "Rules", "photo": "Pillow + DermaVC-Net (own CNN)",
          "retriever": "Multilingual MiniLM + ChromaDB", "ai": "Built from KB matches (no LLM)",
          "output": "Rules", "resolution": "Orchestrator"}
 EMPTY = {"en": "Send a message in the Chat tab. This tab will show exactly how the agents handled it.",
