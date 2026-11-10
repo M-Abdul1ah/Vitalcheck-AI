@@ -37,8 +37,13 @@ def main():
     if args.image:
         data = prepare_image(Path(args.image).read_bytes())
         t0 = time.time()
-        r = model.predict(data, heatmap=False)
+        r = model.predict(data, heatmap=True)
         print(f"Predicted in {(time.time() - t0) * 1000:.0f} ms")
+        if r.get("heatmap_png"):
+            Path("heatmap_test.png").write_bytes(r["heatmap_png"])
+            print("Heatmap saved to heatmap_test.png (open it to look)")
+        else:
+            print("HEATMAP FAILED:", r.get("heatmap_error") or "unknown")
         for t in r["top"]:
             print(f"  {t['code']:6s} {t['probability']:.3f}  {t['label_en']}")
         print("confident:", r["confident"], "| melanoma flag:", r["melanoma_flag"], f"({r['mel_probability']:.3f})")

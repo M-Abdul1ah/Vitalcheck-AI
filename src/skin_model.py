@@ -199,33 +199,46 @@ class SkinModel:
             return self.model(x)[0].tolist()
 
     def predict(self, jpeg: bytes, heatmap: bool = True) -> dict:
-        """Return interpret(...) plus an optional Grad-CAM overlay (PNG bytes) for the top class."""
+        """Return interpret(...) plus an optional Grad-CAM overlay (PNG bytes) for the top class.
+        The prediction never depends on the heatmap: if the heatmap fails, the result is still returned."""
         try:
             x, shown = self._to_tensor(jpeg)
-            torch = self.torch
-            if not heatmap:
-                with torch.no_grad():
-                    return interpret(self.model(x)[0].tolist(), self.classes, self.policy)
-            acts, grads = {}, {}
-            layer = self.model.features[-1]
-            h1 = layer.register_forward_hook(lambda m, i, o: acts.setdefault("a", o))
-            h2 = layer.register_full_backward_hook(lambda m, gi, go: grads.setdefault("g", go[0]))
-            try:
-                with torch.enable_grad():
-                    out = self.model(x)
-                    top_idx = int(out[0].argmax())
-                    self.model.zero_grad()
-                    out[0, top_idx].backward()
-            finally:
-                h1.remove()
-                h2.remove()
-            result = interpret(out[0].detach().tolist(), self.classes, self.policy)
-            result["heatmap_png"] = _cam_overlay(torch, acts["a"].detach(), grads["g"].detach(), shown)
-            return result
+            with self.torch.no_grad():
+                result = interpret(self.model(x)[0].tolist(), self.classes, self.policy)
         except SkinModelError:
             raise
         except Exception as e:
             raise SkinModelError(f"Photo analysis failed: {e}") from e
+        result["heatmap_png"] = None
+        result["heatmap_error"] = ""
+        if heatmap:
+            try:
+                result["heatmap_png"] = self._heatmap(x, shown)
+            except Exception as e:      # the heatmap is a bonus; do not lose the prediction
+                result["heatmap_error"] = str(e)[:200]
+        return result
+
+    def _heatmap(self, x, shown) -> bytes:
+        torch = self.torch
+        acts, grads = {}, {}
+        layer = self.model.features[-1]
+
+        def forward_hook(module, inputs, output):
+            acts["a"] = output
+            output.register_hook(lambda g: grads.__setitem__("g", g))   # tensor hook: safe with in-place activations
+
+        handle = layer.register_forward_hook(forward_hook)
+        try:
+            with torch.enable_grad():
+                out = self.model(x)
+                top_idx = int(out[0].argmax())
+                self.model.zero_grad(set_to_none=True)
+                out[0, top_idx].backward()
+        finally:
+            handle.remove()
+        if "g" not in grads:
+            raise SkinModelError("Grad-CAM: no gradient was captured.")
+        return _cam_overlay(torch, acts["a"].detach(), grads["g"].detach(), shown)
 
 
 def _cam_overlay(torch, acts, grads, base_image) -> bytes:
