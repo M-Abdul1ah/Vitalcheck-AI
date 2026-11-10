@@ -26,6 +26,7 @@ from src.safety_check import check_emergency
 from src.trace import make_trace, ms_since, skipped
 from src.trace import step as trace_step
 from src.vision_agent import ImageError, prepare_image
+from src import skin_model
 from src.workflow_ui import render_trace
 
 
@@ -70,7 +71,13 @@ TEXT = {
         "photo_bad_type": "Only JPG, PNG or WEBP photos are supported.",
         "photo_unreadable": "This file could not be read as a photo.",
         "photo_too_small": "This photo is too small. Use one that is at least 100 pixels wide.",
-        "photo_pending": "Photo received. Photo analysis is not connected yet, so this answer uses your text only.",
+        "photo_pending": "Photo analysis is not available on this server, so this answer uses your text only.",
+        "vision_title": "Photo analysis (our own model, DermaVC-Net)",
+        "vision_possible": "Possible matches, not a diagnosis:",
+        "vision_note": "This model was trained on close-up photos of 7 types of skin lesions, mostly moles. It cannot recognise rashes, eczema or acne, and ordinary phone photos are harder for it.",
+        "vision_unclear": "The photo is unclear for this model, so no match is shown as reliable. If you are worried, please see a doctor.",
+        "vision_mel": "Warning: the photo analysis found a possible melanoma warning sign ({p}% chance). Please see a doctor soon.",
+        "vision_heatmap": "Where the model looked (Grad-CAM)",
         "privacy": "Do not enter your name, phone number or address.",
         "too_long": f"Message is too long. Keep it under {MAX_CHARS} characters.",
         "limit": "Session limit reached. Refresh the page to start a new chat.",
@@ -114,7 +121,13 @@ TEXT = {
         "photo_bad_type": "صرف JPG، PNG یا WEBP تصاویر قبول ہیں۔",
         "photo_unreadable": "یہ فائل تصویر کے طور پر نہیں پڑھی جا سکی۔",
         "photo_too_small": "یہ تصویر بہت چھوٹی ہے۔ کم از کم 100 پکسل چوڑی تصویر استعمال کریں۔",
-        "photo_pending": "تصویر مل گئی۔ تصویر کا تجزیہ ابھی منسلک نہیں ہے، اس لیے یہ جواب صرف آپ کی تحریر پر مبنی ہے۔",
+        "photo_pending": "اس سرور پر تصویر کا تجزیہ دستیاب نہیں، اس لیے یہ جواب صرف آپ کی تحریر پر مبنی ہے۔",
+        "vision_title": "تصویر کا تجزیہ (ہمارا اپنا ماڈل، DermaVC-Net)",
+        "vision_possible": "ممکنہ مماثلتیں، تشخیص نہیں:",
+        "vision_note": "یہ ماڈل جلد کے 7 قسم کے نشانوں کی قریب سے لی گئی تصاویر پر سیکھا گیا ہے، زیادہ تر تل۔ یہ خارش، ایکزیما یا کیل مہاسوں کو نہیں پہچان سکتا، اور عام موبائل تصاویر اس کے لیے مشکل ہیں۔",
+        "vision_unclear": "اس ماڈل کے لیے تصویر واضح نہیں، اس لیے کوئی نتیجہ قابلِ بھروسا نہیں۔ فکر ہو تو ڈاکٹر سے ملیں۔",
+        "vision_mel": "انتباہ: تصویر کے تجزیے میں میلانوما کی ممکنہ علامت ملی ({p}% امکان)۔ براہ کرم جلد ڈاکٹر سے ملیں۔",
+        "vision_heatmap": "ماڈل نے کہاں دیکھا (Grad-CAM)",
         "privacy": "اپنا نام، فون نمبر یا پتہ درج نہ کریں۔",
         "too_long": f"پیغام بہت لمبا ہے۔ اسے {MAX_CHARS} حروف سے کم رکھیں۔",
         "limit": "اس سیشن کی حد پوری ہو گئی۔ نئی چیٹ کے لیے صفحہ ری فریش کریں۔",
@@ -283,6 +296,17 @@ def load_backend():
 
 backend = load_backend()
 
+
+@st.cache_resource(show_spinner="Loading the photo model...")
+def load_vision():
+    """DermaVC-Net, loaded once and only when the first photo arrives. Returns (model or None, reason)."""
+    if not skin_model.is_available():
+        return None, skin_model.why_unavailable()
+    try:
+        return skin_model.SkinModel(), ""
+    except skin_model.SkinModelError as e:
+        return None, str(e)
+
 # ----------------------------------------------------------------------------
 # Session state
 # ----------------------------------------------------------------------------
@@ -326,6 +350,22 @@ def render_sources(sources, expanded=False):
             st.caption(s["text"][:300] + ("..." if len(s["text"]) > 300 else ""))
 
 
+def render_vision(v):
+    """Photo analysis card: top-3 possible matches, an honest note and the Grad-CAM heatmap."""
+    st.markdown(f"**{t['vision_title']}**")
+    if not v.get("confident"):
+        st.caption(t["vision_unclear"])
+    else:
+        st.caption(t["vision_possible"])
+        key = "label_ur" if lang == "ur" else "label_en"
+        for item in v["top"]:
+            st.progress(item["probability"], text=f"{item[key]}: {round(item['probability'] * 100)}%")
+    if v.get("heatmap_png"):
+        with st.expander(t["vision_heatmap"]):
+            st.image(v["heatmap_png"])
+    st.caption(t["vision_note"])
+
+
 def render_message(m):
     if m["role"] == "user":
         render_user(m["content"], m.get("photo"))
@@ -334,7 +374,9 @@ def render_message(m):
     else:
         with st.chat_message("assistant", avatar="🩺"):
             st.markdown(m["content"])
-            if m.get("photo_note"):
+            if m.get("vision"):
+                render_vision(m["vision"])
+            elif m.get("photo_note"):
                 st.caption(t["photo_pending"])
             render_sources(m.get("sources"))
 
@@ -425,7 +467,7 @@ def handle(prompt, photo=None):
         return
 
     # 1b) too vague to search (for example "I need help"): ask for details, do not print knowledge-base matches
-    if is_too_vague(prompt):
+    if is_too_vague(prompt) and not photo:
         steps[-1]["edge"] = "safety-resolution"
         steps.append(skipped(["photo", "retriever", "ai", "output"], "The message is too vague to search."))
         steps.append(trace_step("resolution", "warn", sub="Need details", inn="Message text",
@@ -435,11 +477,30 @@ def handle(prompt, photo=None):
                {"role": "assistant", "kind": "info", "content": t["need_details"]})
         return
 
-    # 2) photo prep already happened before handle() was called (see the chat box below)
+    # 2) photo analysis: our own model DermaVC-Net reads the photo that was cleaned earlier
+    vision, vision_error = None, ""
     if photo:
-        steps.append(trace_step("photo", "done", ms=1, inn=f"Photo, {len(photo)} bytes after cleanup",
-                                out="Cleaned earlier: resized, metadata removed.",
-                                log="Photo already cleaned; ready to use."))
+        t0 = time.perf_counter()
+        vmodel, vision_error = load_vision()
+        if vmodel is not None:
+            try:
+                vision = vmodel.predict(photo)
+            except skin_model.SkinModelError as e:
+                vision_error = str(e)
+        if vision:
+            top = vision["top"][0]
+            verdict = "confident" if vision["confident"] else f"unclear (top below {round(vision['min_confidence'] * 100)}%)"
+            out = (f"Top match: {top['code']} {round(top['probability'] * 100)}%, {verdict}. "
+                   f"Melanoma probability {round(vision['mel_probability'] * 100)}%"
+                   f"{' (warning shown)' if vision['melanoma_flag'] else ''}.")
+            steps.append(trace_step("photo", "done" if vision["confident"] else "warn", ms=ms_since(t0),
+                                    inn=f"Photo, {len(photo)} bytes after cleanup", out=out,
+                                    log=f"{vision['model']}: {out}"))
+        else:
+            steps.append(trace_step("photo", "warn", sub="unavailable", ms=ms_since(t0),
+                                    inn=f"Photo, {len(photo)} bytes after cleanup",
+                                    out="Photo model not available. Text only.",
+                                    log=f"Photo model not used: {vision_error[:200]}"))
     else:
         steps.append(trace_step("photo", "skip", sub="no photo", inn="No photo attached",
                                 out="Step skipped.", log="No photo attached, so this step is skipped."))
@@ -472,6 +533,15 @@ def handle(prompt, photo=None):
                             log=f"{len(sources)} matches found. Best: {best}.", **step_kwargs))
     steps[-1]["edge"] = "retriever-ai"
 
+    # a mole-type photo result adds the ABCDE mole advice from the knowledge base
+    if vision and vision["mole_advice"] and backend["retrieve"] is not None:
+        try:
+            extra = [c for c in backend["retrieve"]("Melanoma warning signs ABCDE mole") if c.startswith("Melanoma")]
+            have = {s["title"] for s in sources}
+            sources += [s for s in to_sources(extra) if s["title"] not in have]
+        except Exception:
+            pass
+
     # 4) answer built from the matches (no AI model)
     t0 = time.perf_counter()
     answer = build_answer(sources)
@@ -499,8 +569,11 @@ def handle(prompt, photo=None):
     steps[-1]["edge"] = "output-resolution"
     steps.append(trace_step("resolution", state, sub=sub, inn="Results from all agents",
                             out=f"ANSWERED_FROM_KB - {sub.upper()}", log=log))
+    if vision and vision["melanoma_flag"]:
+        text = t["vision_mel"].format(p=round(vision["mel_probability"] * 100)) + "\n\n" + text
     finish(prompt, steps, tone, end,
-           {"role": "assistant", "kind": "answer", "content": text, "sources": sources, "photo_note": bool(photo)})
+           {"role": "assistant", "kind": "answer", "content": text, "sources": sources,
+            "photo_note": bool(photo) and not vision, "vision": vision})
 
 
 # ----------------------------------------------------------------------------
