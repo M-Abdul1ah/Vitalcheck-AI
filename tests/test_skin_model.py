@@ -1,4 +1,6 @@
 import json
+import sys
+import types
 
 import pytest
 
@@ -85,3 +87,62 @@ def test_load_missing_file_raises_clear_error(tmp_path):
         pytest.skip("torch / torchvision not usable here")
     with pytest.raises(sm.SkinModelError):
         sm.SkinModel(tmp_path / "missing.pt")
+
+
+def _fake_hub(tmp_path, cached=False):
+    calls = []
+
+    def fake_download(repo_id, filename, token=None, local_files_only=False):
+        calls.append(local_files_only)
+        if local_files_only and not cached:
+            raise FileNotFoundError("not cached")
+        f = tmp_path / "downloaded.pt"
+        f.write_bytes(b"x")
+        return str(f)
+
+    mod = types.ModuleType("huggingface_hub")
+    mod.hf_hub_download = fake_download
+    mod.constants = types.SimpleNamespace(HF_HUB_OFFLINE=True)
+    return mod, calls
+
+
+def test_downloads_from_hub_when_local_file_missing(monkeypatch, tmp_path):
+    mod, calls = _fake_hub(tmp_path)
+    monkeypatch.setitem(sys.modules, "huggingface_hub", mod)
+    monkeypatch.setattr(sm, "MODEL_PATH", tmp_path / "missing.pt")
+    monkeypatch.setattr(sm, "MODEL_REPO", "user/dermavc-net")
+    path = sm.resolve_model_path()
+    assert path.name == "downloaded.pt" and calls == [True, False]
+    assert mod.constants.HF_HUB_OFFLINE is True          # offline setting restored after the download
+
+
+def test_uses_hub_cache_without_network(monkeypatch, tmp_path):
+    mod, calls = _fake_hub(tmp_path, cached=True)
+    monkeypatch.setitem(sys.modules, "huggingface_hub", mod)
+    monkeypatch.setattr(sm, "MODEL_PATH", tmp_path / "missing.pt")
+    monkeypatch.setattr(sm, "MODEL_REPO", "user/dermavc-net")
+    sm.resolve_model_path()
+    assert calls == [True]
+
+
+def test_local_file_wins_over_hub(monkeypatch, tmp_path):
+    local = tmp_path / "local.pt"
+    local.write_bytes(b"x")
+    monkeypatch.setattr(sm, "MODEL_REPO", "user/dermavc-net")
+    assert sm.resolve_model_path(local) == local
+
+
+def test_no_local_file_and_no_repo_gives_clear_error(monkeypatch, tmp_path):
+    monkeypatch.setattr(sm, "MODEL_PATH", tmp_path / "missing.pt")
+    monkeypatch.setattr(sm, "MODEL_REPO", "")
+    with pytest.raises(sm.SkinModelError):
+        sm.resolve_model_path()
+
+
+def test_available_when_repo_is_set_even_without_local_file(monkeypatch, tmp_path):
+    monkeypatch.setattr(sm, "MODEL_PATH", tmp_path / "missing.pt")
+    monkeypatch.setattr(sm, "_torch_installed", lambda: True)
+    monkeypatch.setattr(sm, "MODEL_REPO", "")
+    assert sm.is_available() is False
+    monkeypatch.setattr(sm, "MODEL_REPO", "user/dermavc-net")
+    assert sm.is_available() is True

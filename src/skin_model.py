@@ -23,6 +23,8 @@ ROOT = Path(__file__).resolve().parent.parent
 MODEL_PATH = Path(os.getenv("SKIN_MODEL_PATH", str(ROOT / "models" / "C_effnet_finetune_seed7.pt")))
 CLASSES_PATH = ROOT / "training" / "classes.json"
 POLICY_PATH = ROOT / "training" / "results" / "final_policy.json"
+MODEL_REPO = os.getenv("SKIN_MODEL_REPO", "").strip()          # Hugging Face model repo, for example "your-name/dermavc-net"
+MODEL_FILE = os.getenv("SKIN_MODEL_FILE", "C_effnet_finetune_seed7.pt")
 MODEL_NAME = "DermaVC-Net v1.0 (EfficientNetB0, seed 7)"
 
 IMG_SIZE = int(os.getenv("SKIN_IMG_SIZE", "224"))
@@ -97,26 +99,54 @@ def interpret(logits: list[float], classes: list[str] | None = None, policy: dic
     }
 
 
+def _torch_installed() -> bool:
+    return importlib.util.find_spec("torch") is not None and importlib.util.find_spec("torchvision") is not None
+
+
 def is_available() -> bool:
-    """True if the model file exists and torch + torchvision are installed (cheap check, loads nothing)."""
-    return (MODEL_PATH.exists()
-            and importlib.util.find_spec("torch") is not None
-            and importlib.util.find_spec("torchvision") is not None)
+    """True if torch + torchvision are installed and the model file is local or can be downloaded (loads nothing)."""
+    return _torch_installed() and (MODEL_PATH.exists() or bool(MODEL_REPO))
 
 
 def why_unavailable() -> str:
-    if not MODEL_PATH.exists():
-        return f"Model file not found: {MODEL_PATH}"
-    if importlib.util.find_spec("torch") is None or importlib.util.find_spec("torchvision") is None:
+    if not MODEL_PATH.exists() and not MODEL_REPO:
+        return f"Model file not found: {MODEL_PATH} (put it there, or set SKIN_MODEL_REPO to download it)"
+    if not _torch_installed():
         return "torch / torchvision are not installed (pip install torch torchvision)"
     return ""
+
+
+def resolve_model_path(path: Path | str | None = None) -> Path:
+    """Local file first. If it is missing and SKIN_MODEL_REPO is set, download it once from Hugging Face Hub."""
+    local = Path(path) if path else MODEL_PATH
+    if local.exists():
+        return local
+    if not MODEL_REPO:
+        raise SkinModelError(f"Model file not found: {local}. Put it there, or set SKIN_MODEL_REPO to download it.")
+    try:
+        from huggingface_hub import constants, hf_hub_download
+    except Exception as e:
+        raise SkinModelError(f"huggingface_hub is not available: {e}") from e
+    token = os.getenv("HF_TOKEN") or None
+    try:       # already in the local cache? (no network needed)
+        return Path(hf_hub_download(repo_id=MODEL_REPO, filename=MODEL_FILE, token=token, local_files_only=True))
+    except Exception:
+        pass
+    previous = constants.HF_HUB_OFFLINE      # the app may have switched Hub access to offline mode for speed
+    constants.HF_HUB_OFFLINE = False
+    try:
+        return Path(hf_hub_download(repo_id=MODEL_REPO, filename=MODEL_FILE, token=token))
+    except Exception as e:
+        raise SkinModelError(f"Could not download {MODEL_FILE} from {MODEL_REPO}: {str(e)[:200]}") from e
+    finally:
+        constants.HF_HUB_OFFLINE = previous
 
 
 class SkinModel:
     """Loads the .pt file once and predicts on photos."""
 
     def __init__(self, path: Path | str | None = None):
-        self.path = Path(path) if path else MODEL_PATH
+        self.path = resolve_model_path(path)
         self.classes = load_classes()
         self.policy = load_policy()
         self._load()
