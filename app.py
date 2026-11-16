@@ -1,9 +1,10 @@
 """
 VitalCheck AI - Streamlit front end.
 
-Every message goes through: input checks -> emergency gate -> knowledge base search
--> answer built from the matches -> output check. No AI model or API key is needed.
-The own skin-photo model (DermaVC-Net) will be added as a vision step.
+Every message goes through: input checks -> emergency gate -> small-talk and vague check
+-> photo analysis (our own DermaVC-Net, if a photo was sent) -> knowledge base search
+-> answer built from the matches -> output check. No API key is needed.
+Without the model file or torch, the app still works and says that photo analysis is not available.
 """
 import os
 from pathlib import Path
