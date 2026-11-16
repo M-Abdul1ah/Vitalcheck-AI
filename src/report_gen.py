@@ -35,6 +35,12 @@ LABELS = {
         "emergency": "Emergency warning",
         "note": "Note",
         "photo": "Photo sent with this message. The app does not store photos.",
+        "vision_title": "Photo Analysis (DermaVC-Net)",
+        "vision_matches": "Possible matches, not a diagnosis:",
+        "vision_unclear": "The photo is unclear for this model (confidence below 50%). If you are worried, please see a doctor.",
+        "vision_mel": "Warning: The photo analysis found a possible melanoma warning sign ({p}% probability). Please see a doctor soon.",
+        "vision_heatmap": "Where the model looked (Grad-CAM heatmap).",
+        "vision_note": "Trained on 7 skin lesion types (HAM10000), mostly moles. It cannot recognize rashes, eczema or acne.",
         "footer": "General information only, not a diagnosis.",
         "page": "Page",
     },
@@ -52,6 +58,12 @@ LABELS = {
         "emergency": "ہنگامی انتباہ",
         "note": "نوٹ",
         "photo": "اس پیغام کے ساتھ بھیجی گئی تصویر۔ ایپ تصاویر محفوظ نہیں کرتی۔",
+        "vision_title": "تصویر کا تجزیہ (DermaVC-Net)",
+        "vision_matches": "ممکنہ مماثلتیں، تشخیص نہیں:",
+        "vision_unclear": "اس ماڈل کے لیے تصویر واضح نہیں (50% سے کم)۔ فکر ہو تو ڈاکٹر سے ملیں۔",
+        "vision_mel": "انتباہ: تصویر کے تجزیے میں میلانوما کی ممکنہ علامت ملی ({p}% امکان)۔ براہ کرم جلد ڈاکٹر سے ملیں۔",
+        "vision_heatmap": "ماڈل نے کہاں دیکھا (Grad-CAM)",
+        "vision_note": "یہ ماڈل جلد کے 7 قسم کے نشانوں پر سیکھا گیا ہے۔ یہ خارش، ایکزیما یا دانوں کو نہیں پہچان سکتا۔",
         "footer": "یہ صرف عمومی معلومات ہیں، تشخیص نہیں۔",
         "page": "صفحہ",
     },
@@ -176,5 +188,33 @@ def build_report(messages: list, lang: str = "en") -> bytes:
         titles = [s["title"] for s in m.get("sources") or []]
         if titles:
             pdf.text_block(f"{L['sources']}: " + ", ".join(titles), size=9, color=MUTED, gap=4)
+
+        v = m.get("vision")
+        if v and isinstance(v, dict):
+            pdf.ln(1)
+            pdf.text_block(L["vision_title"], size=11, bold=True, color=BRAND, gap=1)
+            if v.get("melanoma_flag"):
+                mel_p = round(v.get("mel_probability", 0) * 100)
+                mel_str = str(mel_p).translate(URDU_DIGITS) if lang == "ur" else str(mel_p)
+                pdf.text_block(L["vision_mel"].format(p=mel_str), size=10, color=DANGER, fill=DANGER_SOFT, gap=2)
+
+            if not v.get("confident"):
+                pdf.text_block(L["vision_unclear"], size=9, color=MUTED, gap=2)
+            else:
+                pdf.text_block(L["vision_matches"], size=9, bold=True, color=INK, gap=1)
+                lbl_key = "label_ur" if lang == "ur" else "label_en"
+                for item in v.get("top", []):
+                    pct = round(item.get("probability", 0) * 100)
+                    pct_str = str(pct).translate(URDU_DIGITS) if lang == "ur" else str(pct)
+                    label = item.get(lbl_key) or item.get("label_en") or item.get("code", "")
+                    pdf.text_block(f"\u2022 {label}: {pct_str}%", size=9, gap=1)
+
+            if v.get("heatmap_png"):
+                try:
+                    pdf.add_photo(v["heatmap_png"], L["vision_heatmap"])
+                except Exception:
+                    pass
+
+            pdf.text_block(L["vision_note"], size=8, color=MUTED, gap=3)
 
     return bytes(pdf.output())

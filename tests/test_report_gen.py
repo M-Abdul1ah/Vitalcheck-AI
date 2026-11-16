@@ -32,3 +32,48 @@ def test_photo_makes_report_bigger():
 def test_broken_photo_does_not_crash():
     broken = [dict(SAMPLE[0], photo=b"not a photo")] + SAMPLE[1:]
     assert build_report(broken, "en").startswith(b"%PDF")
+
+
+def test_vision_analysis_included_in_report():
+    vision = {
+        "top": [
+            {"code": "nv", "label_en": "Common mole", "label_ur": "عام تل", "probability": 0.85},
+            {"code": "bkl", "label_en": "Benign keratosis", "label_ur": "بے ضرر کیراٹوسس", "probability": 0.10},
+            {"code": "mel", "label_en": "Melanoma", "label_ur": "میلانوما", "probability": 0.05},
+        ],
+        "confident": True,
+        "min_confidence": 0.5,
+        "mel_probability": 0.05,
+        "melanoma_flag": False,
+        "mole_advice": True,
+        "model": "DermaVC-Net v1.0 (EfficientNetB0, seed 7)",
+        "heatmap_png": _photo(),
+    }
+    with_vision = [
+        dict(SAMPLE[0], photo=_photo()),
+        dict(SAMPLE[1], vision=vision),
+    ]
+    for lang in ("en", "ur"):
+        pdf = build_report(with_vision, lang)
+        assert pdf.startswith(b"%PDF")
+        assert len(pdf) > len(build_report(SAMPLE, lang))
+
+
+def test_vision_melanoma_warning_and_unclear_report():
+    mel_alert = {
+        "top": [
+            {"code": "nv", "label_en": "Common mole", "label_ur": "عام تل", "probability": 0.45},
+            {"code": "mel", "label_en": "Melanoma", "label_ur": "میلانوما", "probability": 0.35},
+            {"code": "bcc", "label_en": "Basal cell carcinoma", "label_ur": "بیسل سیل کارسنوما", "probability": 0.20},
+        ],
+        "confident": False,
+        "min_confidence": 0.5,
+        "mel_probability": 0.35,
+        "melanoma_flag": True,
+        "mole_advice": True,
+        "model": "DermaVC-Net v1.0",
+    }
+    msgs = [SAMPLE[0], dict(SAMPLE[1], vision=mel_alert)]
+    for lang in ("en", "ur"):
+        pdf = build_report(msgs, lang)
+        assert pdf.startswith(b"%PDF")

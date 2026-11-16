@@ -86,7 +86,7 @@ Also save: confusion matrices, loss/accuracy curves, Grad-CAM examples. Full det
 - [x] `C_effnet_finetune_seed7.pt` uploaded to Hugging Face Hub (`mabdullah218/dermavc-net`)
 - [x] Vision step in Streamlit (top-3 + confidence + melanoma warning + heatmap)
 - [x] Workflow tab shows the photo step
-- [ ] PDF report includes the photo result
+- [x] PDF report includes the photo result
 - [x] Model card (`MODEL_CARD.md`)
 
 **D. Extra research**
