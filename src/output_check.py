@@ -16,9 +16,22 @@ MEDICINES = [
     "clotrimazole", "terbinafine", "fluconazole", "ketoconazole", "miconazole", "griseofulvin",
     "tretinoin", "isotretinoin", "adapalene", "benzoyl peroxide", "minoxidil", "methotrexate",
     "cetirizine", "loratadine", "chlorpheniramine", "permethrin", "ivermectin", "calamine",
+    # common brand names in Pakistan
+    "panadol", "calpol", "brufen", "ponstan", "disprin", "voltaren", "augmentin", "flagyl", "zyrtec", "piriton", "avil",
+    "softin", "betnovate", "dermovate", "eumovate", "elocon", "clobevate", "fucidin", "polyfax", "canesten", "daktarin",
+    "lamisil", "benzac", "differin", "retin-a",
+    # Urdu spellings
+    "پینا ڈول", "پیناڈول", "بروفن", "آگمینٹن", "بیٹنوویٹ", "ہائیڈروکورٹیزون",
 ]
-MEDICINE_RE = re.compile(r"\b(" + "|".join(re.escape(m) for m in MEDICINES) + r")\b", re.I)
-DOSE_RE = re.compile(r"\b\d+(\.\d+)?\s?(mg|mcg|µg|ml|iu)\b|\b(tablets?|capsules?|syrup)\b", re.I)
+MEDICINE_RE = re.compile(r"(?<!\w)(" + "|".join(re.escape(m) for m in MEDICINES) + r")(?!\w)", re.I)
+DOSE_RE = re.compile(r"\b\d+(\.\d+)?\s?(mg|mcg|µg|ml|iu)\b|\b(tablets?|capsules?|syrup)\b|گولی|گولیاں|ٹیبلیٹ|سیرپ|کیپسول", re.I)
+# Prescribing words: telling the user to start a drug class (naming a class, not a brand, still counts)
+PRESCRIBE_RE = re.compile(
+    r"\b(i|we) (prescribe|recommend (that )?(you )?(take|use|apply|start))\b"
+    r"|\byou should (start|take|use|apply|begin) (an? |some )?(course of )?(antibiotics?|steroids?|antifungals?|medicines?|medications?|tablets?|pills?|painkillers?)\b"
+    r"|\bstart (an? )?(antibiotics?|steroids?)\b|\b(antibiotic|steroid) course\b",
+    re.I,
+)
 
 DIAGNOSIS_RE = re.compile(
     r"\byou (definitely |certainly |clearly )have\b"
@@ -27,6 +40,9 @@ DIAGNOSIS_RE = re.compile(
     r"|\bthis is (definitely|certainly|clearly)\b"
     r"|\b(i|we) diagnose\b"
     r"|\bthe diagnosis is\b"
+    r"|\b(it|that|this)('s| is| must be| has to be| looks like) (definitely|certainly|clearly|surely)\b"
+    r"|(?<!\bif )(?<!\bwhen )(?<!\bwhether )\byou (probably |likely |surely |also )?(have|got|are suffering from) (an? )?(skin )?"
+    r"(eczema|psoriasis|acne|ringworm|scabies|cellulitis|melanoma|cancer|hives|urticaria|dermatitis|impetigo|vitiligo|warts?|infection|fungus)\b"
     r"|آپ کو یقینی طور پر|تشخیص یہ ہے",
     re.I,
 )
@@ -51,7 +67,8 @@ def _is_urdu(text: str) -> bool:
 
 def apply_output_check(text: str):
     """Return (final_text, report). report['action'] is passed, disclaimer_added or blocked."""
-    medicine = sorted({m.group(0).lower() for m in MEDICINE_RE.finditer(text)} | {m.group(0).lower() for m in DOSE_RE.finditer(text)})
+    medicine = sorted({m.group(0).lower() for m in MEDICINE_RE.finditer(text)} | {m.group(0).lower() for m in DOSE_RE.finditer(text)}
+                      | {m.group(0).lower() for m in PRESCRIBE_RE.finditer(text)})
     diagnosis = sorted({m.group(0).lower() for m in DIAGNOSIS_RE.finditer(text)})
     doctor = bool(DOCTOR_RE.search(text))
     urdu = _is_urdu(text)

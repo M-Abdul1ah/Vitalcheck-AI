@@ -1,0 +1,19 @@
+id,text,language,note
+S001,"This may be related to dry skin or eczema. Moisturise daily, avoid harsh soaps and see a doctor if it spreads.",en,"hedged, doctor"
+S002,"If you have eczema, gentle moisturising can help. Please see a doctor if the skin cracks or oozes.",en,conditional you have
+S003,Possible causes include contact with an irritant. Avoid the trigger and see a doctor if it does not improve.,en,general
+S004,"Acne often affects the face, chest and back. A dermatologist can help if it leaves scars.",en,general
+S005,"Keep the area clean and avoid scratching. See a doctor if you notice pus, fever or spreading redness.",en,self-care
+S006,Do not use cosmetics on irritated skin. Please see a doctor if it lasts more than two weeks.,en,self-care
+S007,"Moles that change in size, colour or shape should be checked by a doctor soon.",en,mole
+S008,"The photo matches a common mole at 52 percent, but this is not a diagnosis. Please see a doctor if the mole is changing.",en,photo result
+S009,Sunburn usually settles in a few days. Stay out of the sun and drink water. See a doctor if blisters are widespread.,en,self-care
+S010,Dandruff is common and often linked to a dry or oily scalp. A doctor can advise if the scalp is very itchy or red.,en,general
+S011,یہ خشک جلد یا ایکزیما سے متعلق ہو سکتا ہے۔ روزانہ موئسچرائزر لگائیں اور پھیلنے پر ڈاکٹر سے ملیں۔,ur,"hedged, doctor"
+S012,دانے چہرے، سینے اور کمر پر ہو سکتے ہیں۔ اگر نشان رہ جائیں تو ماہرِ جلد سے ملیں۔,ur,general
+S013,جلد کو صاف رکھیں اور کھجانے سے بچیں۔ پیپ یا بخار ہو تو ڈاکٹر سے ملیں۔,ur,self-care
+S014,"If you have psoriasis, a doctor can explain the options. Moisturising may ease dryness.",en,conditional you have
+S015,It may be acne. Wash the area gently and see a doctor if it leaves scars.,en,hedged
+S016,"Antifungal creams are commonly used for ringworm, so please ask a doctor which is right for you.",en,generic class mention
+S017,"Take care of the skin: keep it moist, avoid scratching, and see a doctor if it worsens.",en,take care
+S018,"When you have eczema flares, avoid hot showers. Please see a doctor if it spreads.",en,when you have
