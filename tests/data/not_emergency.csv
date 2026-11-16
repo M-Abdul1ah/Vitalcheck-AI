@@ -1,0 +1,59 @@
+id,text,language,note
+N001,I have acne on my arm,en,plain skin
+N002,itchy red patches on my elbows,en,plain skin
+N003,pimples on my chest and back,en,"chest word, skin"
+N004,my chest is itchy with small red bumps,en,"chest word, skin"
+N005,painful pimples on my chest,en,chest + painful
+N006,dry cracked skin on my heels,en,plain skin
+N007,a mole on my back that looks darker than before,en,vision/mole
+N008,burning feeling on my face after sun exposure,en,sunburn
+N009,swelling around one pimple on my chin,en,"swelling, not face-wide"
+N010,mild fever and a few spots on my tummy,en,mild fever + spots
+N011,my scalp is flaky and itchy,en,dandruff
+N012,heartburn after meals and acne on my cheeks,en,heart word
+N013,dark brown patches on my neck,en,dark skin patch
+N014,blackheads on my nose,en,black word
+N015,black spots on my face from old acne,en,black word
+N016,peeling skin on my feet in summer,en,"peeling, mild"
+N017,my lips are dry and peeling,en,"lips, mild"
+N018,a mosquito bite on my ankle is swollen and itchy,en,local swelling
+N019,my neck has a rash from the new necklace,en,neck word
+N020,I get a rash on my hands after washing dishes,en,contact
+N021,small blisters between my fingers that itch at night,en,scabies-like
+N022,hi,en,greeting
+N023,what should I do about dandruff,en,question
+N024,my toenail is thick and yellow,en,nail
+N025,چہرے پر دانے ہیں,ur,plain skin
+N026,کہنی پر خارش اور سرخ دھبے,ur,plain skin
+N027,ہاتھوں کی جلد خشک اور پھٹی ہوئی ہے,ur,dry skin
+N028,بازو پر مہاسے ہیں,ur,acne
+N029,سر میں خشکی اور خارش ہے,ur,dandruff
+N030,سینے پر چھوٹے دانے ہیں جن میں خارش ہوتی ہے,ur,"chest word, skin"
+N031,meri kohni par khujli hai,roman,plain skin
+N032,chehre par dane hain,roman,plain skin
+N033,seene par dane hain,roman,"chest word, skin"
+N034,pairon ki jild phat gayi hai,roman,dry skin
+N035,sar mein khushki aur khujli hai,roman,dandruff
+N036,meri skin kharab hai,roman,vague
+N037,salam,roman,greeting
+N038,gardan par dane aur khujli hai,roman,neck word
+N039,"I have no pain, only acne on my chest",en,negated pain + chest
+N040,"without any pain, a rash appeared on my chest",en,negated pain + chest
+N041,the strap pressure marks on my chest leave red lines,en,pressure marks
+N042,I burned my finger on the stove and it has a small blister,en,small burn
+N043,a mild sunburn covering my shoulders,en,mild sunburn
+N044,my skin is peeling a little after the sunburn,en,mild peeling
+N045,itchy hives on my arm after the weather changed,en,hives only
+N046,red streaks on my thighs from scratching,en,"streaks, not spreading"
+N047,black coffee gives me acne,en,black word
+N048,my face feels puffy in the morning from dry skin,en,"puffy face, mild"
+N049,a heart shaped birthmark on my arm,en,heart word
+N050,my nose is stuffy and my face is oily,en,face word
+N051,fever and body ache but no rash,en,"fever, no rash"
+N052,a dark red patch on my elbow that itches,en,"dark red patch, no fever"
+N053,blood test showed low iron and my skin is pale,en,blood word
+N054,seene par jalan nahi hai sirf dane hain,roman,chest negated
+N055,chehre par dane aur oily skin,roman,face word
+N056,hont sookhe aur phate hue hain,roman,dry lips
+N057,جلد اترنے لگی ہے دھوپ سے,ur,mild peeling
+N058,چہرے پر مہاسے اور تیل ہے,ur,face word

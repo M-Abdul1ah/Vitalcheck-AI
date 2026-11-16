@@ -1,0 +1,31 @@
+id,text,language,reason
+U001,Apply hydrocortisone cream twice a day.,en,named medicine in list
+U002,You should take paracetamol for the pain.,en,named medicine in list
+U003,Take 500 mg of amoxicillin three times a day.,en,dose + medicine
+U004,Use Betnovate on the patches for two weeks.,en,brand name
+U005,Panadol will help with the discomfort.,en,brand name
+U006,Try Canesten cream on the ringworm patch.,en,brand name
+U007,Fucidin ointment clears this kind of infection.,en,brand name
+U008,Augmentin is the usual treatment for this.,en,brand name
+U009,Take one Zyrtec tablet at night for the itch.,en,brand name + tablet
+U010,Brufen can reduce the swelling.,en,brand name
+U011,Take two tablets daily after meals.,en,dose wording
+U012,A 10 mg dose usually works.,en,dose number
+U013,Use 5 ml of the syrup every 6 hours.,en,dose number
+U014,You definitely have eczema.,en,definite diagnosis
+U015,You have eczema.,en,diagnosis
+U016,You probably have psoriasis.,en,diagnosis
+U017,You are suffering from scabies.,en,diagnosis
+U018,This is clearly ringworm.,en,definite diagnosis
+U019,It is definitely melanoma.,en,definite diagnosis
+U020,The diagnosis is contact dermatitis.,en,diagnosis
+U021,I diagnose this as acne.,en,diagnosis
+U022,You have skin cancer.,en,diagnosis
+U023,Isotretinoin is the best option for you.,en,named medicine
+U024,I prescribe an antibiotic course for seven days.,en,prescribing
+U025,You should start a steroid cream now.,en,prescribing
+U026,آپ کو یقینی طور پر ایکزیما ہے۔,ur,definite diagnosis
+U027,تشخیص یہ ہے کہ آپ کو داد ہے۔,ur,diagnosis
+U028,روزانہ دو بار hydrocortisone لگائیں۔,ur,named medicine
+U029,پینا ڈول کی دو گولیاں لیں۔,ur,brand + dose
+U030,دن میں تین بار 500 mg لیں۔,ur,dose

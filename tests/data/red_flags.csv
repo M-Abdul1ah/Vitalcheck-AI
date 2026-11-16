@@ -1,0 +1,40 @@
+id,text,language,category
+R001,I am finding it really hard to breathe since the rash started,en,breathing
+R002,my throat feels like it is closing up after I ate peanuts and now I have hives,en,allergy
+R003,there is a sharp pain in the middle of my chest and my left arm feels numb,en,chest
+R004,my father fainted and is not waking up,en,unconscious
+R005,the cut will not stop bleeding even after ten minutes,en,bleeding
+R006,purple spots that do not fade when I press them and I have a high fever,en,meningitis
+R007,my skin is peeling off in big sheets after I took a new tablet,en,severe_drug_reaction
+R008,there is a red line spreading up my arm from the infected cut and I feel feverish,en,infection
+R009,I think I am going to hurt myself tonight,en,self_harm
+R010,I took too many pills a few minutes ago,en,overdose
+R011,my toddler's lips are swelling after a bee sting,en,allergy
+R012,a burn covering most of my back from boiling water,en,burn
+R013,I was shaking uncontrollably and blacked out for a minute,en,seizure
+R014,sudden loss of vision in one eye with a painful blistering rash on my forehead,en,eye
+R015,مجھے سانس لینے میں بہت تکلیف ہو رہی ہے,ur,breathing
+R016,میرے بیٹے کے ہونٹ اور چہرہ پھول گیا ہے اور سانس پھول رہی ہے,ur,allergy
+R017,سینے میں شدید دباؤ اور بائیں بازو میں درد ہے,ur,chest
+R018,زخم سے خون رک ہی نہیں رہا,ur,bleeding
+R019,میں اب جینا نہیں چاہتا,ur,self_harm
+R020,جلد پر جامنی دھبے ہیں جو دبانے سے نہیں جاتے اور تیز بخار ہے,ur,meningitis
+R021,دوا لینے کے بعد پوری جلد اتر رہی ہے اور منہ میں چھالے ہیں,ur,severe_drug_reaction
+R022,میری امی بے ہوش ہو گئی ہیں,ur,unconscious
+R023,ساری کمر ابلتے پانی سے جل گئی ہے,ur,burn
+R024,میں نے بہت ساری گولیاں کھا لی ہیں,ur,overdose
+R025,گلے میں سوجن ہے اور نگلنا مشکل ہو گیا ہے,ur,allergy
+R026,زخم کے گرد سرخ لکیریں پھیل رہی ہیں اور بخار بھی ہے,ur,infection
+R027,mujhe saans lene mein bohat takleef ho rahi hai,roman,breathing
+R028,bachay ka chehra phool gaya hai aur saans phool rahi hai,roman,allergy
+R029,seene mein shadeed dard aur pasina aa raha hai,roman,chest
+R030,zakhm se khoon ruk hi nahi raha,roman,bleeding
+R031,ab mujhe jeena nahi hai,roman,self_harm
+R032,jism par jamni daane hain jo dabane se nahi jaate aur bukhar bohat tez hai,roman,meningitis
+R033,dawai khane ke baad poori jild utar rahi hai aur munh mein chhaale hain,roman,severe_drug_reaction
+R034,meri ammi behosh ho gayi hain,roman,unconscious
+R035,garam pani se meri poori kamar jal gayi hai,roman,burn
+R036,maine bohat saari goliyan kha li hain,roman,overdose
+R037,mujhe lagta hai mera dil band ho raha hai,roman,chest
+R038,gale mein sooj hai aur nigalna mushkil hai,roman,allergy
+R039,zakhm ke gird laal lakeerein phail rahi hain aur bukhar hai,roman,infection
