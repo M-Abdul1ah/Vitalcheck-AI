@@ -1,6 +1,6 @@
 # Vital Check AI – Own Model Training Plan
 
-Muhammad Abdullah Nawaz | SAP ID: 70174218 | 3 November 2026
+Last updated: 16 November 2026
 
 `[x]` done, `[~]` in progress, `[ ]` to do
 
@@ -22,7 +22,9 @@ Train our own skin image classifier (no external LLM/API for vision), benchmark 
 | Platform | **Google Colab** (Kaggle dataset attach failed; not used) |
 | Dataset source | HAM10000 from Harvard Dataverse, downloaded inside Colab |
 | Seeds | 3 per model, report mean ± std |
-| Model storage | Hugging Face Hub, never Git |
+| Model storage | Hugging Face Hub (`mabdullah218/dermavc-net`), never Git. The app downloads it when the local file is missing |
+
+**Our two own models:** DermaVC-Net (photo, this document) and DermaVC-Text (symptom text, built by the team; see `ROADMAP.md`).
 
 ## 4. The 3 models
 
@@ -45,46 +47,50 @@ Train our own skin image classifier (no external LLM/API for vision), benchmark 
 
 Image size 224, batch 32, Adam, cross-entropy with class weights (nv ~67%), augmentation (flip, rotation, brightness, zoom), early stopping, LR scheduler, best-checkpoint saving. Temperature scaling for calibration.
 
-## 7. Benchmark table (fill from the 9 JSONs)
+## 7. Benchmark table (from the 9 result files, mean ± std over 3 seeds)
 
 | Metric | Model A | Model B | Model C |
 |---|---|---|---|
-| Accuracy (mean ± std) | | | |
-| Macro F1 | | | |
-| Melanoma recall (before threshold) | | | 0.652 (seed 7) |
-| Melanoma recall (threshold 0.25) | | | |
-| AUC | | | |
-| Parameters | | | |
-| Model size (MB) | | | |
-| Inference time (ms/image) | | | |
-| Training time | | | |
-| Best epoch | | | |
-| ECE before / after temperature scaling | | | |
-| Phone-photo accuracy | | | |
+| Accuracy | 0.641 ± 0.007 | 0.563 ± 0.050 | **0.821 ± 0.009** |
+| Macro F1 | 0.481 ± 0.034 | 0.416 ± 0.020 | **0.742 ± 0.014** |
+| Melanoma recall (before threshold) | 0.628 ± 0.021 | 0.604 ± 0.136 | 0.652 ± 0.068 (seed 7: 0.649) |
+| Melanoma recall (threshold 0.25) | not measured yet | not measured yet | not measured yet |
+| AUC | 0.906 ± 0.013 | 0.898 ± 0.008 | **0.968 ± 0.001** |
+| Parameters (million) | 2.36 | 2.23 | 4.02 |
+| Model size (MB) | 9.5 | 9.2 | 16.4 |
+| Inference time (ms/image, training environment) | 3.5 | 5.6 | 8.7 |
+| Training time (min) | 19.2 | 4.0 | 12.0 |
+| ECE before / after temperature scaling | n/a | n/a | 0.070 / 0.029 (seed 7) |
+| Phone-photo accuracy | not measured yet | not measured yet | not measured yet |
 
-Also save: confusion matrices, loss/accuracy curves, Grad-CAM examples.
+Also save: confusion matrices, loss/accuracy curves, Grad-CAM examples. Full details are in `MODEL_CARD.md`.
 
 ## 8. Checklist (sorted)
 
-**A. Validate (now)**
+**A. Validate**
 - [ ] Confirm temperature fitted on val, seed 7 chosen by val score, not test
 - [ ] Re-measure melanoma recall with the 0.25 threshold
-- [ ] Mean ± std table from 9 JSONs
-- [ ] Commit results to `training/`, notebooks 01–05, `requirements.txt`
+- [x] Mean ± std table from the 9 result files
+- [x] Results, splits, `classes.json`, `class_weights.json` committed to `training/`
+- [ ] Notebooks 01–05 committed (still in Colab / Drive) and `requirements.txt` versions pinned
+- [ ] Fill train accuracy in `fit_check.csv`, re-run Model B
 
 **B. Real-world checks**
 - [ ] Phone-photo test (domain gap)
-- [ ] Confidence threshold + OOD check
-- [ ] Grad-CAM heatmaps
+- [x] Confidence rule (below 0.5 = unclear, please see a doctor) and melanoma warning at 0.25 in the app
+- [ ] Out-of-distribution ("not skin") check
+- [x] Grad-CAM heatmap in the app
+- [ ] Look at 20 heatmaps: does the model look at the lesion?
 
 **C. Integration**
-- [ ] Upload `C_effnet_finetune_seed7.pt` + `classes.json` to Hugging Face Hub
-- [ ] Vision agent in Streamlit (top-3 + confidence + heatmap)
-- [ ] Workflow tab and PDF show the vision step
-- [ ] Model card
+- [x] `C_effnet_finetune_seed7.pt` uploaded to Hugging Face Hub (`mabdullah218/dermavc-net`)
+- [x] Vision step in Streamlit (top-3 + confidence + melanoma warning + heatmap)
+- [x] Workflow tab shows the photo step
+- [ ] PDF report includes the photo result
+- [x] Model card (`MODEL_CARD.md`)
 
 **D. Extra research**
-- [ ] Extra dataset and retrain
+- [ ] Extra dataset (acne, eczema, psoriasis) and retrain as v1.1
 - [ ] Fairness test by skin tone
 - [ ] Ablations (class weights vs focal loss, with vs without metadata)
 - [ ] ONNX/TFLite export
@@ -99,14 +105,16 @@ Also save: confusion matrices, loss/accuracy curves, Grad-CAM examples.
 
 1. Abstract 2. Introduction 3. Related Work (Assignment 2, 20 papers) 4. Dataset 5. Methodology (3 models) 6. Experiments and Results 7. Discussion (dermoscopy vs phone gap, fairness, safety) 8. Limitations 9. Conclusion 10. References
 
-## 10. Team roles (R&D-only version)
+## 10. Team roles
 
 | Person | Role |
 |---|---|
-| Abdullah | Lead + ML Engineer: all code, training, evaluation, integration |
-| Yousaf | R&D datasets: dataset/license table, phone photos, class-to-KB draft |
-| Izhan | R&D methods: notes on calibration, OOD, fairness, ablations; paper summaries |
-| Rehman | R&D knowledge: 40-query test set, KB sources and review, Related Work draft |
+| Abdullah | Lead + ML engineer: DermaVC-Net, app integration, evaluation, paper |
+| Yousaf | DermaVC-Text: data lead, baseline models |
+| Izhan | DermaVC-Text: fine-tuned model, calibration, packaging |
+| Rehman | DermaVC-Text: knowledge-base sources, evaluation, model card |
+
+Photo-model tasks that need other people: Yousaf helps collect the consented phone photos. Datasets for the fairness test are found by Yousaf.
 
 ## 11. Risks
 

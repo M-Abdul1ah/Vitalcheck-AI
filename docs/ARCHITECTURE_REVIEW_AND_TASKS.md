@@ -1,6 +1,6 @@
 # Vital Check AI – Architecture Review and Team Tasks
 
-Muhammad Abdullah Nawaz | SAP ID: 70174218 | 3 November 2026
+Last updated: 16 November 2026
 
 `[x]` done, `[~]` in progress, `[ ]` to do
 
@@ -15,87 +15,87 @@ Muhammad Abdullah Nawaz | SAP ID: 70174218 | 3 November 2026
 
 | # | Problem | Fix | Status |
 |---|---|---|---|
-| 1 | README lists voice, accounts, analytics, A2A, nearby doctors that are not on `main` | Rewrite as Built / In progress / Planned | [x] |
-| 2 | LLM code still on `main` (`config.py` crashes without a key, `symptom_chain.py`, `prompts.py`, `tests/test_chain.py`) | Remove; it stays on `archive/llm-prototype` | [x] |
-| 3 | HAM10000 is mostly moles, KB covers eczema, psoriasis, acne | Extra dataset + class-to-KB mapping | [ ] |
-| 4 | Few measured results | 40-query test set, benchmark table, gate recall | [ ] |
-| 5 | KB is small (9 conditions) and unsourced | 25–30 entries, source for each, doctor review | [ ] |
-| 6 | Emergency gate misses Roman Urdu and some red flags | Red-flag test file, recall = 100% | [x] |
+| 1 | README listed voice, accounts, analytics, A2A, nearby doctors that are not on `main` | Rewrite as Built / In progress / Planned | [x] |
+| 2 | LLM code on `main` (`config.py` crashed without a key) | Removed; kept on `archive/llm-prototype`. The LLM comes back as a separate, optional layer | [x] |
+| 3 | HAM10000 is mostly moles, KB covers eczema, psoriasis, acne | Second own model for text (DermaVC-Text) + class-to-KB mapping + extra image dataset later | [~] |
+| 4 | Few measured results | Safety suite with numbers [x]. 40-query test set and retrieval evaluation [ ] | [~] |
+| 5 | KB is small (9 conditions) and unsourced | 25–30 entries, source for each, doctor review (Rehman) | [ ] |
+| 6 | Emergency gate missed Roman Urdu and natural wording (recall was 10% on 39 natural messages) | Pattern rules per emergency type. Now 39 of 39, 0 false alarms on 58 normal messages. This is a dev set: an independent set written by a teammate is still needed | [x] |
 | 7 | Skin-tone bias | Fairness test | [ ] |
-| 8 | Docs out of date (Keras, Kaggle, hybrid-with-LLM) | Replaced by the 3 new docs | [x] |
-| 9 | Streaming shows an answer before the output check can block it | Only matters if an LLM layer returns. Then: buffer first, check, then show | Later |
-| 10 | LLM provider default (gemini) differs from docs (Groq) | Only matters if an LLM layer returns | Later |
+| 8 | Docs out of date | README, roadmap, model card, this file and the training plan updated | [x] |
+| 9 | An LLM answer must not be shown before the output check | Design rule: buffer the answer, check it, then show it | Design |
+| 10 | Photo model failed silently when torch or the file was missing | Clear message in the app, download from Hugging Face Hub, `check_skin_model.py` | [x] |
+| 11 | Output check missed Pakistani brand names and "you have eczema" wording (57% of unsafe test answers blocked) | Brand-name list, prescribing and diagnosis patterns. Now 30 of 30 | [x] |
 
-## 3. Architecture decision (replaces "hybrid")
+## 3. Architecture decision (updated 4 Nov, replaces "no LLM for now")
 
-**No LLM for now.** DermaVC-Net gives top-3 matches + calibrated confidence. A threshold/OOD check decides if the result is shown. The retriever then shows the matching KB entry with its source. The output check runs on the final text.
-
-An LLM explanation layer is optional later (structured output, safety judge). The LLM would never decide the vision result.
+**Hybrid.** Our own models decide; an LLM only explains.
+- **DermaVC-Net** (photo) gives top-3 matches with calibrated confidence. A confidence rule and a melanoma warning decide what is shown.
+- **DermaVC-Text** (symptom text, in progress) gives the likely condition with confidence and asks a follow-up question when it is unsure.
+- The retriever shows the matching knowledge-base entries with their source.
+- An **LLM explainer** (Gemini first, Ollama as local backup, knowledge-base text as the last fallback) writes the answer from the retrieved text only, asks one follow-up question, and a second model acts as a safety judge. Details in `LLM_DESIGN.md`.
+- Rule-based emergency gate before everything and rule-based output check after everything. The LLM never decides the vision result or the emergency gate.
 
 ## 4. Scope
 
 | Do now | Later | Cut |
 |---|---|---|
-| Repo fixes, validate results, HF upload, phone-photo test, OOD, Grad-CAM, vision agent, test sets, CI, KB sources, deploy | LLM layer, follow-up-question agent, session memory, Roman Urdu retrieval tests | A2A servers, voice, accounts, analytics, nearby doctors |
+| Hand-over of DermaVC-Text, LLM explainer, pipeline refactor, evaluation script, phone-photo test, KB sources, 40-query test set, deployment | Follow-up agent and safety judge (after the explainer), session memory, Roman Urdu retrieval tests, Vercel frontend | A2A servers, voice, accounts, analytics, nearby doctors |
 
 ## 5. The 10 additions (status)
 
 | # | Addition | Status |
 |---|---|---|
-| 1 | Calibration (reliability curve, ECE, temperature scaling) | [~] temperature fitted; confirm on val, report ECE |
+| 1 | Calibration (reliability curve, ECE, temperature scaling) | [~] temperature fitted, ECE 0.070 to 0.029; confirm it was fitted on val |
 | 2 | Out-of-distribution check | [ ] |
 | 3 | Fairness test by skin tone | [ ] |
 | 4 | Domain-gap experiment (HAM10000 vs phone photos) | [ ] |
-| 5 | Two evaluation suites (retrieval Recall@3/MRR, safety gate recall) | [ ] |
-| 6 | Structured LLM output (Pydantic) | Later, only with LLM |
-| 7 | GitHub Actions CI (pytest + gitleaks) | [ ] |
+| 5 | Two evaluation suites (retrieval Recall@3/MRR, safety) | [~] safety suite done; retrieval needs the 40 queries |
+| 6 | Structured LLM output (Pydantic) | [ ] with the LLM explainer |
+| 7 | GitHub Actions CI | [~] runs pytest on every push; secret scan (gitleaks) still to add |
 | 8 | ONNX/TFLite export | [ ] |
 | 9 | Ablations | [ ] |
 | 10 | Experiment tracking + pinned requirements | [ ] |
 
 ## 6. Team and tasks
 
-Abdullah does all technical work. The other three do **R&D only**.
+Abdullah does the integration and evaluation. Yousaf, Izhan and Rehman build and train DermaVC-Text and hand over a finished model (see the DermaVC-Text proposal).
 
 ### Abdullah (Lead)
-- [ ] Repo fixes: `.gitignore`, `training/` outputs, notebooks, requirements, LLM cleanup, README
-- [ ] Validate results (val-fitted temperature, melanoma recall at 0.25, mean ± std)
-- [ ] Hugging Face upload, vision agent, Workflow tab, PDF
-- [ ] Phone-photo test, threshold/OOD, Grad-CAM
-- [ ] Retrieval + safety evaluation, pytest, CI
-- [ ] Extra dataset training, fairness, ablations, ONNX
-- [ ] Model card, demo video, paper
+- [x] Repo fixes, photo analysis in the app, model hosting on Hugging Face Hub, safety suite, model card
+- [ ] Merge the LLM explainer, add Ollama, follow-up question, safety judge
+- [ ] Pipeline refactor (`src/pipeline.py`) and evaluation script
+- [ ] Phone-photo test, out-of-distribution check, 20 heatmap checks, fairness test
+- [ ] Validate results (val-fitted temperature, melanoma recall at 0.25)
+- [ ] Integrate DermaVC-Text, deploy, paper, demo video
 
-### Yousaf (R&D – datasets)
-- [ ] 2–3 extra common-conditions datasets: name, link, size, classes, license
-- [ ] 2 skin-tone-labelled datasets (Fitzpatrick17k, DDI), same table
-- [ ] 10–20 consented phone photos (no faces or identifying details)
-- [ ] Draft class-to-KB table (each class matches a KB entry or "missing")
+### Yousaf (DermaVC-Text: data and models A and B)
+- [ ] Training rows for 12 conditions, test rows for the other 12, clean splits
+- [ ] Notebooks for the TF-IDF baseline and frozen embeddings, 3 seeds
+- [ ] Consented phone photos for the domain-gap test, skin-tone datasets with licenses
 
-### Izhan (R&D – methods)
-- [ ] 1-page notes: calibration, OOD detection, skin-tone fairness
-- [ ] 1-page note: ablation ideas
-- [ ] Summarize papers 8–13 of Assignment 2 (model, dataset, result, limitation)
+### Izhan (DermaVC-Text: model C)
+- [ ] Training rows for 12 conditions and the 4 other labels, test rows for 12 conditions
+- [ ] Fine-tuned model, calibration, confidence threshold, `predict()` package
+- [ ] One-page notes on calibration, out-of-distribution detection, fairness
 
-### Rehman (R&D – knowledge and queries)
-- [ ] 40-query test set (20 English + 20 Urdu) with expected KB entry
-- [ ] Red-flag phrase list (English, Urdu, Roman Urdu) for the gate test
-- [ ] Source for every KB entry, `sources.md`, doctor/student review
-- [ ] Related Work draft from Assignment 2
+### Rehman (DermaVC-Text: knowledge and evaluation)
+- [ ] Knowledge-base entries with sources for the 15 new conditions
+- [ ] Human test rows for the 4 other labels, review of 10% of training rows
+- [ ] Evaluation notebook, model card, 40-query test set, a fresh independent list of 30 red-flag messages for the safety gate
 
 ## 7. Team rules
 
-- Work comes as `.md` in `docs/research/` (or a Google Doc link) to Abdullah. He reviews and commits.
-- One issue per task, one branch per feature.
+- Share files in one Google Drive folder (or a Google Doc link). Abdullah reviews and commits.
+- One issue per task, one branch per feature, pull request into `main`.
 - Never share keys, datasets or model files in chat.
-- Weekly 15-minute standup: done, doing, blocked.
+- Check-in twice a week: done, doing, blocked.
 - Roadmap updated after every finished task.
 
-## 8. Timeline (4 weeks)
+## 8. Timeline
 
 | Week | Work |
 |---|---|
-| 1 | Repo fixes, validate results, HF upload, 40-query set, KB sources started |
-| 2 | Phone-photo test, threshold/OOD, Grad-CAM, red-flag tests, CI |
-| 3 | Vision agent in app, retrieval evaluation, extra dataset, fairness |
-| 4 | README, deploy, model card, paper, demo video |
+| 1 | Data writing for DermaVC-Text, knowledge-base sources, LLM explainer merged |
+| 2 | Team trains DermaVC-Text. Abdullah: pipeline refactor, evaluation script, phone-photo test |
+| 3 | Hand-over and integration, evaluation numbers, paper, demo video, deployment |
