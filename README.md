@@ -105,9 +105,7 @@ tests/                      pytest tests
 | Member | Role |
 |---|---|
 | M. Abdullah Nawaz | Team lead, ML engineer: architecture, DermaVC-Net, integration, evaluation |
-| M. Yousaf | DermaVC-Text: data and baseline models |
-| Izhan Malik | DermaVC-Text: fine-tuned model, calibration, packaging |
-| AbdulRehman | DermaVC-Text: knowledge-base sources, evaluation, model card |
+
 
 ## Known limits
 
