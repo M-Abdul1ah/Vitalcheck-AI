@@ -1,0 +1,185 @@
+id,text,label,language,source,author
+TEST_0001,itchy dry red patches inside my elbows and knees,eczema,en,human_authored,izhan
+TEST_0002,"skin is cracked, peeling and oozing clear liquid when scratched",eczema,en,human_authored,izhan
+TEST_0003,meri kohni ke andar wali side par bohot khujli aur dry patches hain,eczema,roman,human_authored,izhan
+TEST_0004,ghutno ke peeche surkh nishan hain aur kharish bohot zyada hoti hai,eczema,roman,human_authored,izhan
+TEST_0005,میری کہنی کے اندرونی حصے اور گھٹنوں کے پیچھے شدید خارش اور خشک دھبے ہیں,eczema,ur,human_authored,izhan
+TEST_0006,جلد پر سرخ نشان بن گئے ہیں اور کھجانے سے ہلکا پانی رستا ہے,eczema,ur,human_authored,izhan
+TEST_0007,thick red patches on elbows covered with silvery white flaky scales,psoriasis,en,human_authored,izhan
+TEST_0008,scaly plaques on lower back and knees that burn and crack,psoriasis,en,human_authored,izhan
+TEST_0009,kohni aur ghutno par motay surkh patches hain jin par safed chilkay hain,psoriasis,roman,human_authored,izhan
+TEST_0010,kamar ke nichlay hissay par silver rang ke flakes aur red plaques hain,psoriasis,roman,human_authored,izhan
+TEST_0011,کہنیوں اور گھٹنوں پر موٹے سرخ نشانات جن پر چاندی جیسے سفید چھلکے ہیں,psoriasis,ur,human_authored,izhan
+TEST_0012,سر کی جلد پر موٹی سفید پپڑیاں جم رہی ہیں اور مسلسل گرتی ہیں,psoriasis,ur,human_authored,izhan
+TEST_0013,painful red pimples and whiteheads covering forehead and chin,acne,en,human_authored,izhan
+TEST_0014,deep cystic nodules and swollen inflamed bumps on cheeks,acne,en,human_authored,izhan
+TEST_0015,"chehre, mathe aur thori par dardnak surkh daane aur pimples hain",acne,roman,human_authored,izhan
+TEST_0016,gaal par peep wale daane aur skin ke andar dard karne wali cysts hain,acne,roman,human_authored,izhan
+TEST_0017,چہرے، ماتھے اور ٹھوڑی پر دردناک سرخ دانے اور پیپ والی پھنسیاں ہیں,acne,ur,human_authored,izhan
+TEST_0018,گالوں پر گہری درد کرنے والی گلٹیاں اور سوجے ہوئے دانے ہیں,acne,ur,human_authored,izhan
+TEST_0019,circular red rash with a raised scaly border and clearer center,ringworm,en,human_authored,izhan
+TEST_0020,ring shaped expanding itchy patch on my forearm,ringworm,en,human_authored,izhan
+TEST_0021,bazu par gol chakkar numa daagh hai jis ke kinare surkh aur ubhre hue hain,ringworm,roman,human_authored,izhan
+TEST_0022,rung jaisa gol daagh hai jo darmiyan se saaf hai aur kinaron par khujli hai,ringworm,roman,human_authored,izhan
+TEST_0023,بازو پر گول دائرے کی شکل کا سرخ نشان جس کے کنارے ابھرے ہوئے اور کھردرے ہیں,ringworm,ur,human_authored,izhan
+TEST_0024,رنگ کی شکل کا خارش زدہ نشان جو درمیان سے صاف ہے اور پھیل رہا ہے,ringworm,ur,human_authored,izhan
+TEST_0025,itchy blistered red rash where my watch strap touched my wrist,contact_dermatitis,en,human_authored,izhan
+TEST_0026,burning red swelling on face after trying a new cosmetic cream,contact_dermatitis,en,human_authored,izhan
+TEST_0027,kalai par ghari ke patte wali jagah par surkh daane aur khujli ho gayi hai,contact_dermatitis,roman,human_authored,izhan
+TEST_0028,naya soap use karne ke baad chehre par jalan aur surkhi ho gayi hai,contact_dermatitis,roman,human_authored,izhan
+TEST_0029,کلائی پر گھڑی کے پٹے والی جگہ پر سرخ ریش اور باریک چھالے بن گئے ہیں,contact_dermatitis,ur,human_authored,izhan
+TEST_0030,نئی صابن یا کاسمیٹک کریم لگانے کے فوراً بعد چہرے پر جلن اور سرخی ہو گئی ہے,contact_dermatitis,ur,human_authored,izhan
+TEST_0031,raised red itchy welts appearing and moving across my arms and belly,hives,en,human_authored,izhan
+TEST_0032,sudden breakout of swollen pink hives all over legs that itch fiercely,hives,en,human_authored,izhan
+TEST_0033,jism par baray baray ubhre hue lal thappad ban rahe hain jo move hotay hain,hives,roman,human_authored,izhan
+TEST_0034,achanak bazuon aur pait par motay itchy welts nikal aaye hain,hives,roman,human_authored,izhan
+TEST_0035,جسم پر جگہ جگہ بڑے اور ابھرے ہوئے سرخ تھپڑ بن رہے ہیں جن میں شدید خارش ہے,hives,ur,human_authored,izhan
+TEST_0036,اچانک بازوؤں اور پیٹ پر سوجے ہوئے لال نشانات نمودار ہو گئے ہیں,hives,ur,human_authored,izhan
+TEST_0037,unbearable itching between fingers and wrists that gets far worse at night,scabies,en,human_authored,izhan
+TEST_0038,tiny itchy red bumps and thin gray burrow lines on my hands and waist,scabies,en,human_authored,izhan
+TEST_0039,unglion ke darmiyan aur kalai par raat ko shadeed tareen khujli hoti hai,scabies,roman,human_authored,izhan
+TEST_0040,raat ko bistar mein letnay par aisi kharish hoti hai ke neend nahi aati,scabies,roman,human_authored,izhan
+TEST_0041,انگلیوں کے درمیانی خلا اور کلائیوں پر رات کے وقت ناقابل برداشت خارش ہوتی ہے,scabies,ur,human_authored,izhan
+TEST_0042,ہاتھوں اور پیٹ پر باریک سرخ دانے ہیں اور باریک ٹیڑھی میڑھی لکیریں دکھائی دے رہی ہیں,scabies,ur,human_authored,izhan
+TEST_0043,"my lower leg is rapidly becoming red, hot, swollen and very painful to touch",cellulitis,en,human_authored,izhan
+TEST_0044,"spreading redness on calf with high fever, chills and tight shiny skin",cellulitis,en,human_authored,izhan
+TEST_0045,"tang par surkhi bohot tezi se phail rahi hai, jild garam aur sooji hui hai",cellulitis,roman,human_authored,izhan
+TEST_0046,"pindli par shadeed dard, garmi aur soojan hai aur sath mein tez bukhar hai",cellulitis,roman,human_authored,izhan
+TEST_0047,ٹانگ پر سرخی بہت تیزی سے پھیل رہی ہے، جلد گرم، متورم اور چھونے پر شدید درد ہے,cellulitis,ur,human_authored,izhan
+TEST_0048,پنڈلی پر شدید سوجن اور تپش ہے اور ساتھ میں تیز بخار اور کپکپی ہو رہی ہے,cellulitis,ur,human_authored,izhan
+TEST_0049,mole on my back has asymmetrical borders and uneven dark brown and black colors,melanoma_warning_signs,en,human_authored,izhan
+TEST_0050,a birthmark that has grown larger than a pencil eraser and is changing shape,melanoma_warning_signs,en,human_authored,izhan
+TEST_0051,kamar par til ka daira ajeeb ho gaya hai aur rang kala aur brown mix hai,melanoma_warning_signs,roman,human_authored,izhan
+TEST_0052,til ka size pencil ki rubber se bara ho gaya hai aur shape badal rahi hai,melanoma_warning_signs,roman,human_authored,izhan
+TEST_0053,کمر پر موجود تل کی ساخت بے قاعدہ ہو گئی ہے اور اس میں کالا اور بھورا رنگ مکس ہے,melanoma_warning_signs,ur,human_authored,izhan
+TEST_0054,ایک تل کا سائز پنسل کے پچھلے ربڑ سے بڑا ہو گیا ہے اور اس کی شکل بدل رہی ہے,melanoma_warning_signs,ur,human_authored,izhan
+TEST_0055,white dry flakes falling from my itchy scalp onto my dark shirt,dandruff,en,human_authored,izhan
+TEST_0056,greasy yellowish scaly dandruff covering the crown of my head with mild itch,dandruff,en,human_authored,izhan
+TEST_0057,sar se safed khushk chilke girtay hain jo shirt par nazar aatay hain,dandruff,roman,human_authored,izhan
+TEST_0058,sar ki jild mein khushki aur dandruff hai aur halki kharish rehti hai,dandruff,roman,human_authored,izhan
+TEST_0059,سر سے خشک سفید چھلکے گرتے ہیں جو بالوں اور قمیض کے کندھوں پر نظر آتے ہیں,dandruff,ur,human_authored,izhan
+TEST_0060,سر کی جلد میں روغنی پیلے رنگ کی پپڑی جم رہی ہے اور ہلکی خارش ہے,dandruff,ur,human_authored,izhan
+TEST_0061,white peeling soggy skin and intense burning itch between my toes,fungal_infection,en,human_authored,izhan
+TEST_0062,red chafed raw itchy rash in groin folds that smells musty,fungal_infection,en,human_authored,izhan
+TEST_0063,paon ki ungliyon ke beech safed geeli jild chil gayi hai aur khujli hai,fungal_infection,roman,human_authored,izhan
+TEST_0064,groin aur thigh ke joron mein shadeed kharish aur lal chhilka utar raha hai,fungal_infection,roman,human_authored,izhan
+TEST_0065,پاؤں کی انگلیوں کے درمیان سفید، بھیگی ہوئی جلد چھل رہی ہے اور شدید جلن ہے,fungal_infection,ur,human_authored,izhan
+TEST_0066,رانوں کے جوڑ اور زیر ناف حصے میں پسینے سے سرخ، چھلا ہوا ریش اور خارش ہے,fungal_infection,ur,human_authored,izhan
+TEST_0067,rough hard bumpy growths on fingers with tiny black dots inside,warts,en,human_authored,izhan
+TEST_0068,painful hard growth on the sole of my foot that hurts when walking like a pebble,warts,en,human_authored,izhan
+TEST_0069,haath ki unglion par sakht khurdura masa nikal aaya hai jis mein kalay nuqtay hain,warts,roman,human_authored,izhan
+TEST_0070,paon ke talway par sakht kanta jaisa masa hai chalnay par dard karta hai,warts,roman,human_authored,izhan
+TEST_0071,ہاتھ کی انگلیوں پر سخت، کھردرے مسے نکل آئے ہیں جن کے اندر باریک کالے نقطے ہیں,warts,ur,human_authored,izhan
+TEST_0072,پاؤں کے تلوے پر سخت موکا بن گیا ہے جس پر وزن ڈالنے سے کنکر کی طرح چبھتا ہے,warts,ur,human_authored,izhan
+TEST_0073,red sores around my child's nose and mouth that broke and formed honey colored crusts,impetigo,en,human_authored,yousaf
+TEST_0074,oozing golden-yellow crusted blisters on toddler's cheek that spread easily,impetigo,en,human_authored,yousaf
+TEST_0075,bachay ke naak aur munh ke gird surkh daano se shehad jaisi peeli papri ban gayi hai,impetigo,roman,human_authored,yousaf
+TEST_0076,chotay bachay ke gaal par zard rang ki sticky paptian jam rahi hain,impetigo,roman,human_authored,yousaf
+TEST_0077,بچے کی ناک اور منہ کے گرد سرخ چھالے پھٹ کر شہد کے رنگ کی زرد پپڑیاں بنا رہے ہیں,impetigo,ur,human_authored,yousaf
+TEST_0078,چھوٹے بچے کے گال پر زرد رنگ کی چپچپی پپڑیاں تیزی سے پھیل رہی ہیں,impetigo,ur,human_authored,yousaf
+TEST_0079,smooth milky white patches spreading symmetrically on my hands and around eyes,vitiligo,en,human_authored,yousaf
+TEST_0080,complete loss of skin pigment leaving chalk-white smooth spots on lips,vitiligo,en,human_authored,yousaf
+TEST_0081,haathon aur ankhon ke gird jild par doodh jaisay safed dhabay ban rahay hain,vitiligo,roman,human_authored,yousaf
+TEST_0082,skin ka rang bilkul urh gaya hai aur chalk jaisi safed spots ban gayi hain,vitiligo,roman,human_authored,yousaf
+TEST_0083,ہاتھوں اور آنکھوں کے گرد دودھ جیسے چاک سفید دھبے متناسب طور پر پھیل رہے ہیں,vitiligo,ur,human_authored,yousaf
+TEST_0084,جلد کی رنگت بالکل اڑ گئی ہے اور ہونٹوں پر دودھیا سفید نشانات بن گئے ہیں,vitiligo,ur,human_authored,yousaf
+TEST_0085,tiny prickling red bumps in neck folds and back after sweating in hot weather,heat_rash,en,human_authored,yousaf
+TEST_0086,prickly heat rash on chest with tiny itchy papules and sweat stinging,heat_rash,en,human_authored,yousaf
+TEST_0087,garmi aur paseene se gardan aur kamar par bareek bareek laal garmi daane nikal aye hain,heat_rash,roman,human_authored,yousaf
+TEST_0088,garmi daanon mein bohot sooi jaisi chubhan aur jalan mehsoos hoti hai,heat_rash,roman,human_authored,yousaf
+TEST_0089,گرمی اور پسینے کی وجہ سے گردن اور کمر پر باریک سرخ گرمی دانے نکل آئے ہیں,heat_rash,ur,human_authored,yousaf
+TEST_0090,پسینہ آتے ہی سینے اور پیٹھ پر سوئی کی طرح چبھن اور خارش ہوتی ہے,heat_rash,ur,human_authored,yousaf
+TEST_0091,bright red hot skin on my shoulders and back peeling painfully after sun exposure,sunburn,en,human_authored,yousaf
+TEST_0092,severe sunburn with tight burning red skin and small blisters after a day at the beach,sunburn,en,human_authored,yousaf
+TEST_0093,dhoop mein rehnay se kandhay aur kamar bilkul laal aur aag ki tarah garam ho gaye hain,sunburn,roman,human_authored,yousaf
+TEST_0094,dhoop se chehra aur gardan jal gayi hai hath lagane par shadeed dard hota hai,sunburn,roman,human_authored,yousaf
+TEST_0095,دھوپ میں رہنے کی وجہ سے کندھے اور کمر بالکل سرخ اور آگ کی طرح تپ رہے ہیں,sunburn,ur,human_authored,yousaf
+TEST_0096,شدید دھوپ سے چہرہ اور گردن جھلس گئی ہے اور چھونے پر سخت جلن ہوتی ہے,sunburn,ur,human_authored,yousaf
+TEST_0097,swollen itchy red bumps on my ankles after walking outside in grassy area,insect_bites,en,human_authored,yousaf
+TEST_0098,three raised itchy bite marks in a line on my arm that burn and swell,insect_bites,en,human_authored,yousaf
+TEST_0099,grass mein chalnay ke baad takhnon par machhar ya keeray ke katay lal daane hain,insect_bites,roman,human_authored,yousaf
+TEST_0100,bazu par teen chaar keeray ke katay motay lal daane hain jin mein khujli hai,insect_bites,roman,human_authored,yousaf
+TEST_0101,گھاس میں چلنے کے بعد ٹخنوں پر مچھر یا کیڑے کے کاٹے ہوئے سوجے سرخ دانے بن گئے ہیں,insect_bites,ur,human_authored,yousaf
+TEST_0102,بازو پر کیڑے کے کاٹنے کے تین چار موٹے سرخ نشانات ہیں جن میں شدید خارش ہے,insect_bites,ur,human_authored,yousaf
+TEST_0103,tight rough flaky skin on my legs that itches slightly in winter,dry_skin,en,human_authored,yousaf
+TEST_0104,dull ash-colored dry skin on shins that feels like fine sandpaper,dry_skin,en,human_authored,yousaf
+TEST_0105,sardiyon mein taangon ki skin bohot khushk aur khurduri ho kar chilkay nikal rahi hai,dry_skin,roman,human_authored,yousaf
+TEST_0106,jild bohot khinchi hui aur dry mehsoos hoti hai khas tor par shower ke baad,dry_skin,roman,human_authored,yousaf
+TEST_0107,سردیوں میں ٹانگوں کی جلد بہت خشک، کھردری اور بے جان ہو کر باریک چھلکے چھوڑ رہی ہے,dry_skin,ur,human_authored,yousaf
+TEST_0108,جلد پر کھنچاؤ اور سختی کا احساس ہوتا ہے خاص طور پر نہانے کے فوراً بعد,dry_skin,ur,human_authored,yousaf
+TEST_0109,small itchy red bumps and white-tipped pimples around hair follicles after shaving,folliculitis,en,human_authored,yousaf
+TEST_0110,cluster of tiny tender pustules pierced by hair strands on my neck,folliculitis,en,human_authored,yousaf
+TEST_0111,shave karne ke baad gardan aur daari wali jagah par baalon ke ird gird chotay dane nikle hain,folliculitis,roman,human_authored,yousaf
+TEST_0112,baalon ki jaron mein barik peeli phunsiyan ban gayi hain jin mein khujli hai,folliculitis,roman,human_authored,yousaf
+TEST_0113,شیو کرنے کے بعد گردن اور داڑھی کی جگہ پر بالوں کی جڑوں کے گرد باریک سرخ دانے نکل آئے ہیں,folliculitis,ur,human_authored,yousaf
+TEST_0114,بالوں کی جڑوں میں باریک پیپ والی پھنسیاں بن گئی ہیں جن میں کھجلی اور چبھن ہے,folliculitis,ur,human_authored,yousaf
+TEST_0115,a large painful red swollen lump with a yellowish pus center on my inner thigh,boils,en,human_authored,yousaf
+TEST_0116,throbbing tender boil on my neck that is firm and getting more painful,boils,en,human_authored,yousaf
+TEST_0117,ran par aik bara bohot dardnak laal phora nikal aaya hai jis mein peep hai,boils,roman,human_authored,yousaf
+TEST_0118,gardan ke peeche mota dukhne wala boil hai jo dhak dhak dard kar raha hai,boils,roman,human_authored,yousaf
+TEST_0119,ران پر ایک بڑا اور انتہائی دردناک سرخ پھوڑا نکل آیا ہے جس میں پیپ بھری ہوئی ہے,boils,ur,human_authored,yousaf
+TEST_0120,گردن کے پچھلے حصے پر موٹا دکھتا ہوا پھوڑا ہے جو نبض کی طرح دھڑکتا ہے,boils,ur,human_authored,yousaf
+TEST_0121,rough goosebump-like tiny bumps on the back of my upper arms,keratosis_pilaris,en,human_authored,yousaf
+TEST_0122,strawberry skin appearance on thighs with dry tiny painless bumps,keratosis_pilaris,en,human_authored,yousaf
+TEST_0123,bazuon ke pichlay hissay par goosebumps jaisay rough chotay chotay daane hain,keratosis_pilaris,roman,human_authored,yousaf
+TEST_0124,upper arms par sandpaper jaisi khurduri jild hai jaise chicken skin ho,keratosis_pilaris,roman,human_authored,yousaf
+TEST_0125,بازوؤں کے پچھلے حصے پر مرغی کی کھال جیسے باریک کھردرے دانے ہیں جو چھونے پر ریتلے لگتے ہیں,keratosis_pilaris,ur,human_authored,yousaf
+TEST_0126,رانوں اور بازوؤں پر اسٹرابیری جلد جیسے باریک، بے درد اور کھردرے ابھار ہیں,keratosis_pilaris,ur,human_authored,yousaf
+TEST_0127,dark grayish-brown patches spreading symmetrically over my cheeks and forehead,melasma,en,human_authored,yousaf
+TEST_0128,"brown blotchy hyperpigmentation on my upper lip, bridge of nose and cheeks",melasma,en,human_authored,yousaf
+TEST_0129,gaalon aur mathe par brown rang ke baray baray daagh chaaiyan ban gayi hain,melasma,roman,human_authored,yousaf
+TEST_0130,chehre par pregnancy ke baad se doono taraf dark brown patches hain,melasma,roman,human_authored,yousaf
+TEST_0131,گالوں اور ماتھے پر بھورے اور سرمئی رنگ کے چھائیوں کے بڑے دھبے دونوں طرف پھیل رہے ہیں,melasma,ur,human_authored,yousaf
+TEST_0132,حمل کے بعد سے چہرے پر گہرے بھورے ناہموار داغ بن گئے ہیں جنہیں چھائیاں کہتے ہیں,melasma,ur,human_authored,yousaf
+TEST_0133,tingling and burning sensation followed by small fluid blisters on my lip border,cold_sores,en,human_authored,yousaf
+TEST_0134,painful cluster of fever blisters on the corner of my mouth that broke into a crust,cold_sores,en,human_authored,yousaf
+TEST_0135,hont ke kinare par pehle jalan hui aur ab barik pani wale chhalay ban gaye hain,cold_sores,roman,human_authored,yousaf
+TEST_0136,honton par bukhar ke baad se dardnak chhalay nikle hain jin se papri ban rahi hai,cold_sores,roman,human_authored,yousaf
+TEST_0137,ہونٹ کے کنارے پر پہلے سوئیاں چبھنے کی جلن ہوئی اور پھر باریک پانی والے چھالے بن گئے,cold_sores,ur,human_authored,yousaf
+TEST_0138,بخار کے بعد ہونٹ کے کونے پر دردناک چھالوں کا گچھا نکل آیا ہے جس پر اب پپڑی جم رہی ہے,cold_sores,ur,human_authored,yousaf
+TEST_0139,intense crawling and itching sensation all over scalp with tiny white nits stuck to hair,scalp_lice,en,human_authored,yousaf
+TEST_0140,scratching head constantly with tiny oval white eggs glued firmly to hair shafts,scalp_lice,en,human_authored,yousaf
+TEST_0141,sar mein aisi khujli hoti hai jaise kuch reng raha ho aur baalon par juen hain,scalp_lice,roman,human_authored,yousaf
+TEST_0142,sar ke baalon ki jaron par safed leekhain chipki hui hain jo hilti nahi,scalp_lice,roman,human_authored,yousaf
+TEST_0143,سر میں شدید رینگنے اور خارش کا احساس ہے اور بالوں کی جڑوں کے ساتھ باریک سفید لئیں چپکی ہیں,scalp_lice,ur,human_authored,yousaf
+TEST_0144,سر کو مسلسل کھرچنے پر بھی خارش نہیں تھمتی اور بالوں کے ساتھ انڈے مضبوطی سے چمٹے ہیں,scalp_lice,ur,human_authored,yousaf
+TEST_0145,hello doctor,greeting,en,human_authored,rehman
+TEST_0146,hi good morning,greeting,en,human_authored,rehman
+TEST_0147,hey there,greeting,en,human_authored,rehman
+TEST_0148,greetings,greeting,en,human_authored,rehman
+TEST_0149,assalam o alaikum,greeting,roman,human_authored,rehman
+TEST_0150,salam doctor sahab,greeting,roman,human_authored,rehman
+TEST_0151,aoa kia hal hai,greeting,roman,human_authored,rehman
+TEST_0152,السلام علیکم,greeting,ur,human_authored,rehman
+TEST_0153,سلام ڈاکٹر صاحب,greeting,ur,human_authored,rehman
+TEST_0154,ہیلو کیسے ہیں آپ,greeting,ur,human_authored,rehman
+TEST_0155,help,too_vague,en,human_authored,rehman
+TEST_0156,i need help,too_vague,en,human_authored,rehman
+TEST_0157,help me please,too_vague,en,human_authored,rehman
+TEST_0158,i have a problem,too_vague,en,human_authored,rehman
+TEST_0159,mujhe madad chahiye,too_vague,roman,human_authored,rehman
+TEST_0160,meri madad karo,too_vague,roman,human_authored,rehman
+TEST_0161,mera masla hai,too_vague,roman,human_authored,rehman
+TEST_0162,مدد چاہیے,too_vague,ur,human_authored,rehman
+TEST_0163,میری مدد کریں,too_vague,ur,human_authored,rehman
+TEST_0164,مجھے جلد کا مسئلہ ہے,too_vague,ur,human_authored,rehman
+TEST_0165,what is the weather in lahore today,off_topic,en,human_authored,rehman
+TEST_0166,how to cook chicken biryani recipe,off_topic,en,human_authored,rehman
+TEST_0167,who is the current prime minister,off_topic,en,human_authored,rehman
+TEST_0168,best smartphone under fifty thousand rupees,off_topic,en,human_authored,rehman
+TEST_0169,aaj lahore ka mosam kaisa hai,off_topic,roman,human_authored,rehman
+TEST_0170,biryani banane ka tareeqa batao,off_topic,roman,human_authored,rehman
+TEST_0171,pakistan ka prime minister kon hai,off_topic,roman,human_authored,rehman
+TEST_0172,آج لاہور کا موسم کیسا ہے؟,off_topic,ur,human_authored,rehman
+TEST_0173,بریانی بنانے کی ترکیب بتا دیں,off_topic,ur,human_authored,rehman
+TEST_0174,پاکستان کا موجودہ وزیر اعظم کون ہے؟,off_topic,ur,human_authored,rehman
+TEST_0175,"my toenails have turned thick, yellowish and brittle with chalky crumbling",other_skin,en,human_authored,rehman
+TEST_0176,severe hair loss on crown with thinning hair when brushing,other_skin,en,human_authored,rehman
+TEST_0177,thick red raised keloid scar forming after a surgical wound,other_skin,en,human_authored,rehman
+TEST_0178,deep stretch marks appearing across abdomen after sudden weight gain,other_skin,en,human_authored,rehman
+TEST_0179,"paon ke nakhun peele, motay aur toot phoot rahay hain",other_skin,roman,human_authored,rehman
+TEST_0180,sar se bohot zyada baal gir rahay hain ganjapan shuru ho gaya hai,other_skin,roman,human_authored,rehman
+TEST_0181,surgery ke zakhmi nishan par mota laal keloid scar ubhar aya hai,other_skin,roman,human_authored,rehman
+TEST_0182,پاؤں کے ناخن پیلے، موٹے اور بھربھرے ہو کر ٹوٹ رہے ہیں,other_skin,ur,human_authored,rehman
+TEST_0183,سر کے بال بہت تیزی سے جھڑ رہے ہیں اور گنج پن ظاہر ہو رہا ہے,other_skin,ur,human_authored,rehman
+TEST_0184,آپریشن کے زخم کی جگہ پر ابھرا ہوا موٹا سرخ نشان یا کیلوئڈ بن گیا ہے,other_skin,ur,human_authored,rehman

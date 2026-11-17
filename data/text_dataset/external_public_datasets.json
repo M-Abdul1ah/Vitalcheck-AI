@@ -1,0 +1,28 @@
+{
+  "sources": [
+    {
+      "name": "gretelai/symptom_to_diagnosis",
+      "platform": "Hugging Face Datasets",
+      "url": "https://huggingface.co/datasets/gretelai/symptom_to_diagnosis",
+      "format": "Parquet / JSONL",
+      "license": "Apache-2.0",
+      "code": "from datasets import load_dataset\nds = load_dataset('gretelai/symptom_to_diagnosis')"
+    },
+    {
+      "name": "Symptom2Disease",
+      "platform": "Kaggle",
+      "url": "https://www.kaggle.com/datasets/niyarrbarman/symptom2disease",
+      "format": "CSV (label, text)",
+      "license": "CC0: Public Domain",
+      "code": "import kagglehub\npath = kagglehub.dataset_download('niyarrbarman/symptom2disease')"
+    },
+    {
+      "name": "redlessone/Derm1M",
+      "platform": "Hugging Face Datasets",
+      "url": "https://huggingface.co/datasets/redlessone/Derm1M",
+      "format": "Parquet / Image-Text pairs",
+      "license": "Research Use",
+      "code": "from datasets import load_dataset\nds = load_dataset('redlessone/Derm1M', split='train')"
+    }
+  ]
+}

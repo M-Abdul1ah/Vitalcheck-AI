@@ -1,0 +1,61 @@
+{
+  "dataset_name": "PakDermaText-28",
+  "version": "2.0_clean",
+  "num_classes": 28,
+  "total_training_corpus": 2800,
+  "train_split_count": 2240,
+  "val_split_count": 560,
+  "locked_test_count": 184,
+  "languages": [
+    "en",
+    "roman",
+    "ur"
+  ],
+  "language_distribution_train": {
+    "en": 980,
+    "roman": 980,
+    "ur": 840
+  },
+  "classes": [
+    "eczema",
+    "psoriasis",
+    "acne",
+    "ringworm",
+    "contact_dermatitis",
+    "hives",
+    "scabies",
+    "cellulitis",
+    "melanoma_warning_signs",
+    "dandruff",
+    "fungal_infection",
+    "warts",
+    "impetigo",
+    "vitiligo",
+    "heat_rash",
+    "sunburn",
+    "insect_bites",
+    "dry_skin",
+    "folliculitis",
+    "boils",
+    "keratosis_pilaris",
+    "melasma",
+    "cold_sores",
+    "scalp_lice",
+    "greeting",
+    "too_vague",
+    "off_topic",
+    "other_skin"
+  ],
+  "files_generated": [
+    "data\\text_dataset\\raw_corpus.csv",
+    "data\\text_dataset\\train.csv",
+    "data\\text_dataset\\val.csv",
+    "data\\text_dataset\\test.csv"
+  ],
+  "audit_checks": {
+    "test_leakage_in_train": 0,
+    "test_leakage_in_val": 0,
+    "train_val_overlap": 0,
+    "non_clinical_modifiers_clean": true
+  }
+}

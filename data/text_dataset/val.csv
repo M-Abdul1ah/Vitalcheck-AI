@@ -1,0 +1,561 @@
+id,text,label,language,source,author
+TR_2662,online shopping ka acha platform konsa hai,off_topic,roman,llm_generated_human_verified,izhan
+TR_1928,firm fluctuating tender red boil on armpit with surrounding warmth since 3 days,boils,en,llm_generated_human_verified,izhan
+TR_0224,persistent facial acne flares with oily skin and tender bumps please advise,acne,en,llm_generated_human_verified,yousaf
+TR_2160,upper lip aur naak par dhoop mein janay se brown nishan mazeed gehre ho jatay hain please ilaj batayein,melasma,roman,llm_generated_human_verified,izhan
+TR_1598,چہرہ اور گال دھوپ سے تمتما رہے ہیں اور گرمی کا احساس جلد سے باہر نکلتا ہے برائے مہربانی علاج بتائیں,sunburn,ur,llm_generated_human_verified,izhan
+TR_1941,aik hi bara surkh soojan wala dhabba hai jo pathar ki tarah sakht aur dardnak hai,boils,roman,llm_generated_human_verified,izhan
+TR_1124,verruca on ball of foot making it uncomfortable to wear hard shoes please advise,warts,en,llm_generated_human_verified,yousaf
+TR_1617,discrete red papules with a tiny central puncture dot that itch terribly - please help,insect_bites,en,llm_generated_human_verified,izhan
+TR_1392,دونوں پاؤں اور کہنیوں پر برابر کے سفید ہموار پیچز ابھر رہے ہیں جلن اور تکلیف ہے,vitiligo,ur,llm_generated_human_verified,izhan
+TR_0678,رات کے وقت خارش کی شدت سے برا حال ہے اور باریک خارش کے دانے ہیں,scabies,ur,llm_generated_human_verified,yousaf
+TR_2004,tiny dry keratotic plugs in hair follicles on posterior arms,keratosis_pilaris,en,llm_generated_human_verified,izhan
+TR_0406,burning itchy rash on hands that started immediately after dishwashing soap,contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_2219,itching and prickly lip followed by painful oozing blisters on outer mouth feels very uncomfortable,cold_sores,en,llm_generated_human_verified,izhan
+TR_1478,گرمی دانوں کی تیز چبھن اور سرخی سے برا حال ہے,heat_rash,ur,llm_generated_human_verified,izhan
+TR_0347,"dekhein doctor, gardan par daad ban gayi hai gol daire ki shakal mein",ringworm,roman,llm_generated_human_verified,yousaf
+TR_2485,امید ہے آپ خیریت سے ہوں گے,greeting,ur,llm_generated_human_verified,izhan
+TR_0085,مجھے گھٹنے کے پیچھے مسلسل خارش اور سوزش کا مسئلہ ہے,eczema,ur,llm_generated_human_verified,yousaf
+TR_1867,folliculitis ho gaya hai shave ke baad baalon ki jaron par sozish hai kal se,folliculitis,roman,llm_generated_human_verified,izhan
+TR_1758,taangon par kheenchi hui khushk jild hai jis mein halki khujli hoti hai jalan mehsoos hoti hai,dry_skin,roman,llm_generated_human_verified,izhan
+TR_2259,cold sore jaisa zakham hont par dard aur swelling kar raha hai kafi pareshan hoon,cold_sores,roman,llm_generated_human_verified,izhan
+TR_1808,tender superficial bumps at the base of hair shafts after shaving legs,folliculitis,en,llm_generated_human_verified,izhan
+TR_0635,"actually scabies rash on inner wrists, armpits and groin area with extreme itching feels very uncomfortable",scabies,en,llm_generated_human_verified,yousaf
+TR_0830,an ugly duckling mole on arm that looks darker and larger than my other spots for 2 weeks,melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_2478,شام بخیر,greeting,ur,llm_generated_human_verified,izhan
+TR_1698,ٹخنوں اور پاؤں پر کیڑوں کے کاٹنے سے لال سوجن اور مسلسل کھجلی ہو رہی ہے برائے مہربانی علاج بتائیں,insect_bites,ur,llm_generated_human_verified,izhan
+TR_0510,i noticed itchy raised wheals that appeared suddenly after eating shellfish,hives,en,llm_generated_human_verified,yousaf
+TR_0503,swollen itchy hives covering torso that fade and reappear elsewhere,hives,en,llm_generated_human_verified,yousaf
+TR_1180,مجھے ہاتھ کی پشت پر سخت گوشت نما کھردرے ابھار ہیں جو کھرچنے سے نہیں ہٹتے,warts,ur,llm_generated_human_verified,yousaf
+TR_0770,bazu par shadeed soojan aur surkhi h jo kal se dugni ho chuki h,cellulitis,roman,llm_generated_human_verified,yousaf
+TR_1321,smooth porcelain white patches on skin that turn pink very easily in sun - please help,vitiligo,en,llm_generated_human_verified,izhan
+TR_1908,tender red nodule growing bigger every day with intense throbbing pain,boils,en,llm_generated_human_verified,izhan
+TR_0877,تل کی رنگت میں اچانک تبدیلی آئی ہے اور کالا پن گہرا ہوتا جا رہا ہے,melanoma_warning_signs,ur,llm_generated_human_verified,yousaf
+TR_1423,tiny sweat pimples in groin and back accompanied by stinging sensation feels very uncomfortable,heat_rash,en,llm_generated_human_verified,izhan
+TR_0089,کہنی کے موڑ پر سرخ سوزش زدہ جلد ہے جو بار بار ابھرتی ہے کافی پریشانی ہے,eczema,ur,llm_generated_human_verified,yousaf
+TR_1761,"sardi ki hawa se haathon ki skin khushk, sakht aur phat rahi hai jalan mehsoos hoti hai",dry_skin,roman,llm_generated_human_verified,izhan
+TR_2794,داڑھی کے بالوں میں گول دائرے کی صورت میں بال جھڑ گئے ہیں کل سے,other_skin,ur,llm_generated_human_verified,izhan
+TR_0615,"doctor, severe itch worse under warm blankets, tiny bumps on wrists and ankles",scabies,en,llm_generated_human_verified,yousaf
+TR_2439,theek hai shukriya,greeting,roman,llm_generated_human_verified,izhan
+TR_1875,بالوں کی جڑوں کے گرد سرخ ابھار ہیں جن کے عین درمیان سے بال نکل رہا ہے,folliculitis,ur,llm_generated_human_verified,izhan
+TR_1697,کسی زہریلے کیڑے کے کاٹنے سے بازو پر سخت ابھار بن گیا ہے اور درد ہے رہنمائی درکار ہے,insect_bites,ur,llm_generated_human_verified,izhan
+TR_1648,masla yeh hai ke raat ko kisi keeray ne kaat liya hai bazu par moti lal gilty jaisi ban gayi hai,insect_bites,roman,llm_generated_human_verified,izhan
+TR_1285,مجھے چھالے پھٹنے کے بعد مائع بہتا ہے اور زرد پپڑی جم جاتی ہے,impetigo,ur,llm_generated_human_verified,izhan
+TR_1329,smooth porcelain white patches on skin that turn pink very easily in sun since yesterday,vitiligo,en,llm_generated_human_verified,izhan
+TR_0625,"severe nocturnal itching all over body, and my family members are also itching since 3 days",scabies,en,llm_generated_human_verified,yousaf
+TR_1070,paseene wali jagahon par ranon ke beech lal daagh aur badboo dar khujlee h,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_1912,severe firm fluctuating tender red boil on armpit with surrounding warmth,boils,en,llm_generated_human_verified,izhan
+TR_2134,i noticed patchy brown facial skin discoloration that gets darker when going out in sun and it hurts constantly,melasma,en,llm_generated_human_verified,izhan
+TR_2760,nakhunon mein fungus lag gayi hai peele aur badnuma ho gaye hain kal se,other_skin,roman,llm_generated_human_verified,izhan
+TR_2222,cluster of tiny painful vesicles on lip margin that scabbed over and it hurts constantly,cold_sores,en,llm_generated_human_verified,izhan
+TR_0574,جلد پر سرخ پتی نکل آئی ہے جو ایک جگہ مٹتی ہے اور دوسری جگہ نکل آتی ہے,hives,ur,llm_generated_human_verified,yousaf
+TR_0572,کچھ کھانے کے بعد پورے بدن پر گرم اور کھجلی والے موٹے دھبے ابھر آئے ہیں,hives,ur,llm_generated_human_verified,yousaf
+TR_0599,تیز کھجلی کے ساتھ جلد پر موٹے ابھار بنتے ہیں اور غائب ہو جاتے ہیں کل سے,hives,ur,llm_generated_human_verified,yousaf
+TR_0370,pait par gol daad jaisa nishan h jis ke edges surkh aur darymiyan saaf h,ringworm,roman,llm_generated_human_verified,yousaf
+TR_1933,"doctor, deep painful furuncle on buttocks that hurts intensely when sitting down - please help",boils,en,llm_generated_human_verified,izhan
+TR_2072,مساموں کے اندر باریک سخت ریشے پھنسے ہوئے ہیں جو مستقل رونگٹے کھڑے رہنے جیسے لگتے ہیں,keratosis_pilaris,ur,llm_generated_human_verified,izhan
+TR_1431,tiny sweat pimples in groin and back accompanied by stinging sensation since 3 days,heat_rash,en,llm_generated_human_verified,izhan
+TR_2124,brown pigmentation marks on upper lip resembling a dark shadow please advise,melasma,en,llm_generated_human_verified,izhan
+TR_1429,prickly heat bumps covering shoulders that feel like tiny needle pricks since yesterday,heat_rash,en,llm_generated_human_verified,izhan
+TR_0275,چہرے پر سفید سر والے دانے مسلسل ابھر رہے ہیں جن میں درد ہے,acne,ur,llm_generated_human_verified,yousaf
+TR_0193,سرخ ابھرے ہوئے چکتوں پر سفید تہہ مسلسل جم رہی ہے کافی پریشانی ہے,psoriasis,ur,llm_generated_human_verified,yousaf
+TR_0756,tang par laal nishan tezi se barh raha hai aur hath lagane par shadeed dard hai bohot takleef hai,cellulitis,roman,llm_generated_human_verified,yousaf
+TR_2545,mujhe doctor ko dikhana hai,too_vague,roman,llm_generated_human_verified,izhan
+TR_2385,مجھے سر کی کھوپڑی میں مسلسل چبھن اور رینگتی ہوئی جوئیں بے چین کر رہی ہیں,scalp_lice,ur,llm_generated_human_verified,izhan
+TR_1401,cluster of tiny pinpoint red dots on underarms and upper chest in summer heat,heat_rash,en,llm_generated_human_verified,izhan
+TR_1217,itchy blisters on face that burst leaving thick amber yellow scabs - please help,impetigo,en,llm_generated_human_verified,izhan
+TR_1411,actually miliaria rubra with small red bumps that itch fiercely whenever I perspire,heat_rash,en,llm_generated_human_verified,izhan
+TR_1996,بغل کے اندر موٹا دردناک گلٹی نما پھوڑا بن گیا ہے جس میں سخت بے چینی ہے کافی پریشانی ہے,boils,ur,llm_generated_human_verified,izhan
+TR_2672,سینے میں شدید درد ہے اور سانس لینے میں دشواری ہو رہی ہے,off_topic,ur,llm_generated_human_verified,izhan
+TR_0455,naya lotion lagaya tha us jagah par foran surkh rash aur jalan shuru ho gayi kafi pareshan hoon,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_0018,rough red skin on my wrists and hands for three weeks and it hurts constantly,eczema,en,llm_generated_human_verified,yousaf
+TR_2127,symmetric brown blotches across forehead and cheekbones with no itching for 2 weeks,melasma,en,llm_generated_human_verified,izhan
+TR_0463,naya lotion lagaya tha us jagah par foran surkh rash aur jalan shuru ho gayi 3 din se,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_2063,sardiyon mein upper arms par permanent roangte kharay honay jaisa rash rehta hai 3 din se,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_0810,i noticed spot on shoulder with jagged irregular notched edges and varying shades,melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_1891,بالوں کی جڑوں کے گرد سرخ ابھار ہیں جن کے عین درمیان سے بال نکل رہا ہے برائے مہربانی علاج بتائیں,folliculitis,ur,llm_generated_human_verified,izhan
+TR_1384,ڈاکٹر صاحب، دونوں پاؤں اور کہنیوں پر برابر کے سفید ہموار پیچز ابھر رہے ہیں,vitiligo,ur,llm_generated_human_verified,izhan
+TR_2276,ہونٹ کی کناری پر پانی والے چھالے اب سوکھ کر دردناک کھرنڈ میں بدل رہے ہیں,cold_sores,ur,llm_generated_human_verified,izhan
+TR_2740,daari ke andar gol ganj ke daira ban gaya hai baal gir gaye hain,other_skin,roman,llm_generated_human_verified,izhan
+TR_1767,dry skin ki wajah se chehra aur haath khurdure aur rough lagte hain bohot takleef hai,dry_skin,roman,llm_generated_human_verified,izhan
+TR_0261,kamar aur seenay par garmi ke bais surkh daane nikal aye hain kal se,acne,roman,llm_generated_human_verified,yousaf
+TR_2011,actually chicken skin rough texture on cheeks and arms that does not itch,keratosis_pilaris,en,llm_generated_human_verified,izhan
+TR_0744,"doctor sahab, tang ki skin bilkul tight, laal aur garam ho chuki hai chhoo bhi nahi sakte",cellulitis,roman,llm_generated_human_verified,yousaf
+TR_0458,belt ke buckle wali jagah pait par surkh nishan aur shadeed kharish hai jalan mehsoos hoti hai,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_2302,unbearable itching behind ears and back of neck caused by head lice,scalp_lice,en,llm_generated_human_verified,izhan
+TR_0174,سر میں موٹی خشکی اور سرخ پیچز ماتھے تک پھیل رہے ہیں,psoriasis,ur,llm_generated_human_verified,yousaf
+TR_0882,مسئلہ یہ ہے کہ بازو پر موجود گہرا تل پچھلے دو مہینوں میں تیزی سے بڑا ہو گیا ہے,melanoma_warning_signs,ur,llm_generated_human_verified,yousaf
+TR_0413,having red patch with tiny fluid blisters right where adhesive tape was applied,contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_2261,hont par achanak sooi chubhne jaisi jalan hui aur peep/pani wale daane ban gaye kal se,cold_sores,roman,llm_generated_human_verified,izhan
+TR_1120,stubborn hard rough papule on index finger with punctate dark spots please advise,warts,en,llm_generated_human_verified,yousaf
+TR_0222,painful throbbing blind pimples under the skin on cheeks and it hurts constantly,acne,en,llm_generated_human_verified,yousaf
+TR_0180,مجھے سفید چھلکے ہٹانے پر ہلکا خون نکلنے لگتا ہے اور جلن ہوتی ہے,psoriasis,ur,llm_generated_human_verified,yousaf
+TR_0419,"hands are swollen, red and peeling after working with cleaning detergent feels very uncomfortable",contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_1997,پہلے چھوٹا دانہ تھا جو اب بڑھ کر ایک بڑا دردناک پیپ سے بھرا پھوڑا بن چکا ہے رہنمائی درکار ہے,boils,ur,llm_generated_human_verified,izhan
+TR_0417,intense rash with small oozing blisters after using a new laundry soap - please help,contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_1719,generalized body skin tightness and flakiness without redness or oozing feels very uncomfortable,dry_skin,en,llm_generated_human_verified,izhan
+TR_2238,bukhar chadhne ke baad hont ke kinare par cold sore nikal aya hai,cold_sores,roman,llm_generated_human_verified,izhan
+TR_0138,ghutnay par surkh moti jild hai aur safed scales utarnay par khoon nikalta hai,psoriasis,roman,llm_generated_human_verified,yousaf
+TR_0974,پیشانی کے بالوں کی لکیر پر خشکی کی سفید پپڑیاں دکھائی دے رہی ہیں,dandruff,ur,llm_generated_human_verified,yousaf
+TR_0755,leg red hot hai aur aag ki tarah garam mehsoos ho rahi hai sath kapkapi hai kafi pareshan hoon,cellulitis,roman,llm_generated_human_verified,yousaf
+TR_2062,pores ke andar bareek sakht chilkay phanse hue hain bazuon par do hafton se,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_1059,sweaty areas mein fungal rash ban gaya hai jo kharish karta hai kafi pareshan hoon,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_0348,masla yeh hai ke sweating ke baad gol rash par bohot shadeed kharish hoti hai,ringworm,roman,llm_generated_human_verified,yousaf
+TR_1313,having smooth porcelain white patches on skin that turn pink very easily in sun,vitiligo,en,llm_generated_human_verified,izhan
+TR_1851,mujhe folliculitis ho gaya hai shave ke baad baalon ki jaron par sozish hai,folliculitis,roman,llm_generated_human_verified,izhan
+TR_1052,shoes pehanne ke baad ungliyon ke darmiyan jalan aur kacha pan ho jata hai bohot takleef hai,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_2384,ڈاکٹر صاحب، بالوں میں زندہ جوؤں اور پکی چپکی ہوئی لئیکھوں کا شدید مسئلہ ہے,scalp_lice,ur,llm_generated_human_verified,izhan
+TR_0812,"severe mole has asymmetric halves and mixed pink, brown and jet-black areas",melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_2046,mujhe pores ke andar bareek sakht chilkay phanse hue hain bazuon par,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_1400,دونوں پاؤں اور کہنیوں پر برابر کے سفید ہموار پیچز ابھر رہے ہیں دو ہفتوں سے,vitiligo,ur,llm_generated_human_verified,izhan
+TR_2598,طبیعت مسلسل خراب ہے,too_vague,ur,llm_generated_human_verified,izhan
+TR_1671,کاٹنے والی جگہ پر سرخ ابھار کے بالکل درمیان میں ایک باریک سوراخ یا نقطہ ہے,insect_bites,ur,llm_generated_human_verified,izhan
+TR_0832,"mole that is crusting, oozing and losing its regular round border since yesterday",melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_1856,shave ke baad razor bumps ban gaye hain jo ab peeli phunsiyan ban chuke hain bohot takleef hai,folliculitis,roman,llm_generated_human_verified,izhan
+TR_1158,ungli par skin color ka sakht masa kafi mahinon se barh raha hai jalan mehsoos hoti hai,warts,roman,llm_generated_human_verified,yousaf
+TR_1271,ہونٹوں کے گرد باریک چھالے تھے جو پھٹ کر زرد شکر یا شہد جیسے چھلکے بن گئے ہیں,impetigo,ur,llm_generated_human_verified,izhan
+TR_2221,crusty tender sore on upper lip edge that started with a tingling sensation - please help,cold_sores,en,llm_generated_human_verified,izhan
+TR_0184,ڈاکٹر صاحب، ناخن کھردرے ہو رہے ہیں اور کہنی پر چاندی جیسی پپڑی ہے,psoriasis,ur,llm_generated_human_verified,yousaf
+TR_0155,sar mein bohot moti khushk papri ban gayi hai jo bahr forehead tak aa rahi hai kafi pareshan hoon,psoriasis,roman,llm_generated_human_verified,yousaf
+TR_2251,mujhe cold sore jaisa zakham hont par dard aur swelling kar raha hai,cold_sores,roman,llm_generated_human_verified,izhan
+TR_1937,baghal mein moti gilty jaisa phora nikal aya hai hath lagane par shadeed dard hai,boils,roman,llm_generated_human_verified,izhan
+TR_2054,pores ke andar bareek sakht chilkay phanse hue hain bazuon par jalan mehsoos hoti hai,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_2607,how to change a car battery,off_topic,en,llm_generated_human_verified,izhan
+TR_1588,کندھوں پر قمیض چھونے سے بھی آگ جیسی تکلیف اور جلن محسوس ہوتی ہے جلن اور تکلیف ہے,sunburn,ur,llm_generated_human_verified,izhan
+TR_0878,ایک تل پر پپڑی بن رہی ہے اور اس کا ابھار غیر متوازن طریقے سے بڑھ رہا ہے,melanoma_warning_signs,ur,llm_generated_human_verified,yousaf
+TR_2744,"salam doctor, haathon ki hatheliyon se har waqt paseena tapakta rehta hai",other_skin,roman,llm_generated_human_verified,izhan
+TR_0664,kamar aur baghal ke qareeb shadeed khujli aur barik daane hain kal se,scabies,roman,llm_generated_human_verified,yousaf
+TR_2718,dark discolored toenail that hurts inside running shoes please advise,other_skin,en,llm_generated_human_verified,izhan
+TR_2534,unexplained skin problem,too_vague,en,llm_generated_human_verified,izhan
+TR_2608,who won yesterday cricket match,off_topic,en,llm_generated_human_verified,izhan
+TR_1197,پاؤں کی ایڑی کے نیچے پلانٹر وارٹ بن گیا ہے اور چلنے پھرنے میں شدید درد ہوتا ہے دو ہفتوں سے,warts,ur,llm_generated_human_verified,yousaf
+TR_0292,جلد کے مسام بند ہو گئے ہیں اور گالوں پر پیپ بھری پھنسیاں ہیں جلن اور تکلیف ہے,acne,ur,llm_generated_human_verified,yousaf
+TR_1510,i noticed peeling dry red skin on nose and forehead after spending hours in direct sunlight,sunburn,en,llm_generated_human_verified,izhan
+TR_0853,til ke kinare uneven aur tedhay medhay hain aur rang ek jaisa nahi hai please ilaj batayein,melanoma_warning_signs,roman,llm_generated_human_verified,yousaf
+TR_1905,throbbing swollen carbuncle with multiple heads on the back of my neck,boils,en,llm_generated_human_verified,izhan
+TR_1770,purey jism par khushki ki wajah se halki kharisht rehti h lekin rash koi nahi h,dry_skin,roman,llm_generated_human_verified,izhan
+TR_0791,سخت بخار کے ساتھ پاؤں اور ٹخنے پر تیزی سے بڑھتی ہوئی دردناک سرخی برائے مہربانی علاج بتائیں,cellulitis,ur,llm_generated_human_verified,yousaf
+TR_1421,prickly heat bumps covering shoulders that feel like tiny needle pricks - please help,heat_rash,en,llm_generated_human_verified,izhan
+TR_1021,sweaty groin rash that has expanded with peeling skin and burning - please help,fungal_infection,en,llm_generated_human_verified,yousaf
+TR_2460,assalam o alaikum doctor,greeting,roman,llm_generated_human_verified,izhan
+TR_0724,expanding hot erythema on arm with red streaks moving upward please advise,cellulitis,en,llm_generated_human_verified,yousaf
+TR_0305,circular red rash that started small and is expanding into a clear ring,ringworm,en,llm_generated_human_verified,yousaf
+TR_2778,ڈاکٹر صاحب، وزن بڑھنے کے بعد پیٹ اور کمر پر کھنچاؤ کے نشانات پڑ گئے ہیں,other_skin,ur,llm_generated_human_verified,izhan
+TR_2649,seenay par shadeed dabao aur baayein bazu mein dard ja raha hai,off_topic,roman,llm_generated_human_verified,izhan
+TR_1796,ٹھنڈی ہواؤں کے باعث ہاتھوں کی جلد بے حد خشک اور کھردری ہو کر پھٹ رہی ہے کل سے,dry_skin,ur,llm_generated_human_verified,izhan
+TR_0912,severe mildly itchy oily white dandruff scales trapped in my hair,dandruff,en,llm_generated_human_verified,yousaf
+TR_1096,چھاتی کے نیچے اور پسینے والے تہوں میں سرخ پھنسیوں کا فنگل انفیکشن ہے کل سے,fungal_infection,ur,llm_generated_human_verified,yousaf
+TR_0011,actually my skin feels intensely dry and itchy with bleeding after scratching,eczema,en,llm_generated_human_verified,yousaf
+TR_1104,stubborn hard rough papule on index finger with punctate dark spots,warts,en,llm_generated_human_verified,yousaf
+TR_1823,burning itchy red dots surrounding hair follicles on thighs feels very uncomfortable,folliculitis,en,llm_generated_human_verified,izhan
+TR_2088,مساموں کے اندر باریک سخت ریشے پھنسے ہوئے ہیں جو مستقل رونگٹے کھڑے رہنے جیسے لگتے ہیں جلن اور تکلیف ہے,keratosis_pilaris,ur,llm_generated_human_verified,izhan
+TR_1825,irritated red bumps centered on hair roots in groin and thighs from tight clothing since 3 days,folliculitis,en,llm_generated_human_verified,izhan
+TR_0958,forehead ki hairline par bhi sar se khushki utar kar aa rahi hai jalan mehsoos hoti hai,dandruff,roman,llm_generated_human_verified,yousaf
+TR_1332,vitiligo spots on hands that have no feeling of itch or rough scale since yesterday,vitiligo,en,llm_generated_human_verified,izhan
+TR_2549,tabiyat theek nahi lag rahi,too_vague,roman,llm_generated_human_verified,izhan
+TR_2172,دونوں گالوں پر بالکل متناسب بھورے چکتوں کی تہہ جمی ہوئی ہے مگر کوئی خارش نہیں ہے,melasma,ur,llm_generated_human_verified,izhan
+TR_0447,"dekhein doctor, naya lotion lagaya tha us jagah par foran surkh rash aur jalan shuru ho gayi",contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_0230,painful throbbing blind pimples under the skin on cheeks for 2 weeks,acne,en,llm_generated_human_verified,yousaf
+TR_1899,بالوں کی جڑوں کے گرد سرخ ابھار ہیں جن کے عین درمیان سے بال نکل رہا ہے جلن اور تکلیف ہے,folliculitis,ur,llm_generated_human_verified,izhan
+TR_2437,shukriya doctor,greeting,roman,llm_generated_human_verified,izhan
+TR_2787,آنکھوں کے گرد اور ماتھے پر بڑھتی عمر کی جھریاں نمایاں ہو رہی ہیں جلن اور تکلیف ہے,other_skin,ur,llm_generated_human_verified,izhan
+TR_1632,firm itchy nodules on arms following outdoor bug bites since yesterday,insect_bites,en,llm_generated_human_verified,izhan
+TR_0583,اصل میں تیز کھجلی کے ساتھ جلد پر موٹے ابھار بنتے ہیں اور غائب ہو جاتے ہیں,hives,ur,llm_generated_human_verified,yousaf
+TR_1791,بازوؤں اور پنڈلیوں پر باریک سفید پاؤڈر نما خشکی جھڑتی ہے برائے مہربانی علاج بتائیں,dry_skin,ur,llm_generated_human_verified,izhan
+TR_1528,sunburned shoulders that feel like burning fire when clothes brush against them since 3 days,sunburn,en,llm_generated_human_verified,izhan
+TR_0587,مچھر کے کاٹنے جیسے ابھرے ہوئے چھپاکی کے نشانات جو چند گھنٹوں میں جگہ بدل لیتے ہیں برائے مہربانی علاج بتائیں,hives,ur,llm_generated_human_verified,yousaf
+TR_0902,persistent white flaky buildup on hair roots with irritated scalp,dandruff,en,llm_generated_human_verified,yousaf
+TR_0981,کچھ دنوں سے سر کی جلد پر ہلکی سرخی کے ساتھ مسلسل سفید فلیکس بن رہے ہیں,dandruff,ur,llm_generated_human_verified,yousaf
+TR_1472,گرمی دانوں میں سخت جلن اور چبھن ہوتی ہے جو ٹھنڈی جگہ جانے پر کم ہوتی ہے,heat_rash,ur,llm_generated_human_verified,izhan
+TR_2006,bumpy sandpaper skin on thighs with trapped hairs in tiny plugs,keratosis_pilaris,en,llm_generated_human_verified,izhan
+TR_0719,deep bacterial skin infection on shin that is red hot and extremely sore feels very uncomfortable,cellulitis,en,llm_generated_human_verified,yousaf
+TR_1614,patient has red itchy bite mark that is swelling and has a tiny crusty center,insect_bites,en,llm_generated_human_verified,izhan
+TR_0397,جسم پر چھلے نما گول نشانات ہیں جن میں پسینہ آنے پر شدید خارش ہوتی ہے دو ہفتوں سے,ringworm,ur,llm_generated_human_verified,yousaf
+TR_0673,انگلیوں کے کناروں، بغلوں اور ناف کے گرد باریک پھنسیاں اور شدید کھجلی ہے,scabies,ur,llm_generated_human_verified,yousaf
+TR_1511,"actually cutaneous heat, extreme tenderness and erythema across upper chest post-sun",sunburn,en,llm_generated_human_verified,izhan
+TR_2418,bye and take care,greeting,en,llm_generated_human_verified,izhan
+TR_0346,mujhe pait par gol daad jaisa nishan hai jis ke edges surkh aur darymiyan saaf hai,ringworm,roman,llm_generated_human_verified,yousaf
+TR_0717,tender red warm area on leg expanding by inches since yesterday morning - please help,cellulitis,en,llm_generated_human_verified,yousaf
+TR_0033,"doctor, chronic flaring rash behind knees that gets very itchy at night - please help",eczema,en,llm_generated_human_verified,yousaf
+TR_0621,thin wavy track lines on skin with tiny red dots between my fingers - please help,scabies,en,llm_generated_human_verified,yousaf
+TR_0221,red bumps with white centers popping up all over face - please help,acne,en,llm_generated_human_verified,yousaf
+TR_1962,pehle chota daana tha ab bohot bara phora ban gaya hai aur peep bhar chuki hai do hafton se,boils,roman,llm_generated_human_verified,izhan
+TR_1745,"salam doctor, sardi ki hawa se haathon ki skin khushk, sakht aur phat rahi hai",dry_skin,roman,llm_generated_human_verified,izhan
+TR_0238,face bohot oily rehta hai aur motay motay dard wale pimples ban rahay hain,acne,roman,llm_generated_human_verified,yousaf
+TR_0105,psoriasis flare on scalp spreading down to forehead,psoriasis,en,llm_generated_human_verified,yousaf
+TR_0468,bartan dhonay ke detergent se haathon ki jild surkh aur phat gayi h,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_0692,پھیلنے والی خارش جس نے پورے گھر کو لپیٹ میں لے لیا ہے جلن اور تکلیف ہے,scabies,ur,llm_generated_human_verified,yousaf
+TR_0101,silver scaling on scalp with thick red raised plaques,psoriasis,en,llm_generated_human_verified,yousaf
+TR_1816,i noticed tender superficial bumps at the base of hair shafts after shaving legs,folliculitis,en,llm_generated_human_verified,izhan
+TR_1492,دھوپ اور پسینے کے بعد جلد پر سوئیاں چبھتی ہیں اور دانے ابھرتے ہیں جلن اور تکلیف ہے,heat_rash,ur,llm_generated_human_verified,izhan
+TR_0099,گردن اور بازوؤں پر خارش زدہ دھبے ہیں جو ختم نہیں ہو رہے جلن اور تکلیف ہے,eczema,ur,llm_generated_human_verified,yousaf
+TR_1088,چھاتی کے نیچے اور پسینے والے تہوں میں سرخ پھنسیوں کا فنگل انفیکشن ہے جلن اور تکلیف ہے,fungal_infection,ur,llm_generated_human_verified,yousaf
+TR_2726,i noticed wrinkles and fine sagging lines around outer eyes and mouth please advise,other_skin,en,llm_generated_human_verified,izhan
+TR_0123,burning red scaly plaques on lower back lasting several months feels very uncomfortable,psoriasis,en,llm_generated_human_verified,yousaf
+TR_0898,بازو پر موجود گہرا تل پچھلے دو مہینوں میں تیزی سے بڑا ہو گیا ہے برائے مہربانی علاج بتائیں,melanoma_warning_signs,ur,llm_generated_human_verified,yousaf
+TR_1827,follicular pustules on buttocks that are tender to sit on for 2 weeks,folliculitis,en,llm_generated_human_verified,izhan
+TR_2790,ہاتھ کے ناخن جڑ سے اکھڑ کر کمزور اور خراب ہو رہے ہیں برائے مہربانی علاج بتائیں,other_skin,ur,llm_generated_human_verified,izhan
+TR_1323,patches of totally white skin appearing symmetrically on both feet feels very uncomfortable,vitiligo,en,llm_generated_human_verified,izhan
+TR_0842,chest par aik til ka rang ajeeb dark ho gaya hai aur size 6mm se bara hai,melanoma_warning_signs,roman,llm_generated_human_verified,yousaf
+TR_1262,chehre par peep wale chotay daane phat kar shehad jaisa crust chhortay hain do hafton se,impetigo,roman,llm_generated_human_verified,izhan
+TR_2517,i feel unwell,too_vague,en,llm_generated_human_verified,izhan
+TR_0108,persistent silvery crust on skin with pitted discolored nails,psoriasis,en,llm_generated_human_verified,yousaf
+TR_1907,a severe painful red swelling under the skin that drains thick pus,boils,en,llm_generated_human_verified,izhan
+TR_1286,کچھ دنوں سے ناک اور ٹھوڑی کے گرد سنہری کھرنڈ والے انفیکشن کا حملہ ہے,impetigo,ur,llm_generated_human_verified,izhan
+TR_2269,bukhar chadhne ke baad hont ke kinare par cold sore nikal aya h,cold_sores,roman,llm_generated_human_verified,izhan
+TR_0792,جلد مالٹے کے چھلکے کی طرح سوجی ہوئی اور دہکتی ہوئی سرخ ہے جلن اور تکلیف ہے,cellulitis,ur,llm_generated_human_verified,yousaf
+TR_2532,skin is disturbing me,too_vague,en,llm_generated_human_verified,izhan
+TR_2227,itching and prickly lip followed by painful oozing blisters on outer mouth for 2 weeks,cold_sores,en,llm_generated_human_verified,izhan
+TR_1615,"doctor, multiple itchy bites on exposed legs after sleeping in a room with insects",insect_bites,en,llm_generated_human_verified,izhan
+TR_1788,ٹھنڈی ہواؤں کے باعث ہاتھوں کی جلد بے حد خشک اور کھردری ہو کر پھٹ رہی ہے جلن اور تکلیف ہے,dry_skin,ur,llm_generated_human_verified,izhan
+TR_1308,vitiligo spots on hands that have no feeling of itch or rough scale,vitiligo,en,llm_generated_human_verified,izhan
+TR_2641,karachi ki flight kis time hai,off_topic,roman,llm_generated_human_verified,izhan
+TR_0343,gol rang ka surkh daagh jis ke darmiyan wali jild normal lagti hai,ringworm,roman,llm_generated_human_verified,yousaf
+TR_1134,i noticed cluster of small firm fleshy bumps on back of hand with rough surface and it hurts constantly,warts,en,llm_generated_human_verified,yousaf
+TR_2199,جلد کی سطح بالکل ہموار ہے مگر جگہ جگہ گہرے بھورے دھبے پڑے ہوئے ہیں کل سے,melasma,ur,llm_generated_human_verified,izhan
+TR_1713,having rough tight feeling across face and hands with micro fissures in cold winds,dry_skin,en,llm_generated_human_verified,izhan
+TR_0005,red irritated patches on neck that come and go with seasonal change,eczema,en,llm_generated_human_verified,yousaf
+TR_0637,kalai aur kamar par chotay chotay daane hain aur barik lakeerain jaisi hain,scabies,roman,llm_generated_human_verified,yousaf
+TR_0408,blistering itchy rash on fingers following chemical contact,contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_0059,bohot arsay se kohni par khujli wale patches hain kafi pareshan hoon,eczema,roman,llm_generated_human_verified,yousaf
+TR_0321,circular red rash that started small and is expanding into a clear ring - please help,ringworm,en,llm_generated_human_verified,yousaf
+TR_0677,انگلیوں کے پوروں میں باریک پانی والے دانے اور رات کی شدید کھجلی,scabies,ur,llm_generated_human_verified,yousaf
+TR_0492,بیلٹ کے بکل والی جگہ پر پیٹ پر خارش زدہ سرخ نشان پڑ گیا ہے جلن اور تکلیف ہے,contact_dermatitis,ur,llm_generated_human_verified,yousaf
+TR_1114,patient has firm callous-like wart on bottom of foot with tiny black specks in center,warts,en,llm_generated_human_verified,yousaf
+TR_1346,mujhe munh ke ird gird aur aankhon ke aas paas bilkul safed patches hain,vitiligo,roman,llm_generated_human_verified,izhan
+TR_0293,تیل والی جلد پر بار بار نئے سرخ دانے نکل آتے ہیں کافی پریشانی ہے,acne,ur,llm_generated_human_verified,yousaf
+TR_0532,moving itchy patches that swell up quickly then settle down in another spot since yesterday,hives,en,llm_generated_human_verified,yousaf
+TR_1174,انگلی پر سخت ریتلے مسے کے اندر خون کی باریک جمی ہوئی کالی رگیں نظر آ رہی ہیں,warts,ur,llm_generated_human_verified,yousaf
+TR_0387,ٹانگ پر گول داد نما دھبہ ہے جس کے کناروں پر چھلکے اترتے ہیں برائے مہربانی علاج بتائیں,ringworm,ur,llm_generated_human_verified,yousaf
+TR_1739,nahane ke baad skin aisi khinchti hai ke bechaini hoti hai jab tak oil na lagao,dry_skin,roman,llm_generated_human_verified,izhan
+TR_1704,dry flaky patches on legs that produce fine white dust when scratched,dry_skin,en,llm_generated_human_verified,izhan
+TR_2508,doctor please help me,too_vague,en,llm_generated_human_verified,izhan
+TR_1157,paon ke nechay corn ya moka jaisa sakht dhabba hai jo dabane par dukhta hai please ilaj batayein,warts,roman,llm_generated_human_verified,yousaf
+TR_1245,"salam doctor, honton ke ird gird peeli paptian ban gayi hain jo aik bachay se doosre ko lag rahi hain",impetigo,roman,llm_generated_human_verified,izhan
+TR_1206,weeping sores with yellow crust on school going child's face,impetigo,en,llm_generated_human_verified,izhan
+TR_2112,severe dark pigmented mask-like stains on face that appeared during pregnancy,melasma,en,llm_generated_human_verified,izhan
+TR_0095,رات کے وقت جلد پر شدید کھجلی اور جلن ہوتی ہے تین دن سے,eczema,ur,llm_generated_human_verified,yousaf
+TR_2025,sandpaper-like rough red bumps covering outer surface of upper arms since 3 days,keratosis_pilaris,en,llm_generated_human_verified,izhan
+TR_0337,ring shaped rash hai jo pehle choti thi ab aahista aahista barhi ho rahi hai,ringworm,roman,llm_generated_human_verified,yousaf
+TR_1026,itching and redness under breasts where sweat collects in summer since yesterday,fungal_infection,en,llm_generated_human_verified,yousaf
+TR_1736,taangon par khushki se safed lakeerain ban rahi hain koi daana nahi hai sirf dry hai,dry_skin,roman,llm_generated_human_verified,izhan
+TR_0252,naak par blackheads aur clogged pores hain jin se daane nikal rahe hain bohot takleef hai,acne,roman,llm_generated_human_verified,yousaf
+TR_0648,masla yeh hai ke kamar aur baghal ke qareeb shadeed khujli aur barik daane hain,scabies,roman,llm_generated_human_verified,yousaf
+TR_1600,ناک اور ماتھے پر تپتی ہوئی لال جلد اور سخت جلن کا مسئلہ ہے دو ہفتوں سے,sunburn,ur,llm_generated_human_verified,izhan
+TR_0775,سخت بخار کے ساتھ پاؤں اور ٹخنے پر تیزی سے بڑھتی ہوئی دردناک سرخی,cellulitis,ur,llm_generated_human_verified,yousaf
+TR_1948,masla yeh hai ke gardan par mota bal-tor ya phora ban gaya hai jis mein se peep nikal rahi hai,boils,roman,llm_generated_human_verified,izhan
+TR_2644,dollar ka rate kya chal raha hai,off_topic,roman,llm_generated_human_verified,izhan
+TR_2435,talk to you soon,greeting,en,llm_generated_human_verified,izhan
+TR_2632,how to grow money in savings account,off_topic,en,llm_generated_human_verified,izhan
+TR_0768,"tang ki skin bilkul tight, laal aur garam ho chuki h chhoo bhi nahi sakte",cellulitis,roman,llm_generated_human_verified,yousaf
+TR_0129,psoriasis flare on scalp spreading down to forehead since yesterday,psoriasis,en,llm_generated_human_verified,yousaf
+TR_0891,تل کا ایک نصف دوسرے نصف سے میل نہیں کھاتا اور حاشیہ غیر واضح ہے برائے مہربانی علاج بتائیں,melanoma_warning_signs,ur,llm_generated_human_verified,yousaf
+TR_2100,رانوں کے سامنے والے حصے پر بالوں کے مساموں میں باریک کھردرے مسام بنے ہوئے ہیں دو ہفتوں سے,keratosis_pilaris,ur,llm_generated_human_verified,izhan
+TR_0392,گول فنگل نشان جس کا درمیانی حصہ صاف اور بارڈر ابھرا ہوا سرخ ہے جلن اور تکلیف ہے,ringworm,ur,llm_generated_human_verified,yousaf
+TR_0796,چھوٹے سے زخم کے بعد سے سرخی اور سوجن گھنٹوں کے اندر اوپر کی طرف بڑھ رہی ہے کافی پریشانی ہے,cellulitis,ur,llm_generated_human_verified,yousaf
+TR_1300,بچے کے چہرے پر شہد نما چھلکے جمنے والے دانے نکل آئے ہیں دو ہفتوں سے,impetigo,ur,llm_generated_human_verified,izhan
+TR_0508,moving itchy patches that swell up quickly then settle down in another spot,hives,en,llm_generated_human_verified,yousaf
+TR_0567,lal rang ke baray chilkay ya welts jo thori thori der baad jagah badaltay hain kal se,hives,roman,llm_generated_human_verified,yousaf
+TR_0585,مجھے جلد پر مکھی کے ڈنک جیسی سوجن اور حرکت کرنے والے تھپڑ بن رہے ہیں,hives,ur,llm_generated_human_verified,yousaf
+TR_2583,جلد پر کچھ عجیب سا محسوس ہو رہا ہے,too_vague,ur,llm_generated_human_verified,izhan
+TR_2376,بالوں میں زندہ جوؤں اور پکی چپکی ہوئی لئیکھوں کا شدید مسئلہ ہے,scalp_lice,ur,llm_generated_human_verified,izhan
+TR_1468,paseena aane par seenay aur kamar par bareek surkh pimples chubhte hn,heat_rash,roman,llm_generated_human_verified,izhan
+TR_0283,اصل میں چہرے پر سفید سر والے دانے مسلسل ابھر رہے ہیں جن میں درد ہے,acne,ur,llm_generated_human_verified,yousaf
+TR_2683,سینے پر شدید دباؤ اور بائیں بازو میں درد کی شدید لہر,off_topic,ur,llm_generated_human_verified,izhan
+TR_1226,red sores that formed yellow crusty sticky fluid around lips since yesterday,impetigo,en,llm_generated_human_verified,izhan
+TR_2286,کچھ دنوں سے ہونٹ پر کڑواہٹ اور جلن پیدا کرنے والے چھالوں کا حملہ ہوا ہے,cold_sores,ur,llm_generated_human_verified,izhan
+TR_1399,جلد پر سفید پھلبہری نما نشانات ہیں جن میں قدرتی رنگت بالکل ختم ہو چکی ہے کل سے,vitiligo,ur,llm_generated_human_verified,izhan
+TR_0077,گھٹنے کے پیچھے مسلسل خارش اور سوزش کا مسئلہ ہے,eczema,ur,llm_generated_human_verified,yousaf
+TR_0055,skin bohot rough aur itchy ho rahi hai khas tor par raat ko kafi pareshan hoon,eczema,roman,llm_generated_human_verified,yousaf
+TR_1626,mosquito bites on forearms that have swelled into warm hard itchy lumps since yesterday,insect_bites,en,llm_generated_human_verified,izhan
+TR_0272,سینے اور کمر کے اوپر والے حصے پر سرخ اور جلن دار پھنسیاں ہیں,acne,ur,llm_generated_human_verified,yousaf
+TR_2161,gaalon par dono taraf aik jaisi chhaiyan hain koi kharish ya chilka nahi hai kal se,melasma,roman,llm_generated_human_verified,izhan
+TR_2373,بالوں کے ساتھ چپکے ہوئے سفید دانے جو خشکی کی طرح جھاڑنے سے نہیں گرتے,scalp_lice,ur,llm_generated_human_verified,izhan
+TR_0203,"face is full of oily breakouts, pustules and painful cysts",acne,en,llm_generated_human_verified,yousaf
+TR_0611,"actually scabies rash on inner wrists, armpits and groin area with extreme itching",scabies,en,llm_generated_human_verified,yousaf
+TR_0453,bartan dhonay ke detergent se haathon ki jild surkh aur phat gayi hai please ilaj batayein,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_1887,تنگ کپڑے پہننے سے رانوں کے بالوں کے ارد گرد سرخ جلن دار دانے بن گئے ہیں برائے مہربانی علاج بتائیں,folliculitis,ur,llm_generated_human_verified,izhan
+TR_1944,"doctor sahab, aik bara laal phora hai jo aag ki tarah garam hai aur phatne wala lagta hai",boils,roman,llm_generated_human_verified,izhan
+TR_2404,thanks for help,greeting,en,llm_generated_human_verified,izhan
+TR_1573,سارا دن دھوپ میں پھرنے کے بعد جلد پر تیز سرخی اور باریک چھالے پڑ گئے ہیں,sunburn,ur,llm_generated_human_verified,izhan
+TR_1053,paon ki ungliyon mein safed papti phat rahi hai aur pani lagne par jalan hoti hai please ilaj batayein,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_0507,acute allergic hives on chest with raised erythematous borders,hives,en,llm_generated_human_verified,yousaf
+TR_1307,patches of totally white skin appearing symmetrically on both feet,vitiligo,en,llm_generated_human_verified,izhan
+TR_0983,اصل میں شیمپو کرنے کے ایک دو دن بعد ہی سر دوبارہ خشکی کے چھلکوں سے بھر جاتا ہے,dandruff,ur,llm_generated_human_verified,yousaf
+TR_2323,crawling sensation on hair with sore red scratch marks from severe itching feels very uncomfortable,scalp_lice,en,llm_generated_human_verified,izhan
+TR_1225,itchy blisters on face that burst leaving thick amber yellow scabs since 3 days,impetigo,en,llm_generated_human_verified,izhan
+TR_1589,سارا دن دھوپ میں پھرنے کے بعد جلد پر تیز سرخی اور باریک چھالے پڑ گئے ہیں کافی پریشانی ہے,sunburn,ur,llm_generated_human_verified,izhan
+TR_0732,expanding hot erythema on arm with red streaks moving upward since yesterday,cellulitis,en,llm_generated_human_verified,yousaf
+TR_1973,پہلے چھوٹا دانہ تھا جو اب بڑھ کر ایک بڑا دردناک پیپ سے بھرا پھوڑا بن چکا ہے,boils,ur,llm_generated_human_verified,izhan
+TR_0134,i noticed raised red crusty patches that shed dry white skin flakes everywhere and it hurts constantly,psoriasis,en,llm_generated_human_verified,yousaf
+TR_2135,actually symmetric brown blotches across forehead and cheekbones with no itching feels very uncomfortable,melasma,en,llm_generated_human_verified,izhan
+TR_2708,i noticed wrinkles and fine sagging lines around outer eyes and mouth,other_skin,en,llm_generated_human_verified,izhan
+TR_0143,jild bohot moti aur surkh hai aur us par safed safed dry flakes hain,psoriasis,roman,llm_generated_human_verified,yousaf
+TR_1446,mujhe baghal aur gardan ke folds mein paseene ki wajah se barik dane hain,heat_rash,roman,llm_generated_human_verified,izhan
+TR_2367,sar mein shadeed creeping sensation aur kharish hai kal se,scalp_lice,roman,llm_generated_human_verified,izhan
+TR_2575,مجھے رہنمائی درکار ہے,too_vague,ur,llm_generated_human_verified,izhan
+TR_2414,hello there,greeting,en,llm_generated_human_verified,izhan
+TR_2472,بہت بہت شکریہ,greeting,ur,llm_generated_human_verified,izhan
+TR_0452,artificial jewellery pehnne se gardan par lal lines aur baray blisters ban gaye bohot takleef hai,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_0907,scaly white particles all over scalp without any hair loss,dandruff,en,llm_generated_human_verified,yousaf
+TR_1253,honton ke ird gird peeli paptian ban gayi hain jo aik bachay se doosre ko lag rahi hain please ilaj batayein,impetigo,roman,llm_generated_human_verified,izhan
+TR_1972,بغل کے اندر موٹا دردناک گلٹی نما پھوڑا بن گیا ہے جس میں سخت بے چینی ہے,boils,ur,llm_generated_human_verified,izhan
+TR_0165,legs aur kohni par moti silver scales wali skin kafi mahinon se hai jalan mehsoos hoti hai,psoriasis,roman,llm_generated_human_verified,yousaf
+TR_1391,جلد پر سفید پھلبہری نما نشانات ہیں جن میں قدرتی رنگت بالکل ختم ہو چکی ہے برائے مہربانی علاج بتائیں,vitiligo,ur,llm_generated_human_verified,izhan
+TR_1500,دھوپ اور پسینے کے بعد جلد پر سوئیاں چبھتی ہیں اور دانے ابھرتے ہیں دو ہفتوں سے,heat_rash,ur,llm_generated_human_verified,izhan
+TR_0797,بازو پر گرم، دردناک سرخ حصہ تیزی سے پھیل رہا ہے اور نبض کی طرح دھڑکتا ہے رہنمائی درکار ہے,cellulitis,ur,llm_generated_human_verified,yousaf
+TR_2667,solar system lagwane ka kharcha kitna hai,off_topic,roman,llm_generated_human_verified,izhan
+TR_1064,chhati ke niche aur baghal mein namee ki wajah se lal rash ban gaya hai please ilaj batayein,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_2052,taangon aur bazuon par strawberry skin jaisay bareek bareek be-dard daane hain bohot takleef hai,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_0632,tiny burrow bumps on waistband line that itch uncontrollably after midnight since yesterday,scabies,en,llm_generated_human_verified,yousaf
+TR_1998,بیٹھنے پر کولہے اور ران کے پھوڑے سے شدید اور تیز درد اٹھتا ہے برائے مہربانی علاج بتائیں,boils,ur,llm_generated_human_verified,izhan
+TR_2609,what is the currency rate of dollar today,off_topic,en,llm_generated_human_verified,izhan
+TR_2615,how to bake chocolate fudge cake,off_topic,en,llm_generated_human_verified,izhan
+TR_2769,masla yeh hai ke haathon ki hatheliyon se har waqt paseena tapakta rehta hai please ilaj batayein,other_skin,roman,llm_generated_human_verified,izhan
+TR_0813,having pigmented spot expanding rapidly in diameter with uneven blurry margins,melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_2204,recurrent cold sore blister on edge of lip that stings when eating salty food,cold_sores,en,llm_generated_human_verified,izhan
+TR_2500,صبح بخیر ڈاکٹر,greeting,ur,llm_generated_human_verified,izhan
+TR_0602,small pimple-like bumps between finger webs with intense night itch,scabies,en,llm_generated_human_verified,yousaf
+TR_1502,peeling dry red skin on nose and forehead after spending hours in direct sunlight,sunburn,en,llm_generated_human_verified,izhan
+TR_1771,ٹانگوں پر خشکی کے باعث سفید لکیریں بنتی ہیں مگر کوئی دانہ یا سوجن نہیں ہے,dry_skin,ur,llm_generated_human_verified,izhan
+TR_0554,taangon par motay garam thappad hain jin mein bohot shadeed kharish hoti hai jalan mehsoos hoti hai,hives,roman,llm_generated_human_verified,yousaf
+TR_1981,کچھ دنوں سے پہلے چھوٹا دانہ تھا جو اب بڑھ کر ایک بڑا دردناک پیپ سے بھرا پھوڑا بن چکا ہے,boils,ur,llm_generated_human_verified,izhan
+TR_0657,jild ke andar barik surang jaisi lines dikh rahi hain aur kharish hai please ilaj batayein,scabies,roman,llm_generated_human_verified,yousaf
+TR_0063,skin bohot rough aur itchy ho rahi hai khas tor par raat ko 3 din se,eczema,roman,llm_generated_human_verified,yousaf
+TR_0610,i noticed small pimple-like bumps between finger webs with intense night itch,scabies,en,llm_generated_human_verified,yousaf
+TR_0325,expanding red circle with bumpy rim on my torso since 3 days,ringworm,en,llm_generated_human_verified,yousaf
+TR_2153,gaalon par dono taraf aik jaisi chhaiyan hain koi kharish ya chilka nahi hai please ilaj batayein,melasma,roman,llm_generated_human_verified,izhan
+TR_0215,"doctor, clogged pores with blackheads and red angry pimples",acne,en,llm_generated_human_verified,yousaf
+TR_0440,perfume lagane ke baad gardan par jalan aur chote chote daane ban gaye,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_2041,ye bareek daane dard nahi kartay sirf dekhne mein khurdure lagtay hain,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_2588,کچھ سمجھ نہیں پڑ رہا کیا کروں,too_vague,ur,llm_generated_human_verified,izhan
+TR_1505,flushed painful red skin that blanches when pressed after sun exposure,sunburn,en,llm_generated_human_verified,izhan
+TR_2291,ہونٹ کے کونے پر دردناک زخم بن گیا ہے جو چھونے سے رسنے لگتا ہے برائے مہربانی علاج بتائیں,cold_sores,ur,llm_generated_human_verified,izhan
+TR_1276,بچے کے چہرے پر شہد نما چھلکے جمنے والے دانے نکل آئے ہیں,impetigo,ur,llm_generated_human_verified,izhan
+TR_2698,بچوں کے اسکول داخلے کے لیے کیا کاغذات ضروری ہیں؟,off_topic,ur,llm_generated_human_verified,izhan
+TR_2003,chicken skin rough texture on cheeks and arms that does not itch,keratosis_pilaris,en,llm_generated_human_verified,izhan
+TR_2675,کراچی کی فلائٹ کا وقت کیا ہے؟,off_topic,ur,llm_generated_human_verified,izhan
+TR_2565,masla barh raha hai,too_vague,roman,llm_generated_human_verified,izhan
+TR_0555,jild par baray baray dhabay bante hain aur phir khud hi doosri jagah shift ho jatay hain kafi pareshan hoon,hives,roman,llm_generated_human_verified,yousaf
+TR_1610,i noticed mosquito bites on forearms that have swelled into warm hard itchy lumps,insect_bites,en,llm_generated_human_verified,izhan
+TR_1550,"salam doctor, naak aur gaalon par tez dhoop se laal chilkay aur jalan hai",sunburn,roman,llm_generated_human_verified,izhan
+TR_2544,skin par kuch ajeeb ho raha hai,too_vague,roman,llm_generated_human_verified,izhan
+TR_2125,mask of pregnancy dark irregular pigmentation appearing after childbirth since 3 days,melasma,en,llm_generated_human_verified,izhan
+TR_0379,ڈاکٹر صاحب، ٹانگ پر گول داد نما دھبہ ہے جس کے کناروں پر چھلکے اترتے ہیں,ringworm,ur,llm_generated_human_verified,yousaf
+TR_0065,bazuon par khushk chilke utar rahe hain aur jalan hoti hai do hafton se,eczema,roman,llm_generated_human_verified,yousaf
+TR_2264,hont ke border par peeli papti wala dardnak zakham ban gaya hai kal se,cold_sores,roman,llm_generated_human_verified,izhan
+TR_0416,i noticed blistering itchy rash on fingers following chemical contact,contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_0557,urticaria jaisi patti nikli hui hai jism par jo bohot jalan aur khujli karti hai please ilaj batayein,hives,roman,llm_generated_human_verified,yousaf
+TR_1754,purey jism par khushki ki wajah se halki kharish rehti hai lekin rash koi nahi hai jalan mehsoos hoti hai,dry_skin,roman,llm_generated_human_verified,izhan
+TR_1084,ڈاکٹر صاحب، پاؤں کی کھال سفید ہو کر اترتی ہے اور صابن لگنے پر شدید جلن ہوتی ہے,fungal_infection,ur,llm_generated_human_verified,yousaf
+TR_1880,مجھے بلیڈ کے استعمال کے بعد چہرے پر بالوں کے مرکز میں دردناک باریک پھنسیاں ہیں,folliculitis,ur,llm_generated_human_verified,izhan
+TR_0430,burning itchy rash on hands that started immediately after dishwashing soap for 2 weeks,contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_1731,skin feels stretched tight and uncomfortable especially after bathing since 3 days,dry_skin,en,llm_generated_human_verified,izhan
+TR_2382,مسئلہ یہ ہے کہ سر کی کھوپڑی پر کچھ رینگنے کا سنسنی خیز احساس اور خارش سے جلد کا چھل جانا,scalp_lice,ur,llm_generated_human_verified,izhan
+TR_0845,"salam doctor, til ke kinare uneven aur tedhay medhay hain aur rang ek jaisa nahi hai",melanoma_warning_signs,roman,llm_generated_human_verified,yousaf
+TR_0681,کچھ دنوں سے انگلیوں کے کناروں، بغلوں اور ناف کے گرد باریک پھنسیاں اور شدید کھجلی ہے,scabies,ur,llm_generated_human_verified,yousaf
+TR_1861,blade use karne ke baad chehre par baalon ke darmiyan dardnak chotay dane hain kal se,folliculitis,roman,llm_generated_human_verified,izhan
+TR_1895,تنگ کپڑے پہننے سے رانوں کے بالوں کے ارد گرد سرخ جلن دار دانے بن گئے ہیں جلن اور تکلیف ہے,folliculitis,ur,llm_generated_human_verified,izhan
+TR_2606,recommend me a good movie to watch,off_topic,en,llm_generated_human_verified,izhan
+TR_1509,"doctor, face and neck are hot to touch, crimson red and stinging from intense sun",sunburn,en,llm_generated_human_verified,izhan
+TR_1055,athletes foot ho gaya hai paon ki unglian andar se pak gayi hain kafi pareshan hoon,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_0671,رات کو بستر میں لیٹتے ہی خارش اتنی شدید ہو جاتی ہے کہ سونا محال ہو جاتا ہے,scabies,ur,llm_generated_human_verified,yousaf
+TR_1850,"salam doctor, kamar par baalon ki jaron mein jalan aur barik daane hain",folliculitis,roman,llm_generated_human_verified,izhan
+TR_2322,"severe tickling and itching on head, white nits cemented within 1cm of scalp and it hurts constantly",scalp_lice,en,llm_generated_human_verified,izhan
+TR_0990,پیشانی کے بالوں کی لکیر پر خشکی کی سفید پپڑیاں دکھائی دے رہی ہیں رہنمائی درکار ہے,dandruff,ur,llm_generated_human_verified,yousaf
+TR_1687,کاٹنے والی جگہ پر سرخ ابھار کے بالکل درمیان میں ایک باریک سوراخ یا نقطہ ہے برائے مہربانی علاج بتائیں,insect_bites,ur,llm_generated_human_verified,izhan
+TR_1056,chhati ke niche aur baghal mein namee ki wajah se lal rash ban gaya hai bohot takleef hai,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_0202,breakouts of inflammatory pimples on my chest and upper back,acne,en,llm_generated_human_verified,yousaf
+TR_0026,rough red skin on my wrists and hands for three weeks feels very uncomfortable,eczema,en,llm_generated_human_verified,yousaf
+TR_0866,chest par aik til ka rang ajeeb dark ho gaya hai aur size 6mm se bara hai kafi pareshan hoon,melanoma_warning_signs,roman,llm_generated_human_verified,yousaf
+TR_2426,thank you doctor,greeting,en,llm_generated_human_verified,izhan
+TR_0288,سینے اور کمر کے اوپر والے حصے پر سرخ اور جلن دار پھنسیاں ہیں جلن اور تکلیف ہے,acne,ur,llm_generated_human_verified,yousaf
+TR_2721,split brittle fingernails separating from the nail bed since yesterday,other_skin,en,llm_generated_human_verified,izhan
+TR_1609,"doctor, discrete red papules with a tiny central puncture dot that itch terribly",insect_bites,en,llm_generated_human_verified,izhan
+TR_2254,bukhar chadhne ke baad hont ke kinare par cold sore nikal aya hai jalan mehsoos hoti hai,cold_sores,roman,llm_generated_human_verified,izhan
+TR_0946,mujhe hair wash karne ke do din baad hi sar mein khushki wapis aa jati hai,dandruff,roman,llm_generated_human_verified,yousaf
+TR_0550,"salam doctor, jild achanak soojh kar ubhar jati hai aur thori der baad theek ho jati hai",hives,roman,llm_generated_human_verified,yousaf
+TR_2228,recurrent cold sore blister on edge of lip that stings when eating salty food since 3 days,cold_sores,en,llm_generated_human_verified,izhan
+TR_1623,multiple itchy bites on exposed legs after sleeping in a room with insects feels very uncomfortable,insect_bites,en,llm_generated_human_verified,izhan
+TR_1923,a severe painful red swelling under the skin that drains thick pus feels very uncomfortable,boils,en,llm_generated_human_verified,izhan
+TR_2372,کانوں کے پیچھے اور گردن پر جوؤں کے کاٹنے سے باریک سرخ نشانات اور بے چینی ہے,scalp_lice,ur,llm_generated_human_verified,izhan
+TR_0021,red irritated patches on neck that come and go with seasonal change - please help,eczema,en,llm_generated_human_verified,yousaf
+TR_2661,aaj match kis waqt shuru hoga,off_topic,roman,llm_generated_human_verified,izhan
+TR_1155,ungli par purana sakht masa hai jis ke darmiyan mein barik black dots hain kafi pareshan hoon,warts,roman,llm_generated_human_verified,yousaf
+TR_1117,cauliflower-like rough texture wart on knuckles that keeps getting firmer - please help,warts,en,llm_generated_human_verified,yousaf
+TR_2715,split brittle fingernails separating from the nail bed - please help,other_skin,en,llm_generated_human_verified,izhan
+TR_1145,"salam doctor, haath par chotay chotay sakht khurdure daane hain jo chilkay jaisay lagtay hain",warts,roman,llm_generated_human_verified,yousaf
+TR_1579,ڈاکٹر صاحب، سورج کی شعاعوں سے جلد لال سرخ ہو کر کھنچ گئی ہے اور چھلکے اتر رہے ہیں,sunburn,ur,llm_generated_human_verified,izhan
+TR_1130,firm callous-like wart on bottom of foot with tiny black specks in center for 2 weeks,warts,en,llm_generated_human_verified,yousaf
+TR_2673,پائتھن پروگرامنگ کیسے سیکھی جائے؟,off_topic,ur,llm_generated_human_verified,izhan
+TR_1339,dhoop mein yeh safed daagh bohot jaldi pink ya lal ho jatay hain,vitiligo,roman,llm_generated_human_verified,izhan
+TR_0405,red patch with tiny fluid blisters right where adhesive tape was applied,contact_dermatitis,en,llm_generated_human_verified,yousaf
+TR_1647,"dekhein doctor, takhno ke ird gird keeray ke katay dhabay hain jo bohot kharish kar rahay hain",insect_bites,roman,llm_generated_human_verified,izhan
+TR_2057,ye bareek daane dard nahi kartay sirf dekhne mein khurdure lagtay hain please ilaj batayein,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_2462,shukriya,greeting,roman,llm_generated_human_verified,izhan
+TR_2738,aankhon ke ird gird jhuriyan aur wrinkles barh rahi hain,other_skin,roman,llm_generated_human_verified,izhan
+TR_1679,ڈاکٹر صاحب، کاٹنے والی جگہ پر سرخ ابھار کے بالکل درمیان میں ایک باریک سوراخ یا نقطہ ہے,insect_bites,ur,llm_generated_human_verified,izhan
+TR_0323,ringworm patch with peeling edge on lower stomach feels very uncomfortable,ringworm,en,llm_generated_human_verified,yousaf
+TR_2138,dhoop lagne par chehre ke brown blotches zyada dark ho jatay hain,melasma,roman,llm_generated_human_verified,izhan
+TR_2586,ڈاکٹر صاحب پلیز میری حالت دیکھیں,too_vague,ur,llm_generated_human_verified,izhan
+TR_2164,chehre ki rangat jagah jagah se uneven aur gehre brown dhabbon wali ho gayi hai please ilaj batayein,melasma,roman,llm_generated_human_verified,izhan
+TR_0592,جسم پر الرجی کے باعث جگہ جگہ سوجن والے سرخ نشانات ہیں جلن اور تکلیف ہے,hives,ur,llm_generated_human_verified,yousaf
+TR_1004,jock itch on inner thighs with active red border and severe itching,fungal_infection,en,llm_generated_human_verified,yousaf
+TR_0486,کچھ دنوں سے کاسمیٹک الرجک ری ایکشن کی وجہ سے جلد متورم اور چھالوں سے بھر گئی ہے,contact_dermatitis,ur,llm_generated_human_verified,yousaf
+TR_1093,زیر جامہ والے حصے میں مسلسل کھجلی اور بدبودار پسینے کا ریش ہے کافی پریشانی ہے,fungal_infection,ur,llm_generated_human_verified,yousaf
+TR_1138,plantar wart paon ki aeri par nikla hai jaise pathar par paon parh raha ho,warts,roman,llm_generated_human_verified,yousaf
+TR_1441,dhoop mein nikalnay se chest par bareek lal dane phail jatay hain,heat_rash,roman,llm_generated_human_verified,izhan
+TR_0975,شیمپو کرنے کے ایک دو دن بعد ہی سر دوبارہ خشکی کے چھلکوں سے بھر جاتا ہے,dandruff,ur,llm_generated_human_verified,yousaf
+TR_2559,kuch batayein kya karun,too_vague,roman,llm_generated_human_verified,izhan
+TR_0185,مجھے سرخ ابھرے ہوئے چکتوں پر سفید تہہ مسلسل جم رہی ہے,psoriasis,ur,llm_generated_human_verified,yousaf
+TR_1556,bazuon par dhoop se laal rang ke nishan hain aur khushk papti utar rahi hai bohot takleef hai,sunburn,roman,llm_generated_human_verified,izhan
+TR_1240,chin par sticky yellow crusty rash ban gaya hai bachay ko,impetigo,roman,llm_generated_human_verified,izhan
+TR_1347,"dekhein doctor, dhoop mein yeh safed daagh bohot jaldi pink ya lal ho jatay hain",vitiligo,roman,llm_generated_human_verified,izhan
+TR_1832,tender superficial bumps at the base of hair shafts after shaving legs since yesterday,folliculitis,en,llm_generated_human_verified,izhan
+TR_1659,keeray ka kata hua nishan soojh gaya hai aur bohot dard aur jalan hai kafi pareshan hoon,insect_bites,roman,llm_generated_human_verified,izhan
+TR_1171,انگلی کے جوڑ پر گوبھی کے پھول جیسی سخت اور کھردری گلٹی بنی ہوئی ہے,warts,ur,llm_generated_human_verified,yousaf
+TR_2430,see you later,greeting,en,llm_generated_human_verified,izhan
+TR_2405,thank you so much,greeting,en,llm_generated_human_verified,izhan
+TR_2296,ہونٹ پر شدید سوجن، جلن اور پانی بھرے باریک دانوں کا اچانک نمودار ہونا کل سے,cold_sores,ur,llm_generated_human_verified,izhan
+TR_0559,lal rang ke baray chilkay ya welts jo thori thori der baad jagah badaltay hain kafi pareshan hoon,hives,roman,llm_generated_human_verified,yousaf
+TR_0312,severe round fungal patch with raised crusty edge that keeps growing outward,ringworm,en,llm_generated_human_verified,yousaf
+TR_1616,i noticed firm itchy nodules on arms following outdoor bug bites,insect_bites,en,llm_generated_human_verified,izhan
+TR_0995,بالوں کی جڑوں میں خشکی اور سکری کا پرانا مسئلہ ہے جو دھونے کے بعد بھی رہتا ہے تین دن سے,dandruff,ur,llm_generated_human_verified,yousaf
+TR_1935,actually painful localized bacterial lump that started as a small pimple and grew large feels very uncomfortable,boils,en,llm_generated_human_verified,izhan
+TR_1934,"i noticed a single big red swollen bump that is hot, tender and ready to burst and it hurts constantly",boils,en,llm_generated_human_verified,izhan
+TR_1062,paseene wali jagahon par ranon ke beech lal daagh aur badboo dar khujli hai do hafton se,fungal_infection,roman,llm_generated_human_verified,yousaf
+TR_0027,my skin feels intensely dry and itchy with bleeding after scratching for 2 weeks,eczema,en,llm_generated_human_verified,yousaf
+TR_1160,ungli ke jor par cauliflower jaisi rough sakht gilty ban gayi hai 3 din se,warts,roman,llm_generated_human_verified,yousaf
+TR_0622,contagious itchy rash spreading to everyone in my household and it hurts constantly,scabies,en,llm_generated_human_verified,yousaf
+TR_1322,well demarcated ivory white areas where skin color has completely vanished and it hurts constantly,vitiligo,en,llm_generated_human_verified,izhan
+TR_2115,"doctor, facial hyperpigmentation patches that make skin tone look mottled and uneven",melasma,en,llm_generated_human_verified,izhan
+TR_0858,chest par aik til ka rang ajeeb dark ho gaya hai aur size 6mm se bara hai jalan mehsoos hoti hai,melanoma_warning_signs,roman,llm_generated_human_verified,yousaf
+TR_0929,irritated scalp with dry skin flakes noticeable on my shoulders since yesterday,dandruff,en,llm_generated_human_verified,yousaf
+TR_2248,masla yeh hai ke hont ke border par peeli papti wala dardnak zakham ban gaya hai,cold_sores,roman,llm_generated_human_verified,izhan
+TR_0987,بالوں کی جڑوں میں خشکی اور سکری کا پرانا مسئلہ ہے جو دھونے کے بعد بھی رہتا ہے برائے مہربانی علاج بتائیں,dandruff,ur,llm_generated_human_verified,yousaf
+TR_2587,جلد کافی خراب لگ رہی ہے,too_vague,ur,llm_generated_human_verified,izhan
+TR_2074,بازوؤں پر باریک لال نقطے ہیں جو ہاتھ لگانے پر سخت اور کھردرے محسوس ہوتے ہیں,keratosis_pilaris,ur,llm_generated_human_verified,izhan
+TR_2117,mask of pregnancy dark irregular pigmentation appearing after childbirth - please help,melasma,en,llm_generated_human_verified,izhan
+TR_2332,lice infestation in hair with persistent itching and glued egg casings since yesterday,scalp_lice,en,llm_generated_human_verified,izhan
+TR_2365,sar khujate khujate zakham ban gaye hain aur juen rengti hain do hafton se,scalp_lice,roman,llm_generated_human_verified,izhan
+TR_1521,flushed painful red skin that blanches when pressed after sun exposure - please help,sunburn,en,llm_generated_human_verified,izhan
+TR_0315,"doctor, ringworm patch with peeling edge on lower stomach",ringworm,en,llm_generated_human_verified,yousaf
+TR_1409,"doctor, cluster of tiny pinpoint red dots on underarms and upper chest in summer heat",heat_rash,en,llm_generated_human_verified,izhan
+TR_1006,itchy fungal patches in armpit skin creases aggravated by moisture,fungal_infection,en,llm_generated_human_verified,yousaf
+TR_2059,keratosis pilaris jaisay dry spiky bumps hain jo bazu par barson se hain kafi pareshan hoon,keratosis_pilaris,roman,llm_generated_human_verified,izhan
+TR_1033,"doctor, athletes foot with peeling macerated skin and cracking between fourth and fifth toe - please help",fungal_infection,en,llm_generated_human_verified,yousaf
+TR_0400,گول فنگل نشان جس کا درمیانی حصہ صاف اور بارڈر ابھرا ہوا سرخ ہے دو ہفتوں سے,ringworm,ur,llm_generated_human_verified,yousaf
+TR_0921,irritated scalp with dry skin flakes noticeable on my shoulders - please help,dandruff,en,llm_generated_human_verified,yousaf
+TR_0344,"doctor sahab, tang par gol circle jaisa daagh phail raha hai aur chilkay utar rahe hain",ringworm,roman,llm_generated_human_verified,yousaf
+TR_2108,brown pigmentation marks on upper lip resembling a dark shadow,melasma,en,llm_generated_human_verified,izhan
+TR_2714,wrinkles and fine sagging lines around outer eyes and mouth please advise,other_skin,en,llm_generated_human_verified,izhan
+TR_0702,swollen hot red patch on forearm that feels throbbing and firm,cellulitis,en,llm_generated_human_verified,yousaf
+TR_0186,کچھ دنوں سے کئی مہینوں سے جلد پر موٹے سرخ اور سفید پرت دار نشانات ہیں,psoriasis,ur,llm_generated_human_verified,yousaf
+TR_2569,bohot tension ho rahi hai skin ki,too_vague,roman,llm_generated_human_verified,izhan
+TR_2179,ڈاکٹر صاحب، اوپری ہونٹ اور ناک کی ہڈی پر دھوپ میں نکلنے سے بھورے نشانات مزید گہرے ہو جاتے ہیں,melasma,ur,llm_generated_human_verified,izhan
+TR_2483,سلام مسنون,greeting,ur,llm_generated_human_verified,izhan
+TR_1436,paseena aane par seenay aur kamar par bareek surkh pimples chubhte hain,heat_rash,roman,llm_generated_human_verified,izhan
+TR_0152,sar ki jild par moti safed paptiyan ban rahi hain jo jhadti hain bohot takleef hai,psoriasis,roman,llm_generated_human_verified,yousaf
+TR_1312,severe pigment loss in patches on face and knees that look completely white,vitiligo,en,llm_generated_human_verified,izhan
+TR_2118,patchy brown facial skin discoloration that gets darker when going out in sun and it hurts constantly,melasma,en,llm_generated_human_verified,izhan
+TR_2579,طبیعت عجیب سی ہو رہی ہے,too_vague,ur,llm_generated_human_verified,izhan
+TR_0936,sar ki jaron mein oily peele rang ki papri jam rahi hai,dandruff,roman,llm_generated_human_verified,yousaf
+TR_1717,itchy tight feeling on arms after warm showers without any distinct rash - please help,dry_skin,en,llm_generated_human_verified,izhan
+TR_2693,وائی فائی راؤٹر کا پاس ورڈ کیسے بدلیں؟,off_topic,ur,llm_generated_human_verified,izhan
+TR_2314,"patient has severe tickling and itching on head, white nits cemented within 1cm of scalp",scalp_lice,en,llm_generated_human_verified,izhan
+TR_0769,paon ke zakhmi hissay se laal rang ka warm dhabba upar ki taraf barh raha h,cellulitis,roman,llm_generated_human_verified,yousaf
+TR_1451,mujhe garmi daanay bohot shadeed khujli aur chubhan kar rahay hain,heat_rash,roman,llm_generated_human_verified,izhan
+TR_0968,sar ki jaron mein oily peele rang ki papri jam rahi h,dandruff,roman,llm_generated_human_verified,yousaf
+TR_0846,mujhe til mein se kharish hone lagi hai aur halka khoon nikalta hai,melanoma_warning_signs,roman,llm_generated_human_verified,yousaf
+TR_1212,severe fluid filled vesicles on face that crust over like brown sugar or honey,impetigo,en,llm_generated_human_verified,izhan
+TR_1022,itchy fungal patches in armpit skin creases aggravated by moisture and it hurts constantly,fungal_infection,en,llm_generated_human_verified,yousaf
+TR_0049,"doctor sahab, bazuon par khushk chilke utar rahe hain aur jalan hoti hai",eczema,roman,llm_generated_human_verified,yousaf
+TR_1146,mujhe plantar wart paon ki aeri par nikla hai jaise pathar par paon parh raha ho,warts,roman,llm_generated_human_verified,yousaf
+TR_2742,nakhunon mein fungus lag gayi hai peele aur badnuma ho gaye hain,other_skin,roman,llm_generated_human_verified,izhan
+TR_0694,رات کے وقت خارش کی شدت سے برا حال ہے اور باریک خارش کے دانے ہیں رہنمائی درکار ہے,scabies,ur,llm_generated_human_verified,yousaf
+TR_2375,گردن کی گدی پر جوؤں کے ڈنک اور مسلسل سر کھجانے کی عادت,scalp_lice,ur,llm_generated_human_verified,izhan
+TR_1437,hawa dar kamre ya AC mein janay se garmi dane thori dair mein theek hotay hain,heat_rash,roman,llm_generated_human_verified,izhan
+TR_1786,کچھ دنوں سے شدید خشکی کے باعث جلد کھنچی ہوئی اور کھردرے کاغذ جیسی لگتی ہے,dry_skin,ur,llm_generated_human_verified,izhan
+TR_1231,blisters that burst quickly and turn into moist golden yellow crusts since 3 days,impetigo,en,llm_generated_human_verified,izhan
+TR_1685,مجھے کھلے اعضاء پر کیڑوں کے کاٹے ہوئے سوجے ہوئے لال نشانات میں جلن ہے,insect_bites,ur,llm_generated_human_verified,izhan
+TR_1210,i noticed red sores that formed yellow crusty sticky fluid around lips,impetigo,en,llm_generated_human_verified,izhan
+TR_2442,salam ji,greeting,roman,llm_generated_human_verified,izhan
+TR_0460,artificial jewellery pehnne se gardan par lal lines aur baray blisters ban gaye please ilaj batayein,contact_dermatitis,roman,llm_generated_human_verified,yousaf
+TR_0839,bazu par aik brown nishan tezi se phail kar bara aur gehra kala ho raha hai,melanoma_warning_signs,roman,llm_generated_human_verified,yousaf
+TR_1486,کچھ دنوں سے گرمی دانوں کی تیز چبھن اور سرخی سے برا حال ہے,heat_rash,ur,llm_generated_human_verified,izhan
+TR_0738,bazu par shadeed soojan aur surkhi hai jo kal se dugni ho chuki hai,cellulitis,roman,llm_generated_human_verified,yousaf
+TR_0264,surkh daano ke darmiyan safed peep jaisi ban gayi hai kal se,acne,roman,llm_generated_human_verified,yousaf
+TR_2676,کوئی اچھی فلم تجویز کریں,off_topic,ur,llm_generated_human_verified,izhan
+TR_1024,intertrigo fungal maceration in skin folds with red angry raw base please advise,fungal_infection,en,llm_generated_human_verified,yousaf
+TR_1789,پورے جسم پر خشکی کی وجہ سے ہلکی کھجلی ہے لیکن کوئی واضح ریش نہیں ہے کافی پریشانی ہے,dry_skin,ur,llm_generated_human_verified,izhan
+TR_1103,plantar wart on heel that causes sharp pressure pain when standing,warts,en,llm_generated_human_verified,yousaf
+TR_2071,اوپری بازو پر ریگ مال جیسی کھردری جلد ہے جس میں کوئی خارش یا درد نہیں ہے,keratosis_pilaris,ur,llm_generated_human_verified,izhan
+TR_0145,"salam doctor, kohniyon par motay daagh hain jin se safed flakes girtay rehtay hain",psoriasis,roman,llm_generated_human_verified,yousaf
+TR_0150,"salam doctor, nails kharab ho rahe hain aur kohni par motay lal daagh hain",psoriasis,roman,llm_generated_human_verified,yousaf
+TR_2577,برا حال ہے جلد کا,too_vague,ur,llm_generated_human_verified,izhan
+TR_2741,aediyon ki jild phat kar khoon nikal raha hai crack heels,other_skin,roman,llm_generated_human_verified,izhan
+TR_2338,sar par chalti hui cheezain mehsoos hoti hain aur khujli se sar chil gaya hai,scalp_lice,roman,llm_generated_human_verified,izhan
+TR_0790,ٹانگ پر انفیکشن پھیل رہا ہے، جلد سرخ گرم اور چھونے سے چیخ نکل جاتی ہے رہنمائی درکار ہے,cellulitis,ur,llm_generated_human_verified,yousaf
+TR_2370,sar par chalti hui cheezain mehsoos hoti hn aur khujlee se sar chil gaya h,scalp_lice,roman,llm_generated_human_verified,izhan
+TR_2650,peshawar janay ka rasta konsa acha hai,off_topic,roman,llm_generated_human_verified,izhan
+TR_2432,hi thanks for the help,greeting,en,llm_generated_human_verified,izhan
+TR_1843,folliculitis ho gaya hai shave ke baad baalon ki jaron par sozish hai,folliculitis,roman,llm_generated_human_verified,izhan
+TR_2451,jazakallah doctor,greeting,roman,llm_generated_human_verified,izhan
+TR_0001,chronic flaring rash behind knees that gets very itchy at night,eczema,en,llm_generated_human_verified,yousaf
+TR_0935,actually flaky dead skin shedding constantly from my head whenever I scratch feels very uncomfortable,dandruff,en,llm_generated_human_verified,yousaf
+TR_2366,baalon mein zinda juen aur un ke anday chipkay hue hain 3 din se,scalp_lice,roman,llm_generated_human_verified,izhan
+TR_0380,مجھے گول دائرے والا سرخ ریش جو پہلے چھوٹا تھا اب پھیلتا جا رہا ہے,ringworm,ur,llm_generated_human_verified,yousaf
+TR_1394,چہرے اور ہاتھوں پر غیر معمولی ہموار اور بالکل بے رنگ سفید دھبے ہیں رہنمائی درکار ہے,vitiligo,ur,llm_generated_human_verified,izhan
+TR_0753,paon ke zakhmi hissay se laal rang ka warm dhabba upar ki taraf barh raha hai please ilaj batayein,cellulitis,roman,llm_generated_human_verified,yousaf
+TR_0908,chronic dandruff flakes that return two days after washing hair,dandruff,en,llm_generated_human_verified,yousaf
+TR_0086,کچھ دنوں سے جلد کی خشکی اور سرخی کئی ہفتوں سے برقرار ہے,eczema,ur,llm_generated_human_verified,yousaf
+TR_2572,پلیز میری مدد کیجیے,too_vague,ur,llm_generated_human_verified,izhan
+TR_2336,bachay ke sar mein shadeed kharish hai aur gardan ke qareeb juen dikh rahi hain,scalp_lice,roman,llm_generated_human_verified,izhan
+TR_1804,small inflamed pimples around chest hairs with itching and mild tenderness,folliculitis,en,llm_generated_human_verified,izhan
+TR_0831,irregular dark brown freckle that has doubled in size over past two months please advise,melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_0494,کاسمیٹک الرجک ری ایکشن کی وجہ سے جلد متورم اور چھالوں سے بھر گئی ہے رہنمائی درکار ہے,contact_dermatitis,ur,llm_generated_human_verified,yousaf
+TR_1405,prickly heat bumps covering shoulders that feel like tiny needle pricks,heat_rash,en,llm_generated_human_verified,izhan
+TR_1583,اصل میں بازوؤں پر دھوپ سے جھلسی ہوئی سرخ جلد اب سوکھ کر اترنے لگی ہے,sunburn,ur,llm_generated_human_verified,izhan
+TR_0287,ناک پر بلیک ہیڈز اور مسام بند ہونے کی وجہ سے دانے نکل رہے ہیں برائے مہربانی علاج بتائیں,acne,ur,llm_generated_human_verified,yousaf
+TR_1607,multiple itchy bites on exposed legs after sleeping in a room with insects,insect_bites,en,llm_generated_human_verified,izhan
+TR_2560,doctor sahab zara check karein,too_vague,roman,llm_generated_human_verified,izhan
+TR_0285,مجھے تیل والی جلد پر بار بار نئے سرخ دانے نکل آتے ہیں,acne,ur,llm_generated_human_verified,yousaf
+TR_1257,chehre par phatne wale daane jin par amber color ki papri jam jati hai please ilaj batayein,impetigo,roman,llm_generated_human_verified,izhan
+TR_2316,i noticed lice infestation in hair with persistent itching and glued egg casings,scalp_lice,en,llm_generated_human_verified,izhan
+TR_0096,ہاتھوں اور کلائیوں پر پرانی خارش اور خشک چھلکے بن رہے ہیں کل سے,eczema,ur,llm_generated_human_verified,yousaf
+TR_1534,i noticed peeling dry red skin on nose and forehead after spending hours in direct sunlight and it hurts constantly,sunburn,en,llm_generated_human_verified,izhan
+TR_1440,kamar par bohot zyada prickly heat hai jaise kaantay chubh rahay hon,heat_rash,roman,llm_generated_human_verified,izhan
+TR_0926,persistent white flaky buildup on hair roots with irritated scalp since yesterday,dandruff,en,llm_generated_human_verified,yousaf
+TR_2333,"doctor, severe scalp pruritus in school child with small crawling insects visible near neck - please help",scalp_lice,en,llm_generated_human_verified,izhan
+TR_2077,بے ضرر کھردرے دانے جو سالوں سے بازو کے پیچھے موجود ہیں,keratosis_pilaris,ur,llm_generated_human_verified,izhan
+TR_1318,pale white spots appearing around mouth and fingertips without any itching or pain and it hurts constantly,vitiligo,en,llm_generated_human_verified,izhan
+TR_1237,honton ke ird gird peeli paptian ban gayi hain jo aik bachay se doosre ko lag rahi hain,impetigo,roman,llm_generated_human_verified,izhan
+TR_0934,i noticed persistent white flaky buildup on hair roots with irritated scalp and it hurts constantly,dandruff,en,llm_generated_human_verified,yousaf
+TR_0802,spot on shoulder with jagged irregular notched edges and varying shades,melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_0701,tender red warm area on leg expanding by inches since yesterday morning,cellulitis,en,llm_generated_human_verified,yousaf
+TR_1227,contagious sores on chin with golden brown crusting in nursery child for 2 weeks,impetigo,en,llm_generated_human_verified,izhan
+TR_1562,beach par pura din guzarnay ke baad jild laal aur phat rahi hai do hafton se,sunburn,roman,llm_generated_human_verified,izhan
+TR_0823,irregular dark brown freckle that has doubled in size over past two months feels very uncomfortable,melanoma_warning_signs,en,llm_generated_human_verified,yousaf
+TR_1531,swollen red face with heat radiating from skin after being outside since 3 days,sunburn,en,llm_generated_human_verified,izhan
+TR_1287,ہونٹوں کے گرد باریک چھالے تھے جو پھٹ کر زرد شکر یا شہد جیسے چھلکے بن گئے ہیں برائے مہربانی علاج بتائیں,impetigo,ur,llm_generated_human_verified,izhan
+TR_1375,جلد پر سفید پھلبہری نما نشانات ہیں جن میں قدرتی رنگت بالکل ختم ہو چکی ہے,vitiligo,ur,llm_generated_human_verified,izhan
+TR_2702,wrinkles and fine sagging lines around outer eyes and mouth,other_skin,en,llm_generated_human_verified,izhan
+TR_0147,"dekhein doctor, sar mein bohot moti khushk papri ban gayi hai jo bahr forehead tak aa rahi hai",psoriasis,roman,llm_generated_human_verified,yousaf
+TR_2762,haathon ki hatheliyon se har waqt paseena tapakta rehta h,other_skin,roman,llm_generated_human_verified,izhan
+TR_1587,سورج کی شعاعوں سے جلد لال سرخ ہو کر کھنچ گئی ہے اور چھلکے اتر رہے ہیں برائے مہربانی علاج بتائیں,sunburn,ur,llm_generated_human_verified,izhan
+TR_1686,کچھ دنوں سے کیڑے کے کاٹنے کا نشان بڑا ہو گیا ہے اور خارش کرنے سے مزید سوجھ رہا ہے,insect_bites,ur,llm_generated_human_verified,izhan
+TR_1774,نہانے کے بعد جلد اتنی کھنچتی ہے کہ تیل یا موئسچرائزر کے بغیر بے چینی رہتی ہے,dry_skin,ur,llm_generated_human_verified,izhan
+TR_2146,mujhe dhoop lagne par chehre ke brown blotches zyada dark ho jatay hain,melasma,roman,llm_generated_human_verified,izhan
+TR_2020,tiny dry keratotic plugs in hair follicles on posterior arms please advise,keratosis_pilaris,en,llm_generated_human_verified,izhan
+TR_0534,i noticed itchy raised wheals that appeared suddenly after eating shellfish and it hurts constantly,hives,en,llm_generated_human_verified,yousaf
+TR_2180,مجھے دونوں گالوں پر بالکل متناسب بھورے چکتوں کی تہہ جمی ہوئی ہے مگر کوئی خارش نہیں ہے,melasma,ur,llm_generated_human_verified,izhan
+TR_1855,thighs par baalon ki roots sooji hui hain aur kharish hoti hai kafi pareshan hoon,folliculitis,roman,llm_generated_human_verified,izhan
+TR_2230,cluster of tiny painful vesicles on lip margin that scabbed over for 2 weeks,cold_sores,en,llm_generated_human_verified,izhan
+TR_2737,haathon ki hatheliyon se har waqt paseena tapakta rehta hai,other_skin,roman,llm_generated_human_verified,izhan
+TR_1190,انگلی پر سخت ریتلے مسے کے اندر خون کی باریک جمی ہوئی کالی رگیں نظر آ رہی ہیں رہنمائی درکار ہے,warts,ur,llm_generated_human_verified,yousaf
+TR_2440,allah hafiz,greeting,roman,llm_generated_human_verified,izhan
+TR_0253,kamar aur seenay par garmi ke bais surkh daane nikal aye hain please ilaj batayein,acne,roman,llm_generated_human_verified,yousaf
+TR_1075,نمی اور گرمی کی وجہ سے بغلوں اور جلد کے موڑوں میں کچی لال جلد ہو گئی ہے,fungal_infection,ur,llm_generated_human_verified,yousaf
+TR_2208,stinging fever sore on lip margin with clear liquid inside blisters,cold_sores,en,llm_generated_human_verified,izhan
+TR_0565,urticaria jaisi patti nikli hui hai jism par jo bohot jalan aur khujli karti hai do hafton se,hives,roman,llm_generated_human_verified,yousaf
+TR_0393,چھونے پر دائرے کی کناری کھرlevel اور دانے دار محسوس ہوتی ہے کافی پریشانی ہے,ringworm,ur,llm_generated_human_verified,yousaf
