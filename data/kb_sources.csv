@@ -1,0 +1,25 @@
+entry,source_name,source_url,link_checked,doctor_reviewed
+Eczema,NHS - Atopic eczema,https://www.nhs.uk/conditions/atopic-eczema/,no,no
+Psoriasis,NHS - Psoriasis,https://www.nhs.uk/conditions/psoriasis/,no,no
+Acne,NHS - Acne,https://www.nhs.uk/conditions/acne/,no,no
+Ringworm,NHS - Ringworm and other fungal infections,https://www.nhs.uk/conditions/ringworm-and-other-fungal-infections/,no,no
+Contact dermatitis,NHS - Contact dermatitis,https://www.nhs.uk/conditions/contact-dermatitis/,no,no
+Hives,NHS - Hives,https://www.nhs.uk/conditions/hives/,no,no
+Scabies,NHS - Scabies,https://www.nhs.uk/conditions/scabies/,no,no
+Cellulitis,NHS - Cellulitis,https://www.nhs.uk/conditions/cellulitis/,no,no
+Melanoma warning signs,NHS - Melanoma skin cancer,https://www.nhs.uk/conditions/melanoma-skin-cancer/,no,no
+Dandruff,NHS - Dandruff,https://www.nhs.uk/conditions/dandruff/,no,no
+Fungal skin infection,NHS - Athlete's foot,https://www.nhs.uk/conditions/athletes-foot/,no,no
+Warts,NHS - Warts and verrucas,https://www.nhs.uk/conditions/warts-and-verrucas/,no,no
+Impetigo,NHS - Impetigo,https://www.nhs.uk/conditions/impetigo/,yes (appeared in search 18 Nov 2026),no
+Vitiligo,NHS - Vitiligo,https://www.nhs.uk/conditions/vitiligo/,no,no
+Heat rash,NHS - Prickly heat,https://www.nhs.uk/conditions/prickly-heat/,no,no
+Sunburn,NHS - Sunburn,https://www.nhs.uk/conditions/sunburn/,no,no
+Insect bites,NHS - Insect bites and stings,https://www.nhs.uk/conditions/insect-bites-and-stings/,no,no
+Dry skin,NHS - Dry skin,https://www.nhs.uk/conditions/dry-skin/,no,no
+Folliculitis,NHS - Folliculitis,https://www.nhs.uk/conditions/folliculitis/,no,no
+Boils,NHS - Boils,https://www.nhs.uk/conditions/boils/,no,no
+Keratosis pilaris,DermNet - Keratosis pilaris,https://dermnetnz.org/topics/keratosis-pilaris,no,no
+Melasma,DermNet - Melasma,https://dermnetnz.org/topics/melasma,no,no
+Cold sores,NHS - Cold sores,https://www.nhs.uk/conditions/cold-sores/,no,no
+Scalp lice,NHS - Head lice and nits,https://www.nhs.uk/conditions/head-lice-and-nits/,no,no
