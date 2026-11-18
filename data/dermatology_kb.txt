@@ -2,7 +2,7 @@ Eczema (atopic dermatitis): Itchy, dry, red or brownish patches, often on the in
 
 Psoriasis: Thick red patches covered with silvery-white scales, commonly on the elbows, knees, scalp and lower back. It may itch or burn, and nails can become pitted. It is a long-term condition that flares up and settles. It is not contagious.
 
-Acne: Pimples, blackheads and whiteheads on the face, chest and back, caused by pores blocked with oil and dead skin. Painful deep lumps (cysts) or scarring need a dermatologist.
+Acne: Pimples, blackheads and whiteheads on the face, chest, back, shoulders and upper arms, caused by pores blocked with oil and dead skin. Painful deep lumps (cysts) or scarring need a dermatologist.
 
 Ringworm (tinea): An itchy, red, ring-shaped scaly patch with a clearer centre. It is a fungal infection that spreads through skin contact, shared towels and pets. Antifungal creams are commonly used. See a doctor if it spreads, or if it is on the scalp or nails.
 
@@ -15,3 +15,33 @@ Scabies: Intense itching that is worse at night, with tiny bumps or thin burrow 
 Cellulitis (skin infection): Red, warm, swollen and painful skin that spreads, sometimes with fever. It needs prompt medical care.
 
 Melanoma warning signs (ABCDE): A mole that is Asymmetrical, has an irregular Border, has uneven Colour, is larger than about 6 mm in Diameter, or is Evolving (changing). See a doctor soon.
+
+Dandruff (seborrheic dermatitis of the scalp): White or yellowish flakes on the scalp and shoulders, sometimes with mild itching and redness. The scalp may look oily. It is common, not contagious, and often comes and goes with stress, cold weather or infrequent hair washing. Regular washing with a medicated anti-dandruff shampoo is commonly advised. See a doctor if the scalp is very red, sore or oozing, or if hair is falling out in patches.
+
+Fungal skin infection (athlete's foot, groin and body fungus): Itchy, red, scaly or peeling skin, often soggy and white between the toes, or red patches in the groin and skin folds. It thrives in warm, moist places and spreads through damp towels, shared shoes and floors. Keeping the area clean and dry helps. See a doctor if it keeps coming back, spreads, affects the nails, or you have diabetes.
+
+Warts: Small rough, raised bumps on the hands, fingers or feet, sometimes with tiny black dots inside. They are caused by a virus and spread through touch and shared surfaces. Many go away on their own over months or years. See a doctor if a wart is painful, bleeds, changes colour or shape, is on the face or genitals, or spreads quickly.
+
+Impetigo: Red sores or blisters, often around the nose and mouth, that burst and leave golden-brown crusts. It is very contagious, mostly in children, and spreads through touch and shared towels. Wash hands often and do not share towels. See a doctor or pharmacist soon, because it usually needs treatment, and urgently if there is fever or the sores spread fast.
+
+Vitiligo: Smooth, milky-white patches of skin that lose their colour, often on the hands, face, lips and around the eyes. It is not painful and not contagious. The patches can slowly spread. Sun protection is important because the pale skin burns easily. See a dermatologist to confirm the cause and discuss options.
+
+Heat rash (prickly heat): Clusters of tiny red or clear bumps that prickle or itch, in hot and humid weather, on the neck, chest, back, armpits and skin folds. It happens when sweat ducts are blocked. Cooling the skin, loose cotton clothes and staying out of the heat help. See a doctor if it lasts more than a few days, looks infected, or comes with fever.
+
+Sunburn: Red, hot, painful skin after too much sun, which may blister and later peel. Cool the skin, drink water and stay out of the sun. EMERGENCY: sunburn with severe blistering over a large area, fever, confusion, dizziness or fainting needs urgent medical care. Repeated sunburn raises the long-term risk of skin cancer.
+
+Insect bites: Itchy red bumps, sometimes swollen, often in groups or in a line on exposed skin, from mosquitoes, fleas, bed bugs or other insects. Avoid scratching and keep the area clean. See a doctor if the area becomes more red, hot, swollen or painful, or if there is pus or fever. EMERGENCY: swelling of the lips, face or tongue, trouble breathing or dizziness after a bite or sting needs urgent medical care.
+
+Dry skin (xerosis): Tight, rough, flaky or cracked skin that may itch, most often on the shins, hands and arms and worse in winter or after hot showers. Moisturise often, use lukewarm water and mild soap. See a doctor if the skin is very red, cracked and bleeding, or does not improve with regular moisturising.
+
+Folliculitis: Small red bumps or pimples with a hair in the centre, often after shaving, waxing or friction from tight clothes, on the beard area, thighs, buttocks and arms. Stop shaving the area for a while, keep it clean and avoid tight clothes. See a doctor if the bumps are painful, spread, form deep lumps, or keep coming back.
+
+Boils: A painful red lump under the skin, often on the face, neck, armpits, buttocks or thighs, that grows larger and fills with pus over several days. Do not squeeze or pierce it. A warm compress can help it come to a head. See a doctor if the boil is very painful, on the face or spine, does not heal in two weeks, comes with fever, or if several boils appear.
+
+Keratosis pilaris: Rough, dry, goosebump-like tiny bumps on the upper arms, thighs and cheeks, sometimes slightly red. It is harmless, common and not contagious, and often improves with age. Gentle moisturising helps. It does not usually need treatment. See a doctor if it is itchy, inflamed or bothers you.
+
+Melasma: Symmetrical brown or grey-brown patches on the cheeks, forehead, nose and upper lip. It is linked to sun exposure and hormonal changes such as pregnancy. It is harmless but can last a long time. Daily sun protection is the most important step. See a dermatologist to confirm the cause and discuss options.
+
+Cold sores: Tingling or burning, then small painful blisters on or around the lips that crust over and heal in one to two weeks. They are caused by a virus, spread by close contact and shared items, and can return. Avoid kissing and sharing items while blisters are present. See a doctor if the sores are near the eyes, are very painful, last more than two weeks, or you have a weak immune system.
+
+Scalp lice (head lice): Itchy scalp, especially behind the ears and at the neck, with tiny grey-white eggs (nits) stuck close to the hair roots and sometimes moving lice. They spread through head-to-head contact, not poor hygiene. Check the whole family and wash combs and bedding. See a doctor or pharmacist for safe treatment, especially for babies and pregnant women.
