@@ -1,0 +1,4 @@
+Model,Average_Accuracy,Average_Macro_F1
+Model A - TF-IDF,0.969642857,0.969454541
+Model B - MiniLM LR,0.828571429,0.828836774
+Model C - Fine-tuned MiniLM,0.823214286,0.808084947
