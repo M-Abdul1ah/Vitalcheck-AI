@@ -42,13 +42,27 @@ def load_css(lang):
 
 
 def header():
-    """Brand on the left, language switch on the right. Page links come from st.navigation (top bar)."""
-    left, right = st.columns([3, 2])
+    """Render a clear brand row with the language control kept out of the footer."""
+    left, right = st.columns([2.5, 1.5], gap="large")
     with left:
-        st.markdown('<div class="brand"><span class="brand-mark">+</span><span>VitalCheck AI'
-                    '<small>Urdu / English skin guidance</small></span></div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="vc-header-brand">'
+            '<span class="vc-brand-mark">+</span>'
+            '<span class="vc-brand-copy"><strong>VitalCheck AI</strong>'
+            '<small>Urdu / English skin guidance</small></span>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
     with right:
-        st.radio("Language", ["English", "اردو"], horizontal=True, key="lang_label", label_visibility="collapsed")
+        st.markdown('<div class="vc-language-label">LANGUAGE <span>زبان</span></div>', unsafe_allow_html=True)
+        st.radio(
+            "Language",
+            ["English", "اردو"],
+            horizontal=True,
+            key="lang_label",
+            label_visibility="collapsed",
+        )
+    st.markdown('<div class="vc-header-rule"></div>', unsafe_allow_html=True)
 
 
 def hero(eyebrow, title, sub=""):
