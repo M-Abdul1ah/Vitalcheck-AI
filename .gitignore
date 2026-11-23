@@ -225,5 +225,9 @@ chroma_db/
 *.onnx
 data/ham10000/
 .vscode/
-models/
+models/*
+!models/text_models/
+models/text_models/*
+# Allow the lightweight TF-IDF model for CI testing (~2.5 MB)
+!models/text_models/model_a_tfidf.pkl
 *.zip

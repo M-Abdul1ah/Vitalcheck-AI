@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install light test dependencies
-        run: pip install pytest pillow fpdf2 uharfbuzz
+        run: pip install pytest pillow fpdf2 uharfbuzz scikit-learn
       - name: Run tests
         run: python -m pytest -q
 
