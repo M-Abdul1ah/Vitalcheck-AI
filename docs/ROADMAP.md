@@ -1,6 +1,6 @@
 # Vital Check AI – Roadmap
 
-Last updated: 10 November 2026
+Last updated: 23 November 2026
 
 `[x]` done, `[~]` in progress, `[ ]` to do. Work top to bottom. One feature = one commit, on a branch, merged by pull request.
 
@@ -104,6 +104,17 @@ Answer + sources + photo card -> Workflow tab -> PDF report
 | [ ] | Add Ollama as the second provider (`LLM_ORDER=gemini,ollama`) |
 | [ ] | Structured output, one follow-up question, LLM safety judge (see `LLM_DESIGN.md`) |
 | [ ] | Extract the pipeline into `src/pipeline.py` (one function, plain data out) |
+
+### Step 4A – Frontend pages (23 Nov)
+
+| | Task |
+|---|---|
+| [x] | Router `app.py` with top navigation, shared header (language switch) and footer, shared `assets/style.css` |
+| [x] | Pages in `views/`: Home (chat), Our Vision, About, Team, Models, Help (questions and answers), Feedback (English and Urdu) |
+| [x] | Home: closest-match card with confidence badge, emergency card with Rescue 1122 call button, feature cards |
+| [x] | Feedback form saves to `data/feedback.csv` (git-ignored, no personal data) |
+| [ ] | Team: real roles, bios, photos (`assets/team/<slug>.jpg`) and LinkedIn link in `src/site_content.py` |
+| [ ] | Look at every page on a phone-size screen and fix spacing |
 
 ### Step 5 – DermaVC-Text (team)
 
