@@ -28,6 +28,7 @@ from src.trace import make_trace, ms_since, skipped
 from src.trace import step as trace_step
 from src.vision_agent import ImageError, prepare_image
 from src import skin_model
+from src import text_model
 from src.workflow_ui import render_trace
 
 
@@ -54,7 +55,7 @@ TEXT = {
         ],
         "sources": "Knowledge base matches",
         "how_title": "How it works",
-        "steps": ["Emergency check", "Knowledge base search", "Answer from the knowledge base"],
+        "steps": ["Emergency check", "DermaVC-Text symptom analysis", "Knowledge base guidance"],
         "status": "System status",
         "safety": "Emergency check",
         "kb": "Knowledge base",
@@ -79,6 +80,10 @@ TEXT = {
         "vision_unclear": "The photo is unclear for this model, so no match is shown as reliable. If you are worried, please see a doctor.",
         "vision_mel": "Warning: the photo analysis found a possible melanoma warning sign ({p}% chance). Please see a doctor soon.",
         "vision_heatmap": "Where the model looked (Grad-CAM)",
+        "text_model_title": "Symptom analysis (our own model, DermaVC-Text)",
+        "text_model_possible": "Possible matching skin conditions (not a diagnosis):",
+        "text_model_note": "This model analyzes clinical descriptions in English, Roman Urdu, and Urdu across 24 common skin conditions.",
+        "text_model_unclear": "The description is not detailed enough for high confidence. If symptoms persist, please consult a physician.",
         "privacy": "Do not enter your name, phone number or address.",
         "too_long": f"Message is too long. Keep it under {MAX_CHARS} characters.",
         "limit": "Session limit reached. Refresh the page to start a new chat.",
@@ -104,7 +109,7 @@ TEXT = {
         ],
         "sources": "علمی ذخیرے سے ملتی جلتی معلومات",
         "how_title": "یہ کیسے کام کرتا ہے",
-        "steps": ["ہنگامی علامات کی جانچ", "علمی ذخیرے میں تلاش", "علمی ذخیرے سے جواب"],
+        "steps": ["ہنگامی علامات کی جانچ", "DermaVC-Text علامات کا جائزہ", "علمی ذخیرے سے رہنمائی"],
         "status": "سسٹم کی حالت",
         "safety": "ہنگامی جانچ",
         "kb": "علمی ذخیرہ",
@@ -129,6 +134,10 @@ TEXT = {
         "vision_unclear": "اس ماڈل کے لیے تصویر واضح نہیں، اس لیے کوئی نتیجہ قابلِ بھروسا نہیں۔ فکر ہو تو ڈاکٹر سے ملیں۔",
         "vision_mel": "انتباہ: تصویر کے تجزیے میں میلانوما کی ممکنہ علامت ملی ({p}% امکان)۔ براہ کرم جلد ڈاکٹر سے ملیں۔",
         "vision_heatmap": "ماڈل نے کہاں دیکھا (Grad-CAM)",
+        "text_model_title": "علامات کا جائزہ (ہمارا ماڈل، DermaVC-Text)",
+        "text_model_possible": "ممکنہ جلدی امراض (یہ حتمی تشخیص نہیں ہے):",
+        "text_model_note": "یہ ماڈل انگریزی، رومن اردو اور اردو میں لکھی گئی علامات کی بنیاد پر 24 جلدی امراض کی درجہ بندی کرتا ہے۔",
+        "text_model_unclear": "علامات کی تفصیل کم ہونے کی وجہ سے حتمی مماثلت واضح نہیں۔ ضرورت پڑنے پر ڈاکٹر سے رجوع کریں۔",
         "privacy": "اپنا نام، فون نمبر یا پتہ درج نہ کریں۔",
         "too_long": f"پیغام بہت لمبا ہے۔ اسے {MAX_CHARS} حروف سے کم رکھیں۔",
         "limit": "اس سیشن کی حد پوری ہو گئی۔ نئی چیٹ کے لیے صفحہ ری فریش کریں۔",
@@ -308,6 +317,17 @@ def load_vision():
     except skin_model.SkinModelError as e:
         return None, str(e)
 
+
+@st.cache_resource(show_spinner="Loading the symptom classifier...")
+def load_text_classifier():
+    """DermaVC-Text, loaded once. Returns (model or None, reason)."""
+    if not text_model.is_available():
+        return None, text_model.why_unavailable()
+    try:
+        return text_model.TextModel(), ""
+    except text_model.TextModelError as e:
+        return None, str(e)
+
 # ----------------------------------------------------------------------------
 # Session state
 # ----------------------------------------------------------------------------
@@ -367,6 +387,19 @@ def render_vision(v):
     st.caption(t["vision_note"])
 
 
+def render_text_pred(tp):
+    """Text symptom analysis card: top-3 possible matches and calibrated probabilities."""
+    st.markdown(f"**{t['text_model_title']}**")
+    if not tp.get("confident"):
+        st.caption(t["text_model_unclear"])
+    else:
+        st.caption(t["text_model_possible"])
+        for item in tp["top"]:
+            name = item["name_ur"] if lang == "ur" else item["name"]
+            st.progress(item["probability"], text=f"{name}: {item['percentage']}")
+    st.caption(t["text_model_note"])
+
+
 def render_message(m):
     if m["role"] == "user":
         render_user(m["content"], m.get("photo"))
@@ -375,6 +408,8 @@ def render_message(m):
     else:
         with st.chat_message("assistant", avatar="🩺"):
             st.markdown(m["content"])
+            if m.get("text_pred"):
+                render_text_pred(m["text_pred"])
             if m.get("vision"):
                 render_vision(m["vision"])
             elif m.get("photo_note"):
@@ -507,8 +542,41 @@ def handle(prompt, photo=None):
                                 out="Step skipped.", log="No photo attached, so this step is skipped."))
     steps[-1]["edge"] = "photo-retriever"
 
-    # 3) knowledge base search
-    if backend["retrieve"] is None:
+    # 3) symptom classification (DermaVC-Text) & knowledge base search
+    t0 = time.perf_counter()
+    text_pred = None
+    tmodel, terror = load_text_classifier()
+    if tmodel is not None:
+        try:
+            text_pred = tmodel.predict(prompt)
+        except Exception:
+            text_pred = None
+
+    sources, matches = [], None
+    if text_pred and text_pred["is_clinical"]:
+        from pathlib import Path
+        kb_file = Path("data/dermatology_kb.txt")
+        if kb_file.exists():
+            blocks = [b.strip() for b in kb_file.read_text(encoding="utf-8").split("\n\n") if b.strip()]
+            kb_map = {b.split(":", 1)[0].strip().lower(): b for b in blocks if ":" in b}
+            for item in text_pred["top"]:
+                kt = item.get("kb_title")
+                if kt and kt.lower() in kb_map:
+                    full_text = kb_map[kt.lower()]
+                    sources.append({"title": full_text.split(":", 1)[0].strip(), "text": full_text})
+            matches = [[s["title"], item["probability"]] for s, item in zip(sources, text_pred["top"])]
+
+    # Fallback to vector search if text model produced no clinical matches
+    if not sources and backend["retrieve"] is not None:
+        try:
+            scored = backend["retrieve_scored"](prompt)
+            sources = to_sources([doc for doc, _ in scored])
+            matches = [[s["title"], score] for s, (_, score) in zip(sources, scored)]
+            if not scored or max(score for _, score in scored) < MIN_MATCH_SCORE:
+                sources = []          # nothing relevant: ask the user to describe the problem instead
+        except Exception:
+            sources, matches = [], None
+    elif not sources and backend["retrieve"] is None:
         steps.append(trace_step("retriever", "warn", sub="offline", inn=f"Search text: {prompt[:50]}",
                                 out="Knowledge base unavailable.", log="Knowledge base not available."))
         steps.append(skipped(["ai", "output"], "Answer and output check need the knowledge base."))
@@ -517,21 +585,13 @@ def handle(prompt, photo=None):
         finish(prompt, steps, "warning", t["kb_offline"], {"role": "assistant", "kind": "error", "content": t["kb_offline"]})
         return
 
-    t0 = time.perf_counter()
-    try:
-        scored = backend["retrieve_scored"](prompt)
-        sources = to_sources([doc for doc, _ in scored])
-        matches = [[s["title"], score] for s, (_, score) in zip(sources, scored)]
-        if not scored or max(score for _, score in scored) < MIN_MATCH_SCORE:
-            sources = []          # nothing relevant: ask the user to describe the problem instead
-    except Exception:
-        sources, matches = [], None
     ms = ms_since(t0)
     best = ", ".join(s["title"] for s in sources[:3]) if sources else "none"
+    model_tag = f"DermaVC-Text ({text_pred['top_name']})" if (text_pred and text_pred["is_clinical"]) else "Vector search"
     step_kwargs = {"matches": matches} if (matches and sources) else {
         "out": f"No relevant match (best score below {MIN_MATCH_SCORE}). Asking the user to describe the problem."}
-    steps.append(trace_step("retriever", "done", ms=ms, inn=f"Search text: {prompt[:60]}",
-                            log=f"{len(sources)} matches found. Best: {best}.", **step_kwargs))
+    steps.append(trace_step("retriever", "done" if sources else "warn", ms=ms, inn=f"Search text: {prompt[:60]}",
+                            log=f"{len(sources)} matches found via {model_tag}. Best: {best}.", **step_kwargs))
     steps[-1]["edge"] = "retriever-ai"
 
     # a mole-type photo result adds the ABCDE mole advice from the knowledge base
@@ -572,9 +632,13 @@ def handle(prompt, photo=None):
                             out=f"ANSWERED_FROM_KB - {sub.upper()}", log=log))
     if vision and vision["melanoma_flag"]:
         text = t["vision_mel"].format(p=round(vision["mel_probability"] * 100)) + "\n\n" + text
-    finish(prompt, steps, tone, end,
-           {"role": "assistant", "kind": "answer", "content": text, "sources": sources,
-            "photo_note": bool(photo) and not vision, "vision": vision})
+    msg = {
+        "role": "assistant", "kind": "answer", "content": text, "sources": sources,
+        "photo_note": bool(photo) and not vision, "vision": vision
+    }
+    if text_pred and text_pred["is_clinical"]:
+        msg["text_pred"] = text_pred
+    finish(prompt, steps, tone, end, msg)
 
 
 # ----------------------------------------------------------------------------
@@ -592,8 +656,10 @@ with st.sidebar:
     st.divider()
     st.markdown(f"**{t['status']}**")
     kb_ok = backend["retrieve"] is not None
+    text_ok = text_model.is_available()
     st.markdown(
         pill(t["safety"], True)
+        + pill("DermaVC-Text (28 classes)", text_ok)
         + pill(f"{t['kb']} ({backend['kb_chunks']} {t['chunks']})", kb_ok),
         unsafe_allow_html=True,
     )

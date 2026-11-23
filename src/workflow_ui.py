@@ -13,10 +13,10 @@ NAMES = {
     "ur": {"user": "پیغام", "safety": "حفاظتی جانچ", "photo": "تصویر کا تجزیہ",
            "retriever": "تلاش", "ai": "جواب", "output": "آؤٹ پٹ جانچ", "resolution": "نتیجہ"},
 }
-SUB = {"user": "Text, photo", "safety": "Rules", "photo": "Pillow", "retriever": "Embeddings",
+SUB = {"user": "Text, photo", "safety": "Rules", "photo": "Pillow", "retriever": "DermaVC-Text",
        "ai": "KB text", "output": "Rules", "resolution": "Outcome"}
 MODEL = {"user": "Streamlit", "safety": "Rules", "photo": "Pillow + DermaVC-Net (own CNN)",
-         "retriever": "Multilingual MiniLM + ChromaDB", "ai": "Built from KB matches (no LLM)",
+         "retriever": "DermaVC-Text (28 classes) + KB", "ai": "Built from KB matches (no LLM)",
          "output": "Rules", "resolution": "Orchestrator"}
 EMPTY = {"en": "Send a message in the Chat tab. This tab will show exactly how the agents handled it.",
          "ur": "چیٹ ٹیب میں پیغام بھیجیں۔ یہ ٹیب دکھائے گا کہ ایجنٹس نے اسے کیسے سنبھالا۔"}
