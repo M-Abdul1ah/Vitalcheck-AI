@@ -231,3 +231,4 @@ models/text_models/*
 # Allow the lightweight TF-IDF model for CI testing (~2.5 MB)
 !models/text_models/model_a_tfidf.pkl
 *.zip
+data/feedback.csv
