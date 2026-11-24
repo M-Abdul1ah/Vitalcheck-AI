@@ -98,7 +98,7 @@ Answer + sources + photo card -> Workflow tab -> PDF report
 |---|---|
 | [x] | Photo analysis in Streamlit: top-3 + confidence + melanoma warning + heatmap (needs PR merge) |
 | [x] | Workflow tab shows the photo step |
-| [ ] | PDF report includes the photo result |
+| [x] | PDF report includes the photo result |
 | [ ] | Show knowledge-base **sources** for every answer |
 | [ ] | Merge the LLM explainer (Gemini) with the internet check and fallback |
 | [ ] | Add Ollama as the second provider (`LLM_ORDER=gemini,ollama`) |
