@@ -41,6 +41,8 @@ LABELS = {
         "vision_mel": "Warning: The photo analysis found a possible melanoma warning sign ({p}% probability). Please see a doctor soon.",
         "vision_heatmap": "Where the model looked (Grad-CAM heatmap).",
         "vision_note": "Trained on 7 skin lesion types (HAM10000), mostly moles. It cannot recognize rashes, eczema or acne.",
+        "text_title": "Symptom Analysis (DermaVC-Text)",
+        "text_matches": "Possible condition matches:",
         "footer": "General information only, not a diagnosis.",
         "page": "Page",
     },
@@ -64,6 +66,8 @@ LABELS = {
         "vision_mel": "انتباہ: تصویر کے تجزیے میں میلانوما کی ممکنہ علامت ملی ({p}% امکان)۔ براہ کرم جلد ڈاکٹر سے ملیں۔",
         "vision_heatmap": "ماڈل نے کہاں دیکھا (Grad-CAM)",
         "vision_note": "یہ ماڈل جلد کے 7 قسم کے نشانوں پر سیکھا گیا ہے۔ یہ خارش، ایکزیما یا دانوں کو نہیں پہچان سکتا۔",
+        "text_title": "علامات کا تجزیہ (DermaVC-Text)",
+        "text_matches": "ممکنہ مماثلتیں، تشخیص نہیں:",
         "footer": "یہ صرف عمومی معلومات ہیں، تشخیص نہیں۔",
         "page": "صفحہ",
     },
@@ -216,5 +220,17 @@ def build_report(messages: list, lang: str = "en") -> bytes:
                     pass
 
             pdf.text_block(L["vision_note"], size=8, color=MUTED, gap=3)
+
+        tp = m.get("text_pred")
+        if tp and isinstance(tp, dict) and tp.get("is_clinical"):
+            pdf.ln(1)
+            pdf.text_block(L["text_title"], size=11, bold=True, color=BRAND, gap=1)
+            pdf.text_block(L["text_matches"], size=9, bold=True, color=INK, gap=1)
+            lbl_key = "display_ur" if lang == "ur" else "display_en"
+            for item in tp.get("top", []):
+                pct = round(item.get("prob", 0) * 100)
+                pct_str = str(pct).translate(URDU_DIGITS) if lang == "ur" else str(pct)
+                label = item.get(lbl_key) or item.get("display_en") or item.get("label", "")
+                pdf.text_block(f"\u2022 {label}: {pct_str}%", size=9, gap=1)
 
     return bytes(pdf.output())

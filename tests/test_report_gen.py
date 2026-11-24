@@ -77,3 +77,25 @@ def test_vision_melanoma_warning_and_unclear_report():
     for lang in ("en", "ur"):
         pdf = build_report(msgs, lang)
         assert pdf.startswith(b"%PDF")
+
+
+def test_text_prediction_included_in_report():
+    text_pred = {
+        "top": [
+            {"label": "eczema", "display_en": "Eczema (Atopic Dermatitis)", "display_ur": "ایگزیما (خارش اور سوزش زدہ جلد)", "prob": 0.88, "kb_title": "Eczema (atopic dermatitis)"},
+            {"label": "psoriasis", "display_en": "Psoriasis", "display_ur": "سورائیسس (چنبل)", "prob": 0.08, "kb_title": "Psoriasis"},
+        ],
+        "top_label": "eczema",
+        "top_prob": 0.88,
+        "is_clinical": True,
+        "kb_title": "Eczema (atopic dermatitis)",
+    }
+    with_text = [
+        SAMPLE[0],
+        dict(SAMPLE[1], text_pred=text_pred),
+    ] + SAMPLE[2:]
+    for lang in ("en", "ur"):
+        pdf = build_report(with_text, lang)
+        assert pdf.startswith(b"%PDF")
+        assert len(pdf) > len(build_report(SAMPLE, lang))
+
