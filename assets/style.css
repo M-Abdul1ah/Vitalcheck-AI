@@ -144,3 +144,92 @@ div.stButton > button:focus-visible, div.stDownloadButton > button:focus-visible
   .page-hero { padding: 1.4rem 1.1rem; }
   .others .row .t { flex-basis: 7rem; }
 }
+
+/* ---------- refined motion and responsive polish ---------- */
+html { scroll-behavior: smooth; }
+.block-container { animation: vc-enter .45s ease-out both; }
+@keyframes vc-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.brand { transition: transform .2s ease, opacity .2s ease; }
+.brand:hover { transform: translateY(-1px); opacity: .9; }
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(11,79,74,.12);
+}
+.page-hero::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  right: -75px;
+  top: -105px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 50%;
+  box-shadow: 0 0 0 22px rgba(255,255,255,.05), 0 0 0 48px rgba(255,255,255,.035);
+  pointer-events: none;
+}
+.card {
+  box-shadow: 0 3px 12px rgba(22,48,43,.035);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+  border-color: var(--brand-2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(22,48,43,.09);
+}
+div.stButton > button, div.stDownloadButton > button, div.stFormSubmitButton > button {
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+div.stButton > button:hover, div.stDownloadButton > button:hover, div.stFormSubmitButton > button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(11,79,74,.09);
+}
+[data-testid="stSidebar"] { box-shadow: 4px 0 18px rgba(22,48,43,.035); }
+[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] {
+
+
+/* ---------- polished shared header and language control ---------- */
+.block-container { padding-top: 2.15rem !important; }
+.vc-header-brand { display:flex; align-items:center; gap:.8rem; min-height:3.15rem; padding:.2rem 0; }
+.vc-brand-mark {
+  display:inline-flex; align-items:center; justify-content:center; flex:0 0 2.7rem;
+  width:2.7rem; height:2.7rem; border-radius:15px; color:#fff;
+  background:linear-gradient(145deg,#0b4f4a,#23877c);
+  font-size:1.75rem; font-weight:700; line-height:1;
+  box-shadow:0 7px 18px rgba(11,79,74,.18);
+}
+.vc-brand-copy { display:flex; flex-direction:column; gap:.12rem; }
+.vc-brand-copy strong { color:var(--brand); font-family:'Bricolage Grotesque',sans-serif;
+  font-size:1.25rem; line-height:1.15; font-weight:800; }
+.vc-brand-copy small { color:var(--muted); font-size:.76rem; line-height:1.4; }
+.vc-language-label { margin:0 0 .25rem; color:var(--muted); font-size:.66rem;
+  font-weight:800; letter-spacing:.13em; text-align:right; }
+.vc-language-label span { margin-left:.35rem; font-family:'Noto Nastaliq Urdu',serif;
+  font-size:.82rem; letter-spacing:0; }
+div[data-testid="stRadio"] > div[role="radiogroup"] {
+  display:flex; justify-content:flex-end; gap:.2rem; width:max-content; max-width:100%;
+  margin-left:auto; padding:.24rem; border:1px solid var(--line);
+  border-radius:999px; background:#eaf1ee;
+}
+div[data-testid="stRadio"] > div[role="radiogroup"] label {
+  margin:0 !important; padding:.18rem .62rem; border-radius:999px;
+}
+div[data-testid="stRadio"] > div[role="radiogroup"] label p {
+  font-size:.8rem; font-weight:650; line-height:1.5;
+}
+.vc-header-rule { height:1px; margin:.9rem 0 1.15rem;
+  background:linear-gradient(90deg,var(--line),rgba(213,224,220,0)); }
+@media(max-width:640px) {
+  .block-container { padding-top:1.35rem !important; }
+  .vc-brand-copy strong { font-size:1.05rem; }
+  .vc-brand-copy small { font-size:.68rem; }
+  .vc-brand-mark { flex-basis:2.35rem; width:2.35rem; height:2.35rem; }
+  .vc-language-label { font-size:.58rem; }
+  div[data-testid="stRadio"] > div[role="radiogroup"] label { padding:.12rem .42rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .block-container { animation:none !important; }
+}
