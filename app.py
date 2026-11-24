@@ -40,7 +40,7 @@ pages = [
     st.Page("views/help.py", title=n["help"], icon="❓", url_path="help"),
     st.Page("views/feedback.py", title=n["feedback"], icon="💬", url_path="feedback"),
 ]
-page = st.navigation(pages, position="top")
+page = st.navigation(pages, position="sidebar")
 page.run()
 
 ui.footer(lang)
